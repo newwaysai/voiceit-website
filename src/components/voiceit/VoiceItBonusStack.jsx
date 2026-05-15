@@ -86,7 +86,7 @@ export default function VoiceItBonusStack() {
         <div
           className="bs-elem flair-card overflow-hidden"
           style={{
-            borderColor: 'rgba(28,100,255,0.25)',
+            borderColor: 'rgba(37,99,235,0.25)',
           }}
         >
           {STACK.map((item, i) => {
@@ -97,7 +97,7 @@ export default function VoiceItBonusStack() {
                 key={i}
                 className="flex items-start gap-4 md:gap-5 px-5 md:px-7 py-5 md:py-6"
                 style={{
-                  borderBottom: isLast ? 'none' : '1px solid rgba(0,0,0,0.06)',
+                  borderBottom: isLast ? 'none' : '1px solid var(--fv-divider)',
                   background: isLast ? 'rgba(204,255,0,0.05)' : 'transparent',
                 }}
               >
@@ -107,7 +107,7 @@ export default function VoiceItBonusStack() {
                     background: isLast ? 'rgba(204,255,0,0.15)' : 'var(--fv-blue-soft)',
                     border: isLast
                       ? '1px solid rgba(204,255,0,0.4)'
-                      : '1px solid rgba(28,100,255,0.2)',
+                      : '1px solid rgba(37,99,235,0.2)',
                   }}
                 >
                   <Icon

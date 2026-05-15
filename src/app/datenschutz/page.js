@@ -15,7 +15,7 @@ export default function Datenschutz() {
             <ArrowLeft size={16} /> Zurück
           </Link>
           <div className="text-xl font-heading font-bold tracking-tight text-primary">
-            VoiceIt<span className="text-accent">.</span> <span className="text-primary/30 font-light text-sm">/ Datenschutz</span>
+            Voiceit<span className="text-accent">.</span> <span className="text-primary/30 font-light text-sm">/ Datenschutz</span>
           </div>
         </div>
         <h1 className="font-heading text-3xl md:text-5xl font-bold mb-12">Datenschutzerklärung</h1>
@@ -132,7 +132,7 @@ export default function Datenschutz() {
             <p>
               Diese Website verwendet ausschließlich technisch notwendige Local-Storage-Einträge
               (z.&nbsp;B. zur Speicherung deiner Theme-Präferenz unter dem Schlüssel{' '}
-              <code className="bg-primary/10 px-1.5 py-0.5 rounded text-xs">nw-theme</code>). Es
+              <code className="bg-primary/10 px-1.5 py-0.5 rounded text-xs">voiceit-theme</code>). Es
               werden keine Tracking-Cookies und keine Analyse-Tools eingesetzt, die ohne deine
               Einwilligung Daten erheben. Rechtsgrundlage für notwendige Einträge ist Art. 6
               Abs. 1 lit. f DSGVO (berechtigtes Interesse an der technisch fehlerfreien

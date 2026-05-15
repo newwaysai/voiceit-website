@@ -121,7 +121,7 @@ export default function VoiceItHero() {
   return (
     <section
       ref={compRef}
-      aria-label="VoiceIt Hero"
+      aria-label="Voiceit Hero"
       className="relative w-full pt-10 pb-14 md:pt-16 md:pb-20 px-4 sm:px-6 md:px-8"
       style={{ background: 'var(--fv-bg)' }}
     >
@@ -146,7 +146,7 @@ export default function VoiceItHero() {
                 color: '#FFFFFF',
               }}
             >
-              VoiceIt.{' '}
+              Voiceit.{' '}
               <span style={{ color: 'rgba(255,255,255,0.5)' }}>Text erscheint.</span>{' '}
               <span
                 style={{
@@ -237,8 +237,8 @@ export default function VoiceItHero() {
                     onClick={() => handleTab(i)}
                     className="flex-1 flex items-center justify-center gap-2 py-2 px-2 rounded-lg transition-all duration-200"
                     style={{
-                      background: active ? 'rgba(28,100,255,0.22)' : 'transparent',
-                      border: active ? '1px solid rgba(28,100,255,0.4)' : '1px solid transparent',
+                      background: active ? 'rgba(37,99,235,0.22)' : 'transparent',
+                      border: active ? '1px solid rgba(37,99,235,0.4)' : '1px solid transparent',
                       color: active ? '#FFFFFF' : 'rgba(255,255,255,0.55)',
                       cursor: 'pointer',
                     }}
@@ -309,8 +309,8 @@ export default function VoiceItHero() {
                   <div
                     className="mb-2 px-2.5 py-1.5 rounded-md font-sans text-[11.5px] leading-[1.4]"
                     style={{
-                      background: 'rgba(28,100,255,0.12)',
-                      border: '1px solid rgba(28,100,255,0.3)',
+                      background: 'rgba(37,99,235,0.12)',
+                      border: '1px solid rgba(37,99,235,0.3)',
                       color: 'rgba(255,255,255,0.7)',
                     }}
                   >

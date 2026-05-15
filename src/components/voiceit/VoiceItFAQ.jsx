@@ -6,7 +6,7 @@ import { Plus, Minus } from 'lucide-react';
 const FAQS = [
   {
     q: 'Funktioniert das auf M1, M2, M3?',
-    a: 'Ja. VoiceIt läuft nativ auf Apple Silicon — M1, M2, M3, M4. macOS 13 oder neuer. Intel-Macs werden nicht unterstützt, weil das lokale Voice-Modell auf Apple-Silicon-Leistung optimiert ist.',
+    a: 'Ja. Voiceit läuft nativ auf Apple Silicon — M1, M2, M3, M4. macOS 13 oder neuer. Intel-Macs werden nicht unterstützt, weil das lokale Voice-Modell auf Apple-Silicon-Leistung optimiert ist.',
   },
   {
     q: 'Was passiert, wenn ich Pro kündige?',
@@ -14,7 +14,7 @@ const FAQS = [
   },
   {
     q: 'Wie wechsle ich von Wispr Flow?',
-    a: 'Wispr deinstallieren, VoiceIt aus GitHub Releases laden, Onboarding folgen, Hotkey lernen. Dauert 5 Minuten. Deine Wispr-Custom-Commands kannst du als VoiceIt-Profiles wieder anlegen.',
+    a: 'Wispr deinstallieren, Voiceit aus GitHub Releases laden, Onboarding folgen, Hotkey lernen. Dauert 5 Minuten. Deine Wispr-Custom-Commands kannst du als Voiceit-Profiles wieder anlegen.',
   },
   {
     q: 'Welche Sprachen werden unterstützt?',
@@ -26,7 +26,7 @@ const FAQS = [
   },
   {
     q: 'Gibt es eine Windows- oder Linux-Version?',
-    a: 'Nein. VoiceIt ist macOS-only, weil tiefe System-Integration nötig ist (Hotkeys, Text-Injection in jede App, Accessibility-APIs). Apple Silicon liefert außerdem die Performance fürs lokale Modell.',
+    a: 'Nein. Voiceit ist macOS-only, weil tiefe System-Integration nötig ist (Hotkeys, Text-Injection in jede App, Accessibility-APIs). Apple Silicon liefert außerdem die Performance fürs lokale Modell.',
   },
   {
     q: 'Ist der Founding-Preis wirklich Lifetime?',
@@ -59,6 +59,7 @@ export default function VoiceItFAQ() {
 
   return (
     <section
+      id="faq"
       ref={compRef}
       aria-label="Häufige Fragen"
       className="relative w-full py-14 md:py-20 px-4 sm:px-6 md:px-8"
@@ -93,7 +94,7 @@ export default function VoiceItFAQ() {
               <div
                 key={i}
                 className="faq-elem flair-card overflow-hidden"
-                style={open ? { borderColor: 'rgba(28,100,255,0.3)' } : undefined}
+                style={open ? { borderColor: 'rgba(37,99,235,0.3)' } : undefined}
               >
                 <button
                   type="button"
@@ -106,7 +107,7 @@ export default function VoiceItFAQ() {
                     className="shrink-0 mt-0.5 w-7 h-7 rounded-md flex items-center justify-center transition-all"
                     style={{
                       background: open ? 'var(--fv-blue)' : 'var(--fv-blue-soft)',
-                      border: '1px solid rgba(28,100,255,0.25)',
+                      border: '1px solid rgba(37,99,235,0.25)',
                     }}
                   >
                     {open ? (

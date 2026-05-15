@@ -22,17 +22,17 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata = {
   title: {
-    default: "VoiceIt — Voice Agent für Mac",
-    template: "%s | VoiceIt",
+    default: "Voiceit — Voice Agent für Mac",
+    template: "%s | Voiceit",
   },
   description:
     "Voice-Agent für Mac. Mehr als Diktat: Prompt-Modus poliert, Agent-Modus arbeitet. Audio bleibt auf deinem Mac. Diktat ist gratis.",
   metadataBase: new URL("https://voiceitai.app"),
   openGraph: {
-    title: "VoiceIt — Voice Agent für Mac",
+    title: "Voiceit — Voice Agent für Mac",
     description: "Voice-Agent für Mac. Audio bleibt lokal. Diktat gratis. Agent-Modus günstiger als Wispr Flow.",
     url: "https://voiceitai.app",
-    siteName: "VoiceIt",
+    siteName: "Voiceit",
     locale: "de_DE",
     type: "website",
   },

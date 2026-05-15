@@ -10,7 +10,7 @@ export default function Footer() {
 
         <div className="flex flex-col gap-6 max-w-sm">
           <div className="text-2xl font-heading font-bold tracking-tight text-primary">
-            VoiceIt<span className="text-accent">.</span>
+            Voiceit<span className="text-accent">.</span>
           </div>
           <p className="font-sans text-sm text-primary/30 leading-relaxed font-light">
             Voice-Agent für Mac. Audio bleibt lokal. Diktat gratis. Ein Produkt von Newways Consulting.
@@ -33,7 +33,7 @@ export default function Footer() {
 
           <div className="mt-3">
             <WhatsAppButton
-              text="Hi Marcel, ich habe eine Frage zu VoiceIt."
+              text="Hi Marcel, ich habe eine Frage zu Voiceit."
               label="WhatsApp schreiben"
               size="sm"
               variant="ghost"
@@ -65,7 +65,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/[0.06] pt-8 flex flex-col md:flex-row items-center justify-between text-xs font-data text-primary/20 max-w-7xl mx-auto">
-        <p>&copy; {new Date().getFullYear()} Newways Consulting — VoiceIt ist ein Produkt von Newways.</p>
+        <p>&copy; {new Date().getFullYear()} Newways Consulting — Voiceit ist ein Produkt von Newways.</p>
         <p className="mt-2 md:mt-0">Made for Mac.</p>
       </div>
     </footer>

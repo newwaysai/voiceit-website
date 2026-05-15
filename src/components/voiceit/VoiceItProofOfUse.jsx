@@ -78,7 +78,7 @@ export default function VoiceItProofOfUse() {
             className="pou-elem font-sans text-base md:text-lg mt-5 max-w-[60ch] mx-auto"
             style={{ color: 'var(--fv-text-muted)' }}
           >
-            Echte Stats aus meiner eigenen VoiceIt-Installation. Direkt aus der lokalen History-DB. Heute, 14.05.2026.
+            Echte Stats aus meiner eigenen Voiceit-Installation. Direkt aus der lokalen History-DB. Heute, 14.05.2026.
           </p>
         </div>
 
@@ -104,7 +104,7 @@ export default function VoiceItProofOfUse() {
                     background: s.highlight ? 'rgba(204,255,0,0.18)' : 'var(--fv-blue-soft)',
                     border: s.highlight
                       ? '1px solid rgba(204,255,0,0.45)'
-                      : '1px solid rgba(28,100,255,0.2)',
+                      : '1px solid rgba(37,99,235,0.2)',
                   }}
                 >
                   <Icon

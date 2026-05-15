@@ -15,7 +15,7 @@ export default function Impressum() {
             <ArrowLeft size={16} /> Zurück
           </Link>
           <div className="text-xl font-heading font-bold tracking-tight text-primary">
-            VoiceIt<span className="text-accent">.</span> <span className="text-primary/30 font-light text-sm">/ Impressum</span>
+            Voiceit<span className="text-accent">.</span> <span className="text-primary/30 font-light text-sm">/ Impressum</span>
           </div>
         </div>
         <h1 className="font-heading text-4xl md:text-5xl font-bold mb-12">Impressum</h1>

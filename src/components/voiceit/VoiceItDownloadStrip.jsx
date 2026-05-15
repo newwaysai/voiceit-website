@@ -16,11 +16,11 @@ export default function VoiceItDownloadStrip({ headline, sub, cta = 'Jetzt laden
       <div
         className="relative max-w-[1100px] mx-auto rounded-2xl overflow-hidden flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6 px-6 md:px-8 py-5 md:py-6"
         style={{
-          background: isLime ? '#0B0B0B' : '#FFFFFF',
-          border: isLime ? '1px solid rgba(204,255,0,0.35)' : '1px solid rgba(28,100,255,0.2)',
+          background: isLime ? '#0B0B0B' : 'var(--fv-card-bg)',
+          border: isLime ? '1px solid rgba(204,255,0,0.35)' : '1px solid rgba(37,99,235,0.28)',
           boxShadow: isLime
             ? '0 20px 50px rgba(0,0,0,0.25), 0 0 0 1px rgba(204,255,0,0.15) inset'
-            : '0 1px 2px rgba(0,0,0,0.04), 0 10px 30px rgba(15,23,42,0.06)',
+            : '0 4px 14px rgba(37,99,235,0.15), 0 24px 60px rgba(0,0,0,0.35)',
         }}
       >
         {isLime && (

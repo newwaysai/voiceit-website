@@ -108,8 +108,8 @@ export default function VoiceItModes() {
                     <div
                       className="w-10 h-10 rounded-lg flex items-center justify-center"
                       style={{
-                        background: 'rgba(28,100,255,0.18)',
-                        border: '1px solid rgba(28,100,255,0.35)',
+                        background: 'rgba(37,99,235,0.18)',
+                        border: '1px solid rgba(37,99,235,0.35)',
                       }}
                     >
                       <Icon size={18} style={{ color: '#6FA0FF' }} strokeWidth={2} />
@@ -118,9 +118,9 @@ export default function VoiceItModes() {
                       <span
                         style={{
                           background: '#CCFF00',
-                          color: '#1C64FF',
+                          color: '#2563EB',
                           boxShadow: '0 0 16px rgba(204,255,0,0.45)',
-                          border: '1px solid rgba(28,100,255,0.25)',
+                          border: '1px solid rgba(37,99,235,0.25)',
                           padding: '0.25rem 0.625rem',
                           borderRadius: '9999px',
                           fontFamily: 'var(--font-data)',
@@ -168,7 +168,7 @@ export default function VoiceItModes() {
                       >
                         <span
                           className="w-1 h-1 rounded-full"
-                          style={{ background: '#1C64FF' }}
+                          style={{ background: '#2563EB' }}
                         />
                         {b}
                       </li>

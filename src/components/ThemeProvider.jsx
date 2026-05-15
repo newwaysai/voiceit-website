@@ -5,9 +5,9 @@ export default function ThemeProvider({ children }) {
     return (
         <NextThemesProvider
             attribute="class"
-            defaultTheme="light"
-            enableSystem
-            storageKey="nw-theme"
+            defaultTheme="dark"
+            enableSystem={false}
+            storageKey="voiceit-theme"
         >
             {children}
         </NextThemesProvider>

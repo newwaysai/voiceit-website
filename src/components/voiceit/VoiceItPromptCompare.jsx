@@ -48,7 +48,7 @@ export default function VoiceItPromptCompare() {
             className="pc-elem font-sans text-base md:text-lg mt-5 max-w-[64ch] mx-auto"
             style={{ color: 'var(--fv-text-muted)' }}
           >
-            Du sprichst wie ein Mensch. VoiceIts Prompt-Modus formt es in das Format, das KIs nachweislich besser verstehen — mit Rolle, Aufgabe, Kontext, Format.
+            Du sprichst wie ein Mensch. Voiceits Prompt-Modus formt es in das Format, das KIs nachweislich besser verstehen — mit Rolle, Aufgabe, Kontext, Format.
           </p>
         </div>
 
@@ -79,8 +79,8 @@ export default function VoiceItPromptCompare() {
             <div
               className="rounded-lg p-4 mb-4 font-mono text-[12.5px] leading-[1.55]"
               style={{
-                background: 'rgba(0,0,0,0.03)',
-                border: '1px solid rgba(0,0,0,0.06)',
+                background: 'rgba(255,255,255,0.04)',
+                border: '1px solid var(--fv-divider)',
                 color: 'var(--fv-text-strong)',
               }}
             >
@@ -109,7 +109,7 @@ export default function VoiceItPromptCompare() {
               className="w-14 h-14 rounded-full flex items-center justify-center"
               style={{
                 background: 'var(--fv-blue)',
-                boxShadow: '0 4px 14px rgba(28,100,255,0.35)',
+                boxShadow: '0 4px 14px rgba(37,99,235,0.35)',
               }}
             >
               <ArrowRight size={22} style={{ color: '#FFFFFF' }} strokeWidth={2.5} />
@@ -122,7 +122,7 @@ export default function VoiceItPromptCompare() {
               className="w-10 h-10 rounded-full flex items-center justify-center"
               style={{
                 background: 'var(--fv-blue)',
-                boxShadow: '0 4px 12px rgba(28,100,255,0.3)',
+                boxShadow: '0 4px 12px rgba(37,99,235,0.3)',
                 transform: 'rotate(90deg)',
               }}
             >
@@ -134,8 +134,8 @@ export default function VoiceItPromptCompare() {
           <div
             className="pc-elem flair-card p-6 md:p-7 flex flex-col h-full"
             style={{
-              borderColor: 'rgba(28,100,255,0.35)',
-              boxShadow: '0 4px 14px rgba(28,100,255,0.1), 0 24px 60px rgba(15,23,42,0.05)',
+              borderColor: 'rgba(37,99,235,0.35)',
+              boxShadow: '0 4px 14px rgba(37,99,235,0.1), 0 24px 60px rgba(15,23,42,0.05)',
             }}
           >
             <div className="flex items-center gap-2.5 mb-4">
@@ -143,14 +143,14 @@ export default function VoiceItPromptCompare() {
                 className="w-9 h-9 rounded-lg flex items-center justify-center"
                 style={{
                   background: 'var(--fv-blue-soft)',
-                  border: '1px solid rgba(28,100,255,0.3)',
+                  border: '1px solid rgba(37,99,235,0.3)',
                 }}
               >
                 <Wand2 size={16} style={{ color: 'var(--fv-blue)' }} strokeWidth={2.2} />
               </div>
               <div>
                 <div className="font-data uppercase tracking-[0.16em] text-[10px]" style={{ color: 'var(--fv-blue)' }}>
-                  Mit VoiceIt Prompt-Modus
+                  Mit Voiceit Prompt-Modus
                 </div>
                 <div className="font-heading font-bold text-[15px]" style={{ color: 'var(--fv-text)' }}>
                   Strukturierter Prompt
@@ -161,8 +161,8 @@ export default function VoiceItPromptCompare() {
             <div
               className="rounded-lg p-4 mb-4 font-mono text-[11.5px] leading-[1.6]"
               style={{
-                background: 'rgba(28,100,255,0.04)',
-                border: '1px solid rgba(28,100,255,0.2)',
+                background: 'rgba(37,99,235,0.04)',
+                border: '1px solid rgba(37,99,235,0.2)',
                 color: 'var(--fv-text)',
               }}
             >
@@ -242,7 +242,7 @@ export default function VoiceItPromptCompare() {
                 className="font-sans text-[13px] md:text-[14px] leading-[1.65] mt-3"
                 style={{ color: 'rgba(255,255,255,0.65)' }}
               >
-                Anthropic empfiehlt: <span style={{ color: '#FFFFFF', fontWeight: 600 }}>Rolle setzen · Klare Aufgabe · Format-Anchor</span> — also exakt das, was VoiceIts Prompt-Modus aus deiner Sprachnachricht macht. Du sprichst frei. Strukturierung passiert in der App.
+                Anthropic empfiehlt: <span style={{ color: '#FFFFFF', fontWeight: 600 }}>Rolle setzen · Klare Aufgabe · Format-Anchor</span> — also exakt das, was Voiceits Prompt-Modus aus deiner Sprachnachricht macht. Du sprichst frei. Strukturierung passiert in der App.
               </p>
               <a
                 href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct"

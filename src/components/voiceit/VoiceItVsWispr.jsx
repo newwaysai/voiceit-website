@@ -57,7 +57,7 @@ export default function VoiceItVsWispr() {
   return (
     <section
       ref={compRef}
-      aria-label="VoiceIt vs Wispr Flow"
+      aria-label="Voiceit vs Wispr Flow"
       className="relative w-full py-14 md:py-20 px-4 sm:px-6 md:px-8"
       style={{ background: 'var(--fv-bg)' }}
     >
@@ -73,7 +73,7 @@ export default function VoiceItVsWispr() {
             style={{ fontSize: 'clamp(2rem, 5vw, 3.25rem)' }}
           >
             Wispr diktiert.{' '}
-            <span style={{ color: 'var(--fv-blue)' }}>VoiceIt arbeitet.</span>
+            <span style={{ color: 'var(--fv-blue)' }}>Voiceit arbeitet.</span>
           </h2>
           <p
             className="cmp-elem font-sans text-base md:text-lg mt-5 max-w-[56ch] mx-auto"
@@ -89,7 +89,7 @@ export default function VoiceItVsWispr() {
             className="grid grid-cols-[1.4fr_1fr_1fr] md:grid-cols-[1.6fr_1fr_1fr]"
             style={{
               background: 'var(--fv-blue-soft)',
-              borderBottom: '1px solid rgba(0,0,0,0.06)',
+              borderBottom: '1px solid var(--fv-divider)',
             }}
           >
             <div className="px-4 md:px-6 py-4 md:py-5">
@@ -97,13 +97,13 @@ export default function VoiceItVsWispr() {
                 Feature
               </span>
             </div>
-            <div className="px-3 md:px-6 py-4 md:py-5 flex items-center gap-2" style={{ borderLeft: '1px solid rgba(0,0,0,0.06)' }}>
+            <div className="px-3 md:px-6 py-4 md:py-5 flex items-center gap-2" style={{ borderLeft: '1px solid var(--fv-divider)' }}>
               <img src="/voiceit/logo.svg" alt="" className="w-5 h-5 md:w-6 md:h-6 rounded" />
               <span className="font-heading font-extrabold text-sm md:text-base" style={{ color: 'var(--fv-blue)' }}>
-                VoiceIt
+                Voiceit
               </span>
             </div>
-            <div className="px-3 md:px-6 py-4 md:py-5 flex items-center" style={{ borderLeft: '1px solid rgba(0,0,0,0.06)' }}>
+            <div className="px-3 md:px-6 py-4 md:py-5 flex items-center" style={{ borderLeft: '1px solid var(--fv-divider)' }}>
               <span className="font-heading font-bold text-sm md:text-base" style={{ color: 'var(--fv-text-muted)' }}>
                 Wispr Flow
               </span>
@@ -116,7 +116,7 @@ export default function VoiceItVsWispr() {
               key={i}
               className="grid grid-cols-[1.4fr_1fr_1fr] md:grid-cols-[1.6fr_1fr_1fr] items-stretch"
               style={{
-                borderBottom: i < ROWS.length - 1 ? '1px solid rgba(0,0,0,0.06)' : 'none',
+                borderBottom: i < ROWS.length - 1 ? '1px solid var(--fv-divider)' : 'none',
               }}
             >
               <div className="px-4 md:px-6 py-4 md:py-5">
@@ -127,8 +127,8 @@ export default function VoiceItVsWispr() {
               <div
                 className="px-3 md:px-6 py-4 md:py-5 flex flex-col gap-1"
                 style={{
-                  borderLeft: '1px solid rgba(0,0,0,0.06)',
-                  background: 'rgba(28,100,255,0.04)',
+                  borderLeft: '1px solid var(--fv-divider)',
+                  background: 'rgba(37,99,235,0.04)',
                 }}
               >
                 <div className="flex items-center gap-2">
@@ -143,7 +143,7 @@ export default function VoiceItVsWispr() {
               </div>
               <div
                 className="px-3 md:px-6 py-4 md:py-5 flex flex-col gap-1"
-                style={{ borderLeft: '1px solid rgba(0,0,0,0.06)' }}
+                style={{ borderLeft: '1px solid var(--fv-divider)' }}
               >
                 <div className="flex items-center gap-2">
                   <X size={16} style={{ color: '#DC2626' }} strokeWidth={2.5} />
@@ -232,7 +232,7 @@ export default function VoiceItVsWispr() {
               className="flair-btn-primary mt-6"
               style={{ display: 'inline-flex' }}
             >
-              VoiceIt holen
+              Voiceit holen
             </a>
           </div>
         </div>

@@ -19,7 +19,7 @@ const STATS = [
   {
     value: '0 KB',
     label: 'Audio in die Cloud',
-    sub: 'Wispr streamt jedes Wort. VoiceIt kein einziges',
+    sub: 'Wispr streamt jedes Wort. Voiceit kein einziges',
     icon: Lock,
   },
   {
@@ -31,7 +31,7 @@ const STATS = [
   {
     value: '0 €',
     label: 'fürs Diktat',
-    sub: 'Wispr kostet ab Tag 1. Bei VoiceIt für immer gratis',
+    sub: 'Wispr kostet ab Tag 1. Bei Voiceit für immer gratis',
     icon: Wallet,
   },
 ];
@@ -94,7 +94,7 @@ export default function VoiceItProof() {
                 className="proof-elem flair-card p-5 md:p-6 flex flex-col"
                 style={
                   highlight
-                    ? { borderColor: 'rgba(28,100,255,0.3)' }
+                    ? { borderColor: 'rgba(37,99,235,0.3)' }
                     : undefined
                 }
               >
@@ -102,7 +102,7 @@ export default function VoiceItProof() {
                   className="w-9 h-9 rounded-lg flex items-center justify-center mb-4"
                   style={{
                     background: 'var(--fv-blue-soft)',
-                    border: '1px solid rgba(28,100,255,0.2)',
+                    border: '1px solid rgba(37,99,235,0.2)',
                   }}
                 >
                   <Icon size={16} style={{ color: 'var(--fv-blue)' }} strokeWidth={2.2} />

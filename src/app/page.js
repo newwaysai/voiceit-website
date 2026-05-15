@@ -1,4 +1,5 @@
 import Footer from '@/components/Footer';
+import VoiceItNavbar from '@/components/voiceit/VoiceItNavbar';
 import VoiceItHero from '@/components/voiceit/VoiceItHero';
 import VoiceItPain from '@/components/voiceit/VoiceItPain';
 import VoiceItModes from '@/components/voiceit/VoiceItModes';
@@ -14,11 +15,11 @@ import VoiceItProofOfUse from '@/components/voiceit/VoiceItProofOfUse';
 import VoiceItFeatures from '@/components/voiceit/VoiceItFeatures';
 
 export const metadata = {
-  title: 'VoiceIt — Text erscheint. Fertig.',
+  title: 'Voiceit — Text erscheint. Fertig.',
   description:
     'Voice-Agent für Mac. Mehr als Diktat: Prompt-Modus poliert, Agent-Modus arbeitet. Audio bleibt auf deinem Mac. Diktat ist gratis. Agent günstiger als Wispr.',
   openGraph: {
-    title: 'VoiceIt — Text erscheint. Fertig.',
+    title: 'Voiceit — Text erscheint. Fertig.',
     description:
       'Voice-Agent für Mac. Audio bleibt lokal. Diktat gratis. Agent-Modus günstiger als Wispr Flow.',
     url: 'https://voiceitai.app',
@@ -31,7 +32,8 @@ export const metadata = {
 
 export default function VoiceItPage() {
   return (
-    <div className="bg-background min-h-screen text-primary overflow-x-hidden selection:bg-accent/20 selection:text-primary">
+    <div id="top" className="bg-background min-h-screen text-primary overflow-x-hidden selection:bg-accent/20 selection:text-primary">
+      <VoiceItNavbar />
       <main role="main">
         <VoiceItHero />
 
@@ -67,7 +69,7 @@ export default function VoiceItPage() {
         <VoiceItPricing />
 
         <VoiceItDownloadStrip
-          headline="VoiceIt. Fertig."
+          headline="Voiceit. Fertig."
           sub="macOS 13+ · Apple Silicon · keine Kreditkarte fürs Diktat."
           cta="Download for Mac"
         />

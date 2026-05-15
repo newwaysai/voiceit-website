@@ -31,7 +31,7 @@ const PLANS = [
       'Bis zu 5 Min Aufnahme',
       'Priorität auf neue Features',
     ],
-    cta: 'Pro starten',
+    cta: 'Download for Mac',
     free: false,
     accent: true,
   },
@@ -46,7 +46,7 @@ const PLANS = [
       'Bis zu 10 Min Aufnahme',
       'Frühen Zugang zu neuen Modellen',
     ],
-    cta: 'Unlimited starten',
+    cta: 'Download for Mac',
     free: false,
     accent: false,
   },
@@ -105,13 +105,13 @@ export default function VoiceItPricing() {
         <div
           className="price-elem max-w-[920px] mx-auto mb-10 md:mb-14 rounded-2xl overflow-hidden relative"
           style={{
-            background: '#FFFFFF',
-            border: '1px solid rgba(28,100,255,0.2)',
-            boxShadow: '0 4px 14px rgba(28,100,255,0.08), 0 24px 60px rgba(15,23,42,0.06)',
+            background: 'var(--fv-card-bg)',
+            border: '1px solid rgba(37,99,235,0.28)',
+            boxShadow: '0 4px 14px rgba(37,99,235,0.18), 0 24px 60px rgba(0,0,0,0.35)',
           }}
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x" style={{ borderColor: 'rgba(0,0,0,0.06)' }}>
-            <div className="px-4 py-5 md:py-6 text-center" style={{ borderColor: 'rgba(0,0,0,0.06)' }}>
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x" style={{ borderColor: 'var(--fv-divider)' }}>
+            <div className="px-4 py-5 md:py-6 text-center" style={{ borderColor: 'var(--fv-divider)' }}>
               <div className="font-data uppercase tracking-[0.16em] text-[9.5px] mb-1.5" style={{ color: 'var(--fv-text-muted)' }}>
                 Deine Stunde
               </div>
@@ -123,7 +123,7 @@ export default function VoiceItPricing() {
               </div>
             </div>
 
-            <div className="px-4 py-5 md:py-6 text-center" style={{ borderColor: 'rgba(0,0,0,0.06)' }}>
+            <div className="px-4 py-5 md:py-6 text-center" style={{ borderColor: 'var(--fv-divider)' }}>
               <div className="font-data uppercase tracking-[0.16em] text-[9.5px] mb-1.5" style={{ color: 'var(--fv-text-muted)' }}>
                 Du sparst
               </div>
@@ -135,7 +135,7 @@ export default function VoiceItPricing() {
               </div>
             </div>
 
-            <div className="px-4 py-5 md:py-6 text-center" style={{ borderColor: 'rgba(0,0,0,0.06)' }}>
+            <div className="px-4 py-5 md:py-6 text-center" style={{ borderColor: 'var(--fv-divider)' }}>
               <div className="font-data uppercase tracking-[0.16em] text-[9.5px] mb-1.5" style={{ color: 'var(--fv-text-muted)' }}>
                 Wert
               </div>
@@ -176,8 +176,8 @@ export default function VoiceItPricing() {
           <div
             className="px-5 py-3 text-center font-data text-[10px] uppercase tracking-[0.18em]"
             style={{
-              borderTop: '1px solid rgba(0,0,0,0.06)',
-              background: 'rgba(0,0,0,0.02)',
+              borderTop: '1px solid var(--fv-divider)',
+              background: 'rgba(255,255,255,0.03)',
               color: 'var(--fv-text-muted)',
             }}
           >
@@ -193,8 +193,8 @@ export default function VoiceItPricing() {
               style={
                 p.accent
                   ? {
-                      borderColor: 'rgba(28,100,255,0.4)',
-                      boxShadow: '0 4px 14px rgba(28,100,255,0.18), 0 24px 60px rgba(15,23,42,0.08)',
+                      borderColor: 'rgba(37,99,235,0.4)',
+                      boxShadow: '0 4px 14px rgba(37,99,235,0.18), 0 24px 60px rgba(15,23,42,0.08)',
                     }
                   : undefined
               }
@@ -212,7 +212,7 @@ export default function VoiceItPricing() {
                     fontWeight: 700,
                     textTransform: 'uppercase',
                     letterSpacing: '0.14em',
-                    boxShadow: '0 4px 12px rgba(28,100,255,0.35)',
+                    boxShadow: '0 4px 12px rgba(37,99,235,0.35)',
                     whiteSpace: 'nowrap',
                   }}
                 >
@@ -228,9 +228,9 @@ export default function VoiceItPricing() {
                   <span
                     style={{
                       background: '#CCFF00',
-                      color: '#1C64FF',
+                      color: '#2563EB',
                       boxShadow: '0 0 16px rgba(204,255,0,0.45)',
-                      border: '1px solid rgba(28,100,255,0.25)',
+                      border: '1px solid rgba(37,99,235,0.25)',
                       padding: '0.25rem 0.625rem',
                       borderRadius: '9999px',
                       fontFamily: 'var(--font-data)',
@@ -277,7 +277,7 @@ export default function VoiceItPricing() {
                 className={p.accent ? 'flair-btn-primary' : 'flair-btn-secondary-light'}
                 style={{ justifyContent: 'center' }}
               >
-                {p.free ? <Download size={16} /> : <Sparkles size={16} />}
+                <Download size={16} />
                 {p.cta}
               </a>
             </div>

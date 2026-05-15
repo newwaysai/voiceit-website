@@ -113,7 +113,7 @@ export default function VoiceItFeatures() {
                     className="w-10 h-10 rounded-lg flex items-center justify-center"
                     style={{
                       background: 'var(--fv-blue-soft)',
-                      border: '1px solid rgba(28,100,255,0.2)',
+                      border: '1px solid rgba(37,99,235,0.2)',
                     }}
                   >
                     <Icon size={18} style={{ color: 'var(--fv-blue)' }} strokeWidth={2.2} />
@@ -121,8 +121,8 @@ export default function VoiceItFeatures() {
                   {f.comingSoon && (
                     <span
                       style={{
-                        background: 'rgba(28,100,255,0.1)',
-                        border: '1px solid rgba(28,100,255,0.25)',
+                        background: 'rgba(37,99,235,0.1)',
+                        border: '1px solid rgba(37,99,235,0.25)',
                         color: 'var(--fv-blue)',
                         padding: '0.2rem 0.55rem',
                         borderRadius: '9999px',

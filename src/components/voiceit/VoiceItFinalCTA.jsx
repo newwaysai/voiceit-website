@@ -25,7 +25,7 @@ export default function VoiceItFinalCTA() {
   return (
     <section
       ref={compRef}
-      aria-label="VoiceIt Download"
+      aria-label="Voiceit Download"
       className="relative w-full py-14 md:py-20 px-4 sm:px-6 md:px-8"
       style={{ background: 'var(--fv-bg)' }}
     >
@@ -52,7 +52,7 @@ export default function VoiceItFinalCTA() {
               color: '#FFFFFF',
             }}
           >
-            VoiceIt.{' '}
+            Voiceit.{' '}
             <span
               style={{
                 color: '#CCFF00',
