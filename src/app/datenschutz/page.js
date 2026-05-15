@@ -38,7 +38,7 @@ export default function Datenschutz() {
             </p>
             <p className="mt-3">
               Marcel Porcher<br />
-              Newways Consulting<br />
+              Newways<br />
               Schlesische Str. 14<br />
               10997 Berlin<br />
               E-Mail:{' '}

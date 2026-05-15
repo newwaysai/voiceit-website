@@ -13,7 +13,7 @@ export default function Footer() {
             Voiceit<span className="text-accent">.</span>
           </div>
           <p className="font-sans text-sm text-primary/30 leading-relaxed font-light">
-            Voice-Agent für Mac. Audio bleibt lokal. Diktat gratis. Ein Produkt von Newways Consulting.
+            Voice-Agent für Mac. Audio bleibt lokal. Diktat gratis. Ein Produkt von Newways.
           </p>
 
           <TrustpilotBadge align="left" className="mt-2" />
@@ -65,7 +65,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/[0.06] pt-8 flex flex-col md:flex-row items-center justify-between text-xs font-data text-primary/20 max-w-7xl mx-auto">
-        <p>&copy; {new Date().getFullYear()} Newways Consulting — Voiceit ist ein Produkt von Newways.</p>
+        <p>&copy; {new Date().getFullYear()} Newways — Voiceit ist ein Produkt von Newways.</p>
         <p className="mt-2 md:mt-0">Made for Mac.</p>
       </div>
     </footer>

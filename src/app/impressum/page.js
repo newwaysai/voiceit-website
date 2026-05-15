@@ -24,7 +24,7 @@ export default function Impressum() {
             <h2 className="text-xl font-bold text-primary mb-4">Angaben gemäß § 5 TMG</h2>
             <p>
               Marcel Porcher<br />
-              Newways Consulting<br />
+              Newways<br />
               Schlesische Str. 14<br />
               10997 Berlin
             </p>
@@ -43,7 +43,6 @@ export default function Impressum() {
           <section>
             <h2 className="text-xl font-bold text-primary mb-4">Steuerangaben</h2>
             <p>
-              Steuernummer: 14/476/04692 (Finanzamt Berlin)<br />
               Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: DE344920245
             </p>
           </section>
