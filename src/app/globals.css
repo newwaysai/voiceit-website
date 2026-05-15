@@ -1,0 +1,521 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* =========================================================================
+   FLAIR LIGHT PALETTE — default theme (was dark-first before 2026-04-11)
+   ========================================================================= */
+@theme inline {
+  --color-background: #F5FBFF;          /* Flair off-white */
+  --color-primary: #000000;             /* near-black text */
+  --color-accent: #1C64FF;              /* electric blue */
+  --color-surface: #FFFFFF;             /* white cards */
+  --color-muted: rgba(0, 0, 0, 0.55);
+  --color-border: rgba(0, 0, 0, 0.08);
+
+  --font-heading: var(--font-manrope), sans-serif;
+  --font-drama: var(--font-manrope), sans-serif;
+  --font-data: var(--font-jetbrains), monospace;
+  --font-sans: var(--font-inter), sans-serif;
+}
+
+/* Opt-in dark theme — legacy, still accessible via ThemeToggle */
+:root.dark {
+  --color-background: #0B0B0B;
+  --color-primary: #F5FBFF;
+  --color-accent: #1C64FF;
+  --color-surface: #222222;
+  --color-muted: rgba(255, 255, 255, 0.45);
+  --color-border: rgba(255, 255, 255, 0.08);
+}
+
+/* Flair palette tokens (semantic names) */
+:root {
+  --fv-bg: #F5FBFF;
+  --fv-text: #000000;
+  --fv-text-strong: #222222;
+  --fv-text-muted: #6F6F6F;
+  --fv-text-light: #BDBDBD;
+  --fv-blue: #1C64FF;
+  --fv-blue-dark: #0F4DD9;
+  --fv-blue-soft: #E8F0FF;
+  --fv-dark: #0B0B0B;
+  --fv-white: #FFFFFF;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-primary);
+  font-family: var(--font-sans);
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+}
+
+/* =========================================================================
+   NOISE OVERLAY — subtle on light bg
+   ========================================================================= */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.02;
+}
+
+.noise-overlay::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: url(#noiseFilter);
+}
+
+:root.dark .noise-overlay {
+  opacity: 0.03;
+}
+
+/* =========================================================================
+   LEGACY FLAIR V2 UTILITIES — kept for compatibility
+   ========================================================================= */
+
+.magnetic-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 300ms;
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.magnetic-btn:hover {
+  transform: scale(1.03);
+}
+
+.magnetic-btn .hover-bg {
+  position: absolute;
+  inset: 0;
+  background: var(--color-border);
+  transition: transform 300ms;
+  transform: translateY(100%);
+}
+
+.magnetic-btn:hover .hover-bg {
+  transform: translateY(0);
+}
+
+/* fadeInUp animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.animate-fade-in-up-delay-1 {
+  animation: fadeInUp 0.6s ease-out 0.1s both;
+}
+
+.animate-fade-in-up-delay-2 {
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.animate-fade-in-up-delay-3 {
+  animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+
+/* Navbar dropdown animation */
+@keyframes dropdownIn {
+  from { opacity: 0; transform: translateX(-50%) scale(0.95) translateY(-4px); }
+  to { opacity: 1; transform: translateX(-50%) scale(1) translateY(0); }
+}
+
+/* Mobile menu staggered items */
+@keyframes mobileMenuIn {
+  from { opacity: 0; transform: translateX(-12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Success check animation (danke page) */
+@keyframes scaleIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Active press feedback */
+.active-press:active {
+  transform: scale(0.97);
+  transition: transform 100ms ease;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.motion-reduce * {
+  animation-duration: 0.01ms !important;
+  transition-duration: 0.01ms !important;
+}
+
+/* =========================================================================
+   GRADIENT TEXT (used on dark cards — dark-to-blue on light, light-to-blue on dark)
+   ========================================================================= */
+.gradient-text {
+  background: linear-gradient(135deg, #000000 0%, #1C64FF 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Inside dark hero card: flip to white→blue */
+.flair-hero-card .gradient-text,
+.flair-hero-card .gradient-text-light {
+  background: linear-gradient(135deg, #FFFFFF 0%, #6FA0FF 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* =========================================================================
+   FLAIR DARK HERO CARD — signature: dark card floating on light bg
+   ========================================================================= */
+.flair-hero-card {
+  position: relative;
+  background: var(--fv-dark);
+  border-radius: 2rem;
+  overflow: hidden;
+  color: #FFFFFF;
+  box-shadow:
+    0 30px 80px rgba(11, 11, 11, 0.18),
+    0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+
+.flair-hero-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.flair-hero-glow-blue {
+  position: absolute;
+  width: 1000px;
+  height: 600px;
+  max-width: 120%;
+  background: radial-gradient(ellipse, rgba(28, 100, 255, 0.35) 0%, transparent 65%);
+  filter: blur(130px);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: screen;
+}
+
+.flair-hero-glow-violet {
+  position: absolute;
+  width: 800px;
+  height: 500px;
+  max-width: 110%;
+  background: radial-gradient(ellipse, rgba(107, 70, 255, 0.22) 0%, transparent 65%);
+  filter: blur(150px);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: screen;
+}
+
+/* =========================================================================
+   FLAIR SECTION GLOW ORBS (light-mode safe, no blend-mode)
+   ========================================================================= */
+.flair-orb-blue {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(28, 100, 255, 0.12) 0%, transparent 70%);
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.flair-orb-blue-strong {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(28, 100, 255, 0.18) 0%, transparent 70%);
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.flair-orb-violet {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(107, 70, 255, 0.10) 0%, transparent 70%);
+  filter: blur(140px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* =========================================================================
+   FLAIR CARDS — light variant (default) + dark variant (inside dark sections)
+   ========================================================================= */
+.flair-card {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 1.25rem;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 10px 30px rgba(15, 23, 42, 0.05);
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.flair-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(28, 100, 255, 0.3);
+  box-shadow:
+    0 4px 12px rgba(28, 100, 255, 0.1),
+    0 24px 60px rgba(15, 23, 42, 0.08);
+}
+
+.flair-card-dark {
+  position: relative;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.25rem;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 20px 50px rgba(0, 0, 0, 0.3);
+  transition: all 220ms ease;
+  color: #FFFFFF;
+}
+
+.flair-card-dark:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(28, 100, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+/* =========================================================================
+   FLAIR BUTTONS
+   ========================================================================= */
+.flair-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--fv-blue);
+  color: #FFFFFF;
+  padding: 0.875rem 1.75rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-family: var(--font-heading);
+  transition: all 200ms ease;
+  box-shadow:
+    0 4px 14px rgba(28, 100, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.flair-btn-primary:hover {
+  background: var(--fv-blue-dark);
+  transform: translateY(-1px);
+  box-shadow:
+    0 6px 20px rgba(28, 100, 255, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.flair-btn-secondary-light {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: #000000;
+  padding: 0.875rem 1.75rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-family: var(--font-heading);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  transition: all 200ms ease;
+}
+
+.flair-btn-secondary-light:hover {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.25);
+}
+
+.flair-btn-secondary-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: #FFFFFF;
+  padding: 0.875rem 1.75rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-family: var(--font-heading);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 200ms ease;
+}
+
+.flair-btn-secondary-dark:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Legacy glow-btn alias (used by Navbar + existing code) */
+.glow-btn {
+  position: relative;
+  background: var(--color-accent);
+  color: white;
+  transition: all 200ms ease;
+  box-shadow:
+    0 4px 14px rgba(28, 100, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.glow-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 20px rgba(28, 100, 255, 0.4), 0 0 60px rgba(28, 100, 255, 0.1);
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.glow-btn:hover::after {
+  opacity: 1;
+}
+
+.glow-btn:hover {
+  transform: translateY(-1px);
+  background: var(--fv-blue-dark);
+}
+
+/* =========================================================================
+   FLAIR PILL BADGES
+   ========================================================================= */
+.flair-pill-light {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-family: var(--font-sans);
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.02em;
+  backdrop-filter: blur(8px);
+}
+
+.flair-pill-blue {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #E8F0FF;
+  border: 1px solid rgba(28, 100, 255, 0.2);
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  color: #1C64FF;
+  font-weight: 500;
+}
+
+/* =========================================================================
+   FLAIR HEADING
+   ========================================================================= */
+.flair-heading {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  color: var(--fv-text);
+}
+
+/* =========================================================================
+   FLAIR SECTION BASE (clips orb overflow)
+   ========================================================================= */
+.flair-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Divider */
+.flair-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.08) 50%,
+    transparent 100%
+  );
+}
+
+/* =========================================================================
+   LEGACY UTILITIES (kept for compatibility with existing components)
+   ========================================================================= */
+
+/* section-gradient — subtler on light bg */
+.section-gradient {
+  background: radial-gradient(
+    ellipse 900px 600px at 50% 0%,
+    rgba(28, 100, 255, 0.06) 0%,
+    transparent 70%
+  );
+}
+
+/* gradient-border — light variant */
+.gradient-border {
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+/* Form overlay fixes */
+.formkit-overlay,
+.seva-overlay {
+  z-index: 99999 !important;
+}
+.formkit-modal,
+.seva-modal {
+  z-index: 100000 !important;
+}
