@@ -36,6 +36,10 @@ const FAQS = [
     q: 'Wie bekomme ich Support?',
     a: 'Direct DM an Marcel auf X/LinkedIn oder Mail an marcel@newways.ai. Kein Ticket-System, kein Bot. Antwort meist unter 24 Stunden, bei Bug-Reports oft am gleichen Tag.',
   },
+  {
+    q: 'Wie lösche ich mein Konto?',
+    a: 'In der App unter Settings → Konto → „Delete account". Dein Konto, dein Abo und alle gespeicherten Daten werden sofort und unwiderruflich gelöscht. DSGVO-konform (Art. 17). Diktat funktioniert danach weiter lokal — anonym, ohne Account.',
+  },
 ];
 
 export default function VoiceItFAQ() {
