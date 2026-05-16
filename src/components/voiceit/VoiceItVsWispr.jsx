@@ -10,6 +10,11 @@ const ROWS = [
     wispr: { ok: false, note: 'Streamt in die Cloud' },
   },
   {
+    label: 'Transkriptions-Speed',
+    voiceit: { ok: true, note: 'Bis 5× schneller als Cloud-Tools' },
+    wispr: { ok: false, note: 'Netzwerk-Round-Trip pro Satz' },
+  },
+  {
     label: 'Kostenloser Modus',
     voiceit: { ok: true, note: 'Diktat unbegrenzt gratis' },
     wispr: { ok: false, note: 'Subscription ab Tag 1' },
@@ -21,7 +26,7 @@ const ROWS = [
   },
   {
     label: 'Pro-Preis pro Monat',
-    voiceit: { ok: true, note: '14,95 €' },
+    voiceit: { ok: true, note: '15 € zzgl. MwSt' },
     wispr: { ok: false, note: 'ab 15 $ + Cloud-Kosten' },
   },
   {

@@ -21,9 +21,9 @@ const PLANS = [
   },
   {
     name: 'Pro',
-    price: '14,95',
-    suffix: '€ / Monat · Founding-Lock',
-    tagline: 'Diktat + Prompt + Agent. Founding-Preis bleibt lifetime gelockt. Public Launch: €29,95.',
+    price: '15',
+    suffix: '€ / Monat · zzgl. MwSt',
+    tagline: 'Diktat + Prompt + Agent. Für aktive Anwender, die Voice produktiv nutzen.',
     features: [
       'Alles aus Free',
       '500 KI-Aufrufe / Monat',
@@ -37,12 +37,12 @@ const PLANS = [
   },
   {
     name: 'Premium',
-    price: '29,95',
-    suffix: '€ / Monat',
-    tagline: 'Für Power-Nutzer mit maximalem AI-Volumen.',
+    price: '30',
+    suffix: '€ / Monat · zzgl. MwSt',
+    tagline: 'Für Power-Nutzer mit maximalem KI-Volumen.',
     features: [
       'Alles aus Pro',
-      '5.000 KI-Aufrufe / Monat',
+      '3.000 KI-Aufrufe / Monat',
       'Bis zu 10 Min Aufnahme',
       'Priority Models (höhere Qualität)',
       'Frühen Zugang zu neuen Modellen',
@@ -166,7 +166,7 @@ export default function VoiceItPricing() {
                   Du zahlst
                 </div>
                 <div className="font-heading font-extrabold text-[26px] md:text-[32px] leading-none" style={{ color: 'var(--fv-text)' }}>
-                  14,95&nbsp;€
+                  15&nbsp;€
                 </div>
                 <div className="font-sans text-[11px] mt-1.5 font-semibold" style={{ color: 'var(--fv-text-strong)' }}>
                   = 67× ROI

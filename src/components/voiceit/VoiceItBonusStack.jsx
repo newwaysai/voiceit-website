@@ -30,9 +30,9 @@ const STACK = [
   },
   {
     icon: Lock,
-    title: 'Founding-Lock · Lifetime',
-    desc: 'Public-Launch geht auf €29,95. Du bleibst auf €14,95 — solange dein Abo läuft. Forever.',
-    worth: '€15 / Monat ab Public-Launch',
+    title: 'EU-DSGVO · Lokales Voice-Modell',
+    desc: 'Audio bleibt auf deinem Mac. Lokal transkribiert, nichts in die Cloud. EU-Backend für Auth und Billing.',
+    worth: 'Keine Audio-Cloud-Kosten — by design',
   },
 ];
 
@@ -72,14 +72,14 @@ export default function VoiceItBonusStack() {
             className="bs-elem flair-heading"
             style={{ fontSize: 'clamp(1.85rem, 4.5vw, 2.75rem)' }}
           >
-            Was du für €14,95 bekommst —{' '}
+            Was du für 15 € pro Monat bekommst —{' '}
             <span style={{ color: 'var(--fv-blue)' }}>gestapelt.</span>
           </h2>
           <p
             className="bs-elem font-sans text-base md:text-lg mt-5 max-w-[58ch] mx-auto"
             style={{ color: 'var(--fv-text-muted)' }}
           >
-            Kein Aufpreis. Kein Add-on-Store. Alles drin im Founding-Preis.
+            Kein Aufpreis. Kein Add-on-Store. Alles im Pro-Plan drin.
           </p>
         </div>
 

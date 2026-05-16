@@ -29,8 +29,8 @@ const FAQS = [
     a: 'Nein. Voiceit ist macOS-only, weil tiefe System-Integration nötig ist (Hotkeys, Text-Injection in jede App, Accessibility-APIs). Apple Silicon liefert außerdem die Performance fürs lokale Modell.',
   },
   {
-    q: 'Ist der Founding-Preis wirklich Lifetime?',
-    a: 'Ja. Wenn du dich jetzt einschreibst, bleibst du auf €14,95/Monat — auch wenn der Preis zum Public Launch auf €29,95 steigt. Voraussetzung: dein Abo läuft durchgehend. Kündigen + später wieder rein = neuer Preis.',
+    q: 'Was kostet Voiceit konkret?',
+    a: 'Diktat unbegrenzt: 0 €, immer. Pro mit 500 KI-Aufrufen: 15 € / Monat (zzgl. MwSt für EU-Kunden). Premium mit 3.000 KI-Aufrufen: 30 € / Monat (zzgl. MwSt). Stripe-Checkout, jederzeit kündbar, kein Vertrag.',
   },
   {
     q: 'Wie bekomme ich Support?',

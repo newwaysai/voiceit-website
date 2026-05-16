@@ -135,7 +135,7 @@ export default function VoiceItHero() {
             <div className="hero-elem flair-pill-light w-fit mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-[#CCFF00]" style={{ boxShadow: '0 0 8px rgba(204,255,0,0.6)' }} />
               <span className="font-data uppercase tracking-[0.2em] text-[11px]">
-                Voice Agent für Mac · Founding Members
+                Voice Agent für macOS
               </span>
             </div>
 
@@ -146,7 +146,7 @@ export default function VoiceItHero() {
                 color: '#FFFFFF',
               }}
             >
-              Voiceit.{' '}
+              Du sprichst.{' '}
               <span style={{ color: 'rgba(255,255,255,0.5)' }}>Text erscheint.</span>{' '}
               <span
                 style={{
@@ -154,7 +154,7 @@ export default function VoiceItHero() {
                   textShadow: '0 0 40px rgba(204,255,0,0.35)',
                 }}
               >
-                Fertig.
+                5× schneller.
               </span>
             </h1>
 
@@ -162,7 +162,8 @@ export default function VoiceItHero() {
               className="hero-elem font-sans text-[16px] md:text-[17px] mt-5 leading-relaxed max-w-[52ch]"
               style={{ color: 'rgba(255,255,255,0.72)' }}
             >
-              Mehr als Diktat. Ein <span style={{ color: '#FFFFFF', fontWeight: 600 }}>Voice-Agent</span> für jede Mac-App.
+              Lokales Voice-Modell, optimiert für Apple Silicon. Kein Cloud-Roundtrip.
+              Bis zu <span style={{ color: '#FFFFFF', fontWeight: 600 }}>5× schneller</span> als Cloud-basierte Tools.
               Audio bleibt auf deinem Mac. Diktat ist gratis. Für immer.
             </p>
 
@@ -180,7 +181,7 @@ export default function VoiceItHero() {
                 style={{ background: '#CCFF00', boxShadow: '0 0 8px rgba(204,255,0,0.7)' }}
               />
               <span className="font-data uppercase tracking-[0.14em] text-[11px]" style={{ color: '#CCFF00' }}>
-                Founding-Preis €14,95 · Lifetime gelockt · später €29,95
+                100% lokal · ab 15 € zzgl. MwSt
               </span>
             </div>
 
