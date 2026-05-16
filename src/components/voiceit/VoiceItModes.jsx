@@ -31,7 +31,7 @@ const MODES = [
     title: 'Agent',
     tagline: 'Sag was du willst. KI macht es.',
     body: 'Halt ⌥ rechts und sag „antworte freundlich auf diese Mail" oder „mach mir 3 Tweet-Hooks daraus". Die KI schreibt direkt in deine App. Kein Tab-Wechsel.',
-    bullets: ['Direkte Text-Injection', 'Eigene Prompts pro Mode', 'Im Pro & Unlimited Plan'],
+    bullets: ['Direkte Text-Injection', 'Eigene Prompts pro Mode', 'Im Pro & Premium Plan'],
     free: false,
   },
 ];

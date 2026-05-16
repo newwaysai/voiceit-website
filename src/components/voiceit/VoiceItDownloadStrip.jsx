@@ -56,7 +56,7 @@ export default function VoiceItDownloadStrip({ headline, sub, cta = 'Jetzt laden
         </div>
 
         <a
-          href="https://github.com/newwaysai/voiceit-releases/releases/latest"
+          href="https://github.com/newwaysai/voiceit-releases/releases/latest/download/Voiceit.dmg"
           target="_blank"
           rel="noopener noreferrer"
           className={isLime ? 'flair-btn-primary' : 'flair-btn-primary'}

@@ -226,7 +226,7 @@ export default function VoiceItVsWispr() {
               Und für den gleichen Preis wie deine Wispr-Subscription bekommst du obendrauf den Prompt- und Agent-Modus. Audio bleibt auf deinem Mac.
             </p>
             <a
-              href="https://github.com/newwaysai/voiceit-releases/releases/latest"
+              href="https://github.com/newwaysai/voiceit-releases/releases/latest/download/Voiceit.dmg"
               target="_blank"
               rel="noopener noreferrer"
               className="flair-btn-primary mt-6"

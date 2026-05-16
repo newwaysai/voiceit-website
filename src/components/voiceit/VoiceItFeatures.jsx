@@ -51,7 +51,7 @@ const FEATURES = [
   {
     icon: HardDrive,
     title: 'Offline + History',
-    body: 'Funktioniert ohne Internet (Diktat). Lokale History in SQLite, 3 Tage Auto-Cleanup. 7 Tage Offline-Grace für Pro/Unlimited.',
+    body: 'Funktioniert ohne Internet (Diktat). Lokale History in SQLite, 3 Tage Auto-Cleanup. 7 Tage Offline-Grace für Pro/Premium.',
   },
 ];
 

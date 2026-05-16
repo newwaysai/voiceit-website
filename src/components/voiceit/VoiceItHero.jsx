@@ -186,7 +186,7 @@ export default function VoiceItHero() {
 
             <div className="hero-elem flex flex-wrap items-center gap-3 mt-7">
               <a
-                href="https://github.com/newwaysai/voiceit-releases/releases/latest"
+                href="https://github.com/newwaysai/voiceit-releases/releases/latest/download/Voiceit.dmg"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flair-btn-primary"

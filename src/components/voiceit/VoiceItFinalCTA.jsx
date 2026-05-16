@@ -72,7 +72,7 @@ export default function VoiceItFinalCTA() {
 
           <div className="final-elem flex flex-wrap justify-center items-center gap-4 mt-10">
             <a
-              href="https://github.com/newwaysai/voiceit-releases/releases/latest"
+              href="https://github.com/newwaysai/voiceit-releases/releases/latest/download/Voiceit.dmg"
               target="_blank"
               rel="noopener noreferrer"
               className="flair-btn-primary"

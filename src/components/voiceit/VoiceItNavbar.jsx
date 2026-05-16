@@ -41,7 +41,7 @@ export default function VoiceItNavbar() {
         <div className="flex items-center gap-3">
           <ThemeToggle />
           <a
-            href="https://github.com/newwaysai/voiceit-releases/releases/latest"
+            href="https://github.com/newwaysai/voiceit-releases/releases/latest/download/Voiceit.dmg"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden sm:inline-flex items-center gap-1.5 font-heading font-semibold text-xs md:text-sm px-3.5 md:px-4 py-2 rounded-full transition-all"

@@ -12,7 +12,7 @@ const PLANS = [
     features: [
       'Diktat-Modus unbegrenzt',
       '100% lokal, Audio bleibt auf deinem Mac',
-      '50 KI-Aufrufe / Monat (Prompt-Modus)',
+      '10 KI-Aufrufe / Monat (Prompt-Modus)',
       'Bis zu 2 Min Aufnahme',
     ],
     cta: 'Download for Mac',
@@ -26,7 +26,7 @@ const PLANS = [
     tagline: 'Diktat + Prompt + Agent. Founding-Preis bleibt lifetime gelockt. Public Launch: €29,95.',
     features: [
       'Alles aus Free',
-      '1.000 KI-Aufrufe / Monat',
+      '500 KI-Aufrufe / Monat',
       'Agent-Modus (eigene Prompts)',
       'Bis zu 5 Min Aufnahme',
       'Priorität auf neue Features',
@@ -36,14 +36,15 @@ const PLANS = [
     accent: true,
   },
   {
-    name: 'Unlimited',
-    price: '30',
+    name: 'Premium',
+    price: '29,95',
     suffix: '€ / Monat',
-    tagline: 'Für Power-Nutzer ohne Limits.',
+    tagline: 'Für Power-Nutzer mit maximalem AI-Volumen.',
     features: [
       'Alles aus Pro',
-      'Unbegrenzte KI-Aufrufe',
+      '5.000 KI-Aufrufe / Monat',
       'Bis zu 10 Min Aufnahme',
+      'Priority Models (höhere Qualität)',
       'Frühen Zugang zu neuen Modellen',
     ],
     cta: 'Download for Mac',
@@ -271,7 +272,7 @@ export default function VoiceItPricing() {
               </ul>
 
               <a
-                href="https://github.com/newwaysai/voiceit-releases/releases/latest"
+                href="https://github.com/newwaysai/voiceit-releases/releases/latest/download/Voiceit.dmg"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={p.accent ? 'flair-btn-primary' : 'flair-btn-secondary-light'}
@@ -288,7 +289,7 @@ export default function VoiceItPricing() {
           className="price-elem mt-10 text-center font-data text-[11px] uppercase tracking-[0.18em]"
           style={{ color: 'var(--fv-text-light)' }}
         >
-          Preise inkl. 19% MwSt · Stripe Checkout · jederzeit kündbar
+          Preise zzgl. 19% MwSt · Stripe Checkout · jederzeit kündbar
         </p>
       </div>
     </section>
