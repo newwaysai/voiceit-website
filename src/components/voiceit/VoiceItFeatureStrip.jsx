@@ -2,6 +2,8 @@
 
 const FEATURES = [
   'Real-time dictation',
+  'Dictate into any window',
+  'Works in every app',
   'Removes filler words',
   'Perfect grammar & punctuation',
   'Fastest voice-to-text on the market',
