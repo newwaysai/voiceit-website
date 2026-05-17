@@ -16,7 +16,7 @@ const COPY = {
         Audio bleibt auf deinem Mac. Diktat ist gratis. Für immer.
       </>
     ),
-    badge: '100% lokal · ab 15 € zzgl. MwSt',
+    badge: '100% lokal · ab 15 €',
     cta: 'Download for Mac',
     secondary: 'So funktionierts',
     chip1: '100% lokal',
@@ -78,7 +78,7 @@ const COPY = {
         Audio stays on your Mac. Dictation is free. Forever.
       </>
     ),
-    badge: '100% local · from €15 plus VAT',
+    badge: '100% local · from €15',
     cta: 'Download for Mac',
     secondary: 'How it works',
     chip1: '100% local',

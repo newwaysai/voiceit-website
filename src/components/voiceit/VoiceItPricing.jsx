@@ -27,7 +27,7 @@ const COPY = {
     },
     popularBadge: 'Beliebteste Wahl',
     freeBadge: 'Gratis',
-    footer: 'Preise zzgl. 19% MwSt · Stripe Checkout · jederzeit kündbar',
+    footer: 'Abrechnung alle 4 Wochen · Stripe Checkout · jederzeit kündbar',
     plans: [
       {
         name: 'Free',
@@ -45,7 +45,7 @@ const COPY = {
       {
         name: 'Pro',
         price: '15',
-        suffix: '€ / Monat · zzgl. MwSt',
+        suffix: '€ / Monat',
         tagline: 'Diktat + Prompt + Agent. Für aktive Anwender, die Voice produktiv nutzen.',
         features: [
           'Alles aus Free',
@@ -59,7 +59,7 @@ const COPY = {
       {
         name: 'Premium',
         price: '30',
-        suffix: '€ / Monat · zzgl. MwSt',
+        suffix: '€ / Monat',
         tagline: 'Für Power-Nutzer mit maximalem KI-Volumen.',
         features: [
           'Alles aus Pro',
@@ -95,7 +95,7 @@ const COPY = {
     },
     popularBadge: 'Most popular',
     freeBadge: 'Free',
-    footer: 'Prices plus VAT · Stripe checkout · cancel any time',
+    footer: 'Billed every 4 weeks · Stripe checkout · cancel any time',
     plans: [
       {
         name: 'Free',
@@ -113,7 +113,7 @@ const COPY = {
       {
         name: 'Pro',
         price: '15',
-        suffix: '€ / month · plus VAT',
+        suffix: '€ / month',
         tagline: 'Dictation + Prompt + Agent. For people who actually use voice productively.',
         features: [
           'Everything in Free',
@@ -127,7 +127,7 @@ const COPY = {
       {
         name: 'Premium',
         price: '30',
-        suffix: '€ / month · plus VAT',
+        suffix: '€ / month',
         tagline: 'For power users who want maximum AI volume.',
         features: [
           'Everything in Pro',
