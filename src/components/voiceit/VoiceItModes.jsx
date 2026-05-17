@@ -2,6 +2,7 @@
 import { useEffect, useRef } from 'react';
 import { gsap, ScrollTrigger } from '@/lib/gsap';
 import { Mic, Wand2, Bot } from 'lucide-react';
+import VoiceItModesDemo from './VoiceItModesDemo';
 
 const COPY = {
   de: {
@@ -143,87 +144,8 @@ export default function VoiceItModes({ lang = 'de' }) {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-5">
-            {c.modes.map((m, i) => {
-              const Icon = ICONS[i];
-              return (
-                <div
-                  key={i}
-                  className="mode-elem flair-card-dark p-5 md:p-6 flex flex-col"
-                >
-                  <div className="flex items-center justify-between mb-4">
-                    <div
-                      className="w-10 h-10 rounded-lg flex items-center justify-center"
-                      style={{
-                        background: 'rgba(37,99,235,0.18)',
-                        border: '1px solid rgba(37,99,235,0.35)',
-                      }}
-                    >
-                      <Icon size={18} style={{ color: '#6FA0FF' }} strokeWidth={2} />
-                    </div>
-                    {m.free && (
-                      <span
-                        style={{
-                          background: '#CCFF00',
-                          color: '#2563EB',
-                          boxShadow: '0 0 16px rgba(204,255,0,0.45)',
-                          border: '1px solid rgba(37,99,235,0.25)',
-                          padding: '0.25rem 0.625rem',
-                          borderRadius: '9999px',
-                          fontFamily: 'var(--font-data)',
-                          fontSize: '10px',
-                          fontWeight: 700,
-                          textTransform: 'uppercase',
-                          letterSpacing: '0.12em',
-                        }}
-                      >
-                        {c.free}
-                      </span>
-                    )}
-                  </div>
-
-                  <div
-                    className="font-data uppercase tracking-[0.18em] text-[10px] mb-1.5"
-                    style={{ color: 'rgba(255,255,255,0.4)' }}
-                  >
-                    {m.label} · {m.hotkey}
-                  </div>
-                  <h3
-                    className="font-heading font-extrabold text-xl md:text-2xl mb-1.5"
-                    style={{ color: '#FFFFFF' }}
-                  >
-                    {m.title}
-                  </h3>
-                  <p
-                    className="font-heading font-bold text-[15px] mb-3"
-                    style={{ color: '#6FA0FF' }}
-                  >
-                    {m.tagline}
-                  </p>
-                  <p
-                    className="font-sans text-[13.5px] leading-relaxed mb-4"
-                    style={{ color: 'rgba(255,255,255,0.65)' }}
-                  >
-                    {m.body}
-                  </p>
-                  <ul className="space-y-1.5 mt-auto">
-                    {m.bullets.map((b, j) => (
-                      <li
-                        key={j}
-                        className="flex items-center gap-2 font-sans text-[12.5px]"
-                        style={{ color: 'rgba(255,255,255,0.55)' }}
-                      >
-                        <span
-                          className="w-1 h-1 rounded-full"
-                          style={{ background: '#2563EB' }}
-                        />
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              );
-            })}
+          <div className="mode-elem">
+            <VoiceItModesDemo />
           </div>
         </div>
       </div>
