@@ -18,6 +18,7 @@ const COPY = {
     contact: 'Kontakt',
     imprint: 'Impressum',
     privacy: 'Datenschutz',
+    terms: 'AGB',
     copyright: 'Voiceit ist ein Produkt von Newways.',
     madeFor: 'Made for Mac.',
   },
@@ -35,6 +36,7 @@ const COPY = {
     contact: 'Contact',
     imprint: 'Imprint',
     privacy: 'Privacy',
+    terms: 'Terms',
     copyright: 'Voiceit is a Newways product.',
     madeFor: 'Made for Mac.',
   },
@@ -42,6 +44,7 @@ const COPY = {
 
 export default function Footer({ lang = 'de' }) {
   const c = COPY[lang] || COPY.de;
+  const isEN = lang === 'en';
 
   return (
     <footer role="contentinfo" className="w-full bg-background text-primary pt-24 pb-8 px-6 md:px-16 border-t border-white/[0.06] rounded-t-3xl relative z-20">
@@ -60,7 +63,7 @@ export default function Footer({ lang = 'de' }) {
           <div className="flex items-center gap-4 mt-2">
             <Image
               src="/badges/dsgvo.png"
-              alt={lang === 'en' ? 'GDPR compliant' : '100% DSGVO konform'}
+              alt={isEN ? 'GDPR compliant' : '100% DSGVO konform'}
               width={64}
               height={64}
               className="h-16 w-16 object-contain"
@@ -96,8 +99,9 @@ export default function Footer({ lang = 'de' }) {
 
           <div className="flex flex-col gap-1">
             <h5 className="font-data text-xs text-primary/40 uppercase tracking-widest mb-2">{c.legalHeader}</h5>
-            <Link href="/impressum" className="font-sans text-sm text-primary/30 hover:text-primary/60 transition-colors duration-200 flex items-center min-h-[44px] py-2">{c.imprint}</Link>
-            <Link href={lang === 'en' ? '/en/privacy' : '/datenschutz'} className="font-sans text-sm text-primary/30 hover:text-primary/60 transition-colors duration-200 flex items-center min-h-[44px] py-2">{c.privacy}</Link>
+            <Link href={isEN ? '/en/imprint' : '/impressum'} className="font-sans text-sm text-primary/30 hover:text-primary/60 transition-colors duration-200 flex items-center min-h-[44px] py-2">{c.imprint}</Link>
+            <Link href={isEN ? '/en/privacy' : '/datenschutz'} className="font-sans text-sm text-primary/30 hover:text-primary/60 transition-colors duration-200 flex items-center min-h-[44px] py-2">{c.privacy}</Link>
+            <Link href={isEN ? '/en/terms' : '/agb'} className="font-sans text-sm text-primary/30 hover:text-primary/60 transition-colors duration-200 flex items-center min-h-[44px] py-2">{c.terms}</Link>
           </div>
         </div>
 
