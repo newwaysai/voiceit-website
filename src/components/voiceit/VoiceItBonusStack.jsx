@@ -3,41 +3,44 @@ import { useEffect, useRef } from 'react';
 import { gsap } from '@/lib/gsap';
 import { Sliders, MessageSquare, Command, MailQuestion, Lock } from 'lucide-react';
 
-const STACK = [
-  {
-    icon: Sliders,
-    title: 'Custom Profiles',
-    desc: 'Eigene System-Prompts pro Modus. Mail-Antwort, Code-Refactor, Image-Prompt — separat triggerbar.',
-    worth: '€19 / Monat',
+const COPY = {
+  de: {
+    pill: 'Im Pro-Plan',
+    headingA: 'Was du für 15 € pro Monat bekommst —',
+    headingB: 'gestapelt.',
+    sub: 'Kein Aufpreis. Kein Add-on-Store. Alles im Pro-Plan drin.',
+    worthLabel: 'Wert',
+    footer: 'Alle Funktionen aktiv im Pro-Plan · keine Add-Ons · kein Hidden-Pricing',
+    stack: [
+      { title: 'Custom Profiles', desc: 'Eigene System-Prompts pro Modus. Mail-Antwort, Code-Refactor, Image-Prompt — separat triggerbar.', worth: '€19 / Monat' },
+      { title: 'Phrases · Sprach-Snippets', desc: '200 eigene Trigger. „meine sig" → Mail-Signatur. „pitch-intro" → Standard-Opener.', worth: '€9 / Monat' },
+      { title: 'Frei wählbare Hotkeys', desc: 'Default ⌘ links/rechts, ⌥ rechts. Pass es an deine Hand an. Fn, Ctrl, beliebige Kombi.', worth: '€5 / Monat' },
+      { title: 'Direct-Builder-Access', desc: 'Bug? Mail an Marcel. Feature-Wunsch? Wird beim nächsten Sprint diskutiert. Kein Ticket-System.', worth: 'unbezahlbar' },
+      { title: 'EU-DSGVO · Lokales Voice-Modell', desc: 'Audio bleibt auf deinem Mac. Lokal transkribiert, nichts in die Cloud. EU-Backend für Auth und Billing.', worth: 'Keine Audio-Cloud-Kosten — by design' },
+    ],
   },
-  {
-    icon: MessageSquare,
-    title: 'Phrases · Sprach-Snippets',
-    desc: '200 eigene Trigger. „meine sig" → Mail-Signatur. „pitch-intro" → Standard-Opener.',
-    worth: '€9 / Monat',
+  en: {
+    pill: 'In the Pro plan',
+    headingA: 'What you get for €15 a month —',
+    headingB: 'stacked.',
+    sub: 'No upsell. No add-on store. All in the Pro plan.',
+    worthLabel: 'Worth',
+    footer: 'All features active in the Pro plan · no add-ons · no hidden pricing',
+    stack: [
+      { title: 'Custom profiles', desc: 'Your own system prompts per mode. Email reply, code refactor, image prompt — triggered separately.', worth: '€19 / month' },
+      { title: 'Phrases · voice snippets', desc: '200 custom triggers. "my sig" → email signature. "pitch intro" → standard opener.', worth: '€9 / month' },
+      { title: 'Custom hotkeys', desc: 'Default ⌘ left/right, ⌥ right. Bend it to your hand. Fn, Ctrl, any combo.', worth: '€5 / month' },
+      { title: 'Direct builder access', desc: 'Bug? Email Marcel. Feature wish? Discussed in the next sprint. No ticket system.', worth: 'priceless' },
+      { title: 'EU GDPR · local voice model', desc: 'Audio stays on your Mac. Local transcription, nothing to the cloud. EU backend for auth and billing.', worth: 'no audio cloud cost — by design' },
+    ],
   },
-  {
-    icon: Command,
-    title: 'Frei wählbare Hotkeys',
-    desc: 'Default ⌘ links/rechts, ⌥ rechts. Pass es an deine Hand an. Fn, Ctrl, beliebige Kombi.',
-    worth: '€5 / Monat',
-  },
-  {
-    icon: MailQuestion,
-    title: 'Direct-Builder-Access',
-    desc: 'Bug? Mail an Marcel. Feature-Wunsch? Wird beim nächsten Sprint diskutiert. Kein Ticket-System.',
-    worth: 'unbezahlbar',
-  },
-  {
-    icon: Lock,
-    title: 'EU-DSGVO · Lokales Voice-Modell',
-    desc: 'Audio bleibt auf deinem Mac. Lokal transkribiert, nichts in die Cloud. EU-Backend für Auth und Billing.',
-    worth: 'Keine Audio-Cloud-Kosten — by design',
-  },
-];
+};
 
-export default function VoiceItBonusStack() {
+const ICONS = [Sliders, MessageSquare, Command, MailQuestion, Lock];
+
+export default function VoiceItBonusStack({ lang = 'de' }) {
   const compRef = useRef(null);
+  const c = COPY[lang] || COPY.de;
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -57,7 +60,7 @@ export default function VoiceItBonusStack() {
   return (
     <section
       ref={compRef}
-      aria-label="Pro-Plan Bonus-Stack"
+      aria-label="Pro plan stack"
       className="relative w-full py-12 md:py-16 px-4 sm:px-6 md:px-8"
       style={{ background: 'var(--fv-bg)' }}
     >
@@ -66,20 +69,20 @@ export default function VoiceItBonusStack() {
       <div className="relative z-10 max-w-[1000px] mx-auto">
         <div className="text-center mb-10 md:mb-12">
           <div className="bs-elem flair-pill-blue w-fit mx-auto mb-5">
-            <span className="font-data uppercase tracking-[0.2em] text-[10px]">Im Pro-Plan</span>
+            <span className="font-data uppercase tracking-[0.2em] text-[10px]">{c.pill}</span>
           </div>
           <h2
             className="bs-elem flair-heading"
             style={{ fontSize: 'clamp(1.85rem, 4.5vw, 2.75rem)' }}
           >
-            Was du für 15 € pro Monat bekommst —{' '}
-            <span style={{ color: 'var(--fv-blue)' }}>gestapelt.</span>
+            {c.headingA}{' '}
+            <span style={{ color: 'var(--fv-blue)' }}>{c.headingB}</span>
           </h2>
           <p
             className="bs-elem font-sans text-base md:text-lg mt-5 max-w-[58ch] mx-auto"
             style={{ color: 'var(--fv-text-muted)' }}
           >
-            Kein Aufpreis. Kein Add-on-Store. Alles im Pro-Plan drin.
+            {c.sub}
           </p>
         </div>
 
@@ -89,9 +92,9 @@ export default function VoiceItBonusStack() {
             borderColor: 'rgba(37,99,235,0.25)',
           }}
         >
-          {STACK.map((item, i) => {
-            const Icon = item.icon;
-            const isLast = i === STACK.length - 1;
+          {c.stack.map((item, i) => {
+            const Icon = ICONS[i];
+            const isLast = i === c.stack.length - 1;
             return (
               <div
                 key={i}
@@ -128,7 +131,7 @@ export default function VoiceItBonusStack() {
                       className="font-data uppercase tracking-[0.14em] text-[10px] md:text-[11px] shrink-0"
                       style={{ color: 'var(--fv-text-muted)' }}
                     >
-                      Wert · {item.worth}
+                      {c.worthLabel} · {item.worth}
                     </span>
                   </div>
                   <p
@@ -147,7 +150,7 @@ export default function VoiceItBonusStack() {
           className="bs-elem mt-6 text-center font-data text-[10.5px] uppercase tracking-[0.18em]"
           style={{ color: 'var(--fv-text-light)' }}
         >
-          Alle Funktionen aktiv im Pro-Plan · keine Add-Ons · kein Hidden-Pricing
+          {c.footer}
         </p>
       </div>
     </section>

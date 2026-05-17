@@ -3,8 +3,80 @@ import { useEffect, useRef } from 'react';
 import { gsap } from '@/lib/gsap';
 import { ArrowRight, FileText, Wand2 } from 'lucide-react';
 
-export default function VoiceItPromptCompare() {
+const COPY = {
+  de: {
+    pill: 'Warum strukturiert',
+    headingA: 'Roh-Prompt rein,',
+    headingB: 'strukturierter Prompt raus.',
+    sub: 'Du sprichst wie ein Mensch. Voiceits Prompt-Modus formt es in das Format, das KIs nachweislich besser verstehen — mit Rolle, Aufgabe, Kontext, Format.',
+    plainTagline: 'Wenn du tippst',
+    plainTitle: 'Roh-Prompt',
+    plainText: '„mach mir bitte ein bild von einer frau die auf einer wiese sitzt im sonnenuntergang vintage stil"',
+    plainBullets: ['Kein Rollen-Setup', 'Kein Stil-Anchor', 'Kein Format', 'KI rät, was du meinst'],
+    structuredTagline: 'Mit Voiceit Prompt-Modus',
+    structuredTitle: 'Strukturierter Prompt',
+    structuredFields: [
+      { label: 'Rolle', value: 'Editorial-Fotograf, Fine-Art-Portrait.' },
+      { label: 'Aufgabe', value: 'Frau sitzt auf Wiese, Sonnenuntergang.' },
+      { label: 'Stil', value: 'Vintage, 70er-Jahre Film, warmes Rim-Light, 35mm Grain.' },
+      { label: 'Format', value: '4:5 Hochformat, photorealistic, --style raw' },
+    ],
+    structuredBullets: [
+      'Rolle setzt Ton & Expertise',
+      'Klare Aufgabe, kein Raten',
+      'Stil-Anchor → konsistentes Bild',
+      'Format = direkt verwendbar',
+    ],
+    anthropicEyebrow: 'Anthropic · Prompt Engineering Best Practices',
+    anthropicQuote:
+      '„Think of Claude as a brilliant but new employee who lacks context on your norms and workflows. The more precisely you explain what you want, the better the result."',
+    anthropicSubA: 'Anthropic empfiehlt:',
+    anthropicSubB: 'Rolle setzen · Klare Aufgabe · Format-Anchor',
+    anthropicSubC:
+      ' — also exakt das, was Voiceits Prompt-Modus aus deiner Sprachnachricht macht. Du sprichst frei. Strukturierung passiert in der App.',
+    anthropicSource: 'Quelle docs.anthropic.com',
+    closer:
+      'Kein Tab-Wechsel zu ChatGPT um den Prompt zu polieren. Kein „warte, ich strukturiere das eben". Halt ⌘ rechts, sprich frei, fertig.',
+  },
+  en: {
+    pill: 'Why structured',
+    headingA: 'Raw prompt in,',
+    headingB: 'structured prompt out.',
+    sub: 'You speak like a human. Voiceit’s Prompt mode reshapes it into the format AIs demonstrably understand better — with role, task, context, format.',
+    plainTagline: 'When you type',
+    plainTitle: 'Raw prompt',
+    plainText: '"please make me an image of a woman sitting in a meadow at sunset vintage style"',
+    plainBullets: ['No role setup', 'No style anchor', 'No format', 'AI guesses what you mean'],
+    structuredTagline: 'With Voiceit Prompt mode',
+    structuredTitle: 'Structured prompt',
+    structuredFields: [
+      { label: 'Role', value: 'Editorial photographer, fine-art portrait.' },
+      { label: 'Task', value: 'Woman sitting in a meadow, sunset.' },
+      { label: 'Style', value: 'Vintage, 70s film, warm rim light, 35mm grain.' },
+      { label: 'Format', value: '4:5 portrait, photorealistic, --style raw' },
+    ],
+    structuredBullets: [
+      'Role sets tone & expertise',
+      'Clear task, no guessing',
+      'Style anchor → consistent image',
+      'Format = ready to use',
+    ],
+    anthropicEyebrow: 'Anthropic · Prompt Engineering Best Practices',
+    anthropicQuote:
+      '"Think of Claude as a brilliant but new employee who lacks context on your norms and workflows. The more precisely you explain what you want, the better the result."',
+    anthropicSubA: 'Anthropic recommends:',
+    anthropicSubB: 'set a role · clear task · format anchor',
+    anthropicSubC:
+      ' — which is exactly what Voiceit’s Prompt mode does to your voice note. You speak freely. Structuring happens inside the app.',
+    anthropicSource: 'Source docs.anthropic.com',
+    closer:
+      'No tab-switch to ChatGPT to polish the prompt. No "wait, let me structure that." Hold ⌘ right, speak freely, done.',
+  },
+};
+
+export default function VoiceItPromptCompare({ lang = 'de' }) {
   const compRef = useRef(null);
+  const c = COPY[lang] || COPY.de;
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -24,7 +96,7 @@ export default function VoiceItPromptCompare() {
   return (
     <section
       ref={compRef}
-      aria-label="Prompt-Modus Vergleich"
+      aria-label={lang === 'en' ? 'Prompt mode comparison' : 'Prompt-Modus Vergleich'}
       className="relative w-full py-14 md:py-20 px-4 sm:px-6 md:px-8"
       style={{ background: 'var(--fv-bg)' }}
     >
@@ -33,28 +105,24 @@ export default function VoiceItPromptCompare() {
       <div className="relative z-10 max-w-[1200px] mx-auto">
         <div className="text-center mb-12 md:mb-16">
           <div className="pc-elem flair-pill-blue w-fit mx-auto mb-5">
-            <span className="font-data uppercase tracking-[0.2em] text-[10px]">Warum strukturiert</span>
+            <span className="font-data uppercase tracking-[0.2em] text-[10px]">{c.pill}</span>
           </div>
           <h2
             className="pc-elem flair-heading"
             style={{ fontSize: 'clamp(2rem, 5vw, 3.25rem)' }}
           >
-            Roh-Prompt rein,{' '}
-            <span style={{ color: 'var(--fv-blue)' }}>
-              strukturierter Prompt raus.
-            </span>
+            {c.headingA}{' '}
+            <span style={{ color: 'var(--fv-blue)' }}>{c.headingB}</span>
           </h2>
           <p
             className="pc-elem font-sans text-base md:text-lg mt-5 max-w-[64ch] mx-auto"
             style={{ color: 'var(--fv-text-muted)' }}
           >
-            Du sprichst wie ein Mensch. Voiceits Prompt-Modus formt es in das Format, das KIs nachweislich besser verstehen — mit Rolle, Aufgabe, Kontext, Format.
+            {c.sub}
           </p>
         </div>
 
-        {/* Comparison grid */}
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-5 lg:gap-7 items-center">
-          {/* Plain prompt */}
           <div className="pc-elem flair-card p-6 md:p-7 flex flex-col h-full">
             <div className="flex items-center gap-2.5 mb-4">
               <div
@@ -68,10 +136,10 @@ export default function VoiceItPromptCompare() {
               </div>
               <div>
                 <div className="font-data uppercase tracking-[0.16em] text-[10px]" style={{ color: '#DC2626' }}>
-                  Wenn du tippst
+                  {c.plainTagline}
                 </div>
                 <div className="font-heading font-bold text-[15px]" style={{ color: 'var(--fv-text)' }}>
-                  Roh-Prompt
+                  {c.plainTitle}
                 </div>
               </div>
             </div>
@@ -84,26 +152,18 @@ export default function VoiceItPromptCompare() {
                 color: 'var(--fv-text-strong)',
               }}
             >
-              „mach mir bitte ein bild von einer frau die auf einer wiese sitzt im sonnenuntergang vintage stil"
+              {c.plainText}
             </div>
 
             <ul className="space-y-1.5 mt-auto">
-              <li className="font-sans text-[12.5px]" style={{ color: 'var(--fv-text-muted)' }}>
-                · Kein Rollen-Setup
-              </li>
-              <li className="font-sans text-[12.5px]" style={{ color: 'var(--fv-text-muted)' }}>
-                · Kein Stil-Anchor
-              </li>
-              <li className="font-sans text-[12.5px]" style={{ color: 'var(--fv-text-muted)' }}>
-                · Kein Format
-              </li>
-              <li className="font-sans text-[12.5px]" style={{ color: 'var(--fv-text-muted)' }}>
-                · KI rät, was du meinst
-              </li>
+              {c.plainBullets.map((b, i) => (
+                <li key={i} className="font-sans text-[12.5px]" style={{ color: 'var(--fv-text-muted)' }}>
+                  · {b}
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Arrow */}
           <div className="pc-elem hidden lg:flex items-center justify-center">
             <div
               className="w-14 h-14 rounded-full flex items-center justify-center"
@@ -116,7 +176,6 @@ export default function VoiceItPromptCompare() {
             </div>
           </div>
 
-          {/* Mobile arrow */}
           <div className="pc-elem lg:hidden flex items-center justify-center py-2">
             <div
               className="w-10 h-10 rounded-full flex items-center justify-center"
@@ -130,7 +189,6 @@ export default function VoiceItPromptCompare() {
             </div>
           </div>
 
-          {/* Structured prompt */}
           <div
             className="pc-elem flair-card p-6 md:p-7 flex flex-col h-full"
             style={{
@@ -150,10 +208,10 @@ export default function VoiceItPromptCompare() {
               </div>
               <div>
                 <div className="font-data uppercase tracking-[0.16em] text-[10px]" style={{ color: 'var(--fv-blue)' }}>
-                  Mit Voiceit Prompt-Modus
+                  {c.structuredTagline}
                 </div>
                 <div className="font-heading font-bold text-[15px]" style={{ color: 'var(--fv-text)' }}>
-                  Strukturierter Prompt
+                  {c.structuredTitle}
                 </div>
               </div>
             </div>
@@ -166,45 +224,29 @@ export default function VoiceItPromptCompare() {
                 color: 'var(--fv-text)',
               }}
             >
-              <div className="font-data uppercase tracking-[0.16em] text-[9.5px] mb-1" style={{ color: 'var(--fv-blue)' }}>
-                Rolle
-              </div>
-              <div className="mb-2">Editorial-Fotograf, Fine-Art-Portrait.</div>
-
-              <div className="font-data uppercase tracking-[0.16em] text-[9.5px] mb-1" style={{ color: 'var(--fv-blue)' }}>
-                Aufgabe
-              </div>
-              <div className="mb-2">Frau sitzt auf Wiese, Sonnenuntergang.</div>
-
-              <div className="font-data uppercase tracking-[0.16em] text-[9.5px] mb-1" style={{ color: 'var(--fv-blue)' }}>
-                Stil
-              </div>
-              <div className="mb-2">Vintage, 70er-Jahre Film, warmes Rim-Light, 35mm Grain.</div>
-
-              <div className="font-data uppercase tracking-[0.16em] text-[9.5px] mb-1" style={{ color: 'var(--fv-blue)' }}>
-                Format
-              </div>
-              <div>4:5 Hochformat, photorealistic, --style raw</div>
+              {c.structuredFields.map((f, i) => (
+                <div key={i} className={i < c.structuredFields.length - 1 ? 'mb-2' : ''}>
+                  <div
+                    className="font-data uppercase tracking-[0.16em] text-[9.5px] mb-1"
+                    style={{ color: 'var(--fv-blue)' }}
+                  >
+                    {f.label}
+                  </div>
+                  <div>{f.value}</div>
+                </div>
+              ))}
             </div>
 
             <ul className="space-y-1.5 mt-auto">
-              <li className="font-sans text-[12.5px]" style={{ color: 'var(--fv-text-strong)' }}>
-                ✓ Rolle setzt Ton & Expertise
-              </li>
-              <li className="font-sans text-[12.5px]" style={{ color: 'var(--fv-text-strong)' }}>
-                ✓ Klare Aufgabe, kein Raten
-              </li>
-              <li className="font-sans text-[12.5px]" style={{ color: 'var(--fv-text-strong)' }}>
-                ✓ Stil-Anchor → konsistentes Bild
-              </li>
-              <li className="font-sans text-[12.5px]" style={{ color: 'var(--fv-text-strong)' }}>
-                ✓ Format = direkt verwendbar
-              </li>
+              {c.structuredBullets.map((b, i) => (
+                <li key={i} className="font-sans text-[12.5px]" style={{ color: 'var(--fv-text-strong)' }}>
+                  ✓ {b}
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
-        {/* Anthropic quote */}
         <div
           className="pc-elem mt-12 max-w-[880px] mx-auto p-6 md:p-8 rounded-2xl"
           style={{
@@ -230,19 +272,21 @@ export default function VoiceItPromptCompare() {
                 className="font-data uppercase tracking-[0.16em] text-[10px] mb-3"
                 style={{ color: '#CCFF00' }}
               >
-                Anthropic · Prompt Engineering Best Practices
+                {c.anthropicEyebrow}
               </div>
               <p
                 className="font-sans text-[14px] md:text-[15px] leading-[1.65] italic"
                 style={{ color: 'rgba(255,255,255,0.88)' }}
               >
-                „Think of Claude as a brilliant but new employee who lacks context on your norms and workflows. The more precisely you explain what you want, the better the result."
+                {c.anthropicQuote}
               </p>
               <p
                 className="font-sans text-[13px] md:text-[14px] leading-[1.65] mt-3"
                 style={{ color: 'rgba(255,255,255,0.65)' }}
               >
-                Anthropic empfiehlt: <span style={{ color: '#FFFFFF', fontWeight: 600 }}>Rolle setzen · Klare Aufgabe · Format-Anchor</span> — also exakt das, was Voiceits Prompt-Modus aus deiner Sprachnachricht macht. Du sprichst frei. Strukturierung passiert in der App.
+                {c.anthropicSubA}{' '}
+                <span style={{ color: '#FFFFFF', fontWeight: 600 }}>{c.anthropicSubB}</span>
+                {c.anthropicSubC}
               </p>
               <a
                 href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct"
@@ -251,7 +295,7 @@ export default function VoiceItPromptCompare() {
                 className="inline-flex items-center gap-1.5 mt-4 font-data uppercase tracking-[0.16em] text-[10px] transition-opacity hover:opacity-70"
                 style={{ color: 'rgba(255,255,255,0.55)' }}
               >
-                Quelle docs.anthropic.com <ArrowRight size={11} />
+                {c.anthropicSource} <ArrowRight size={11} />
               </a>
             </div>
           </div>
@@ -261,7 +305,7 @@ export default function VoiceItPromptCompare() {
           className="pc-elem mt-8 text-center font-sans text-[14px] md:text-[15px] max-w-[60ch] mx-auto"
           style={{ color: 'var(--fv-text-muted)' }}
         >
-          Kein Tab-Wechsel zu ChatGPT um den Prompt zu polieren. Kein „warte, ich strukturiere das eben". Halt ⌘ rechts, sprich frei, fertig.
+          {c.closer}
         </p>
       </div>
     </section>

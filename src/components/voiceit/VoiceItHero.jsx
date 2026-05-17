@@ -3,59 +3,140 @@ import { useEffect, useRef, useState } from 'react';
 import { gsap } from '@/lib/gsap';
 import { ArrowRight, Download, Lock, Mic, Wand2, Bot } from 'lucide-react';
 
-const MODES = [
-  {
-    key: 'diktat',
-    label: 'Diktat',
-    hotkey: '⌘ links',
-    icon: Mic,
-    spoken: 'Hey Lukas, das Meeting um zehn passt nicht. Verschieben wir auf elf?',
-    output: 'Hey Lukas, das Meeting um zehn passt nicht. Verschieben wir auf elf?',
-    statusLabel: 'Diktat · lokal',
-    accent: '#CCFF00',
-    typeMs: 22,
-    holdMs: 1600,
-    appLabel: 'Mail · Antwort',
-    caption: 'Sprich → Text erscheint, 1:1 in deiner App',
+const COPY = {
+  de: {
+    pill: 'Voice Agent für macOS',
+    headingA: 'Du sprichst.',
+    headingB: 'Text erscheint.',
+    headingC: '5× schneller.',
+    body: (
+      <>
+        Lokales Voice-Modell, optimiert für Apple Silicon. Kein Cloud-Roundtrip.
+        Bis zu <span style={{ color: '#FFFFFF', fontWeight: 600 }}>5× schneller</span> als Cloud-basierte Tools.
+        Audio bleibt auf deinem Mac. Diktat ist gratis. Für immer.
+      </>
+    ),
+    badge: '100% lokal · ab 15 € zzgl. MwSt',
+    cta: 'Download for Mac',
+    secondary: 'So funktionierts',
+    chip1: '100% lokal',
+    chip2: 'macOS 13+ · Apple Silicon',
+    chip3: 'Diktat unbegrenzt gratis',
+    thinkingDictation: 'KI schreibt',
+    thinkingAgent: 'Agent denkt',
+    markedLabel: 'Markiert',
+    recording: 'Recording',
+    modes: [
+      {
+        key: 'diktat',
+        label: 'Diktat',
+        hotkey: '⌘ links',
+        spoken: 'Hey Lukas, das Meeting um zehn passt nicht. Verschieben wir auf elf?',
+        output: 'Hey Lukas, das Meeting um zehn passt nicht. Verschieben wir auf elf?',
+        statusLabel: 'Diktat · lokal',
+        appLabel: 'Mail · Antwort',
+        caption: 'Sprich → Text erscheint, 1:1 in deiner App',
+      },
+      {
+        key: 'prompt',
+        label: 'Prompt',
+        hotkey: '⌘ rechts',
+        profile: 'Prompt-Architekt',
+        spoken:
+          'Generier mir ein hyperrealistisches Editorial-Foto. Ein Topmodel sitzt seitlich in einem 66er Mustang, Vintage-Look, goldene Stunde, sehr dramatisch.',
+        output:
+          '## Rolle\nEditorial-Fotograf, Schwerpunkt Vintage-Americana und Automotive.\n## Aufgabe\nHyperrealistisches Editorial-Foto: Topmodel seitlich in 1966er Ford Mustang Convertible.\n## Stil\nVintage-Americana, dramatisches Rim-Light der goldenen Stunde, 35mm Film-Grain, geringe Tiefenschärfe.\n## Format\n4:5 Hochformat, photorealistic, --style raw',
+        outputType: 'structured',
+        statusLabel: 'Prompt · Prompt-Architekt',
+        appLabel: 'ChatGPT · neuer Chat',
+        caption: 'Profile aktiv → Sprachnachricht wird zu Prompt mit Rolle, Aufgabe, Stil',
+      },
+      {
+        key: 'agent',
+        label: 'Agent',
+        hotkey: '⌥ rechts',
+        spoken: 'hey agent, mach mir Bullet Points daraus',
+        selected:
+          'Wir haben besprochen, dass Lukas am Mittwoch den Investor-Pitch übernimmt — er hat den finalen Slide-Stand. Sarah liefert bis Dienstagabend die überarbeiteten Slides inklusive der neuen Umsatz-Projektion. Ich kümmere mich um Catering, Logistik und das Briefing der Empfangs-Crew. Falls Lukas kurzfristig ausfällt, springe ich ein.',
+        output:
+          '• Lukas — Investor-Pitch Mittwoch, hat finalen Slide-Stand\n• Sarah — Slides bis Dienstagabend, inkl. Umsatz-Projektion\n• Marcel — Catering, Logistik, Empfangs-Crew-Briefing\n• Backup — Marcel übernimmt Pitch falls Lukas ausfällt',
+        statusLabel: 'Agent · arbeitet',
+        appLabel: 'Notes · Meeting',
+        caption: 'Markiert + Sprich → Agent transformiert Fließtext zu Struktur',
+      },
+    ],
   },
-  {
-    key: 'prompt',
-    label: 'Prompt',
-    hotkey: '⌘ rechts',
-    icon: Wand2,
-    profile: 'Prompt-Architekt',
-    spoken:
-      'Generier mir ein hyperrealistisches Editorial-Foto. Ein Topmodel sitzt seitlich in einem 66er Mustang, Vintage-Look, goldene Stunde, sehr dramatisch.',
-    output:
-      '## Rolle\nEditorial-Fotograf, Schwerpunkt Vintage-Americana und Automotive.\n## Aufgabe\nHyperrealistisches Editorial-Foto: Topmodel seitlich in 1966er Ford Mustang Convertible.\n## Stil\nVintage-Americana, dramatisches Rim-Light der goldenen Stunde, 35mm Film-Grain, geringe Tiefenschärfe.\n## Format\n4:5 Hochformat, photorealistic, --style raw',
-    outputType: 'structured',
-    statusLabel: 'Prompt · Prompt-Architekt',
-    accent: '#6FA0FF',
-    typeMs: 11,
-    holdMs: 3200,
-    appLabel: 'ChatGPT · neuer Chat',
-    caption: 'Profile aktiv → Sprachnachricht wird zu Prompt mit Rolle, Aufgabe, Stil',
+  en: {
+    pill: 'Voice agent for macOS',
+    headingA: 'You speak.',
+    headingB: 'Text appears.',
+    headingC: '5× faster.',
+    body: (
+      <>
+        Local voice model, tuned for Apple Silicon. No cloud round-trip.
+        Up to <span style={{ color: '#FFFFFF', fontWeight: 600 }}>5× faster</span> than cloud-based tools.
+        Audio stays on your Mac. Dictation is free. Forever.
+      </>
+    ),
+    badge: '100% local · from €15 plus VAT',
+    cta: 'Download for Mac',
+    secondary: 'How it works',
+    chip1: '100% local',
+    chip2: 'macOS 13+ · Apple Silicon',
+    chip3: 'Unlimited dictation, free',
+    thinkingDictation: 'AI writes',
+    thinkingAgent: 'Agent thinks',
+    markedLabel: 'Selected',
+    recording: 'Recording',
+    modes: [
+      {
+        key: 'diktat',
+        label: 'Dictation',
+        hotkey: '⌘ left',
+        spoken: 'Hey Luke, the meeting at ten doesn’t work. Can we move it to eleven?',
+        output: 'Hey Luke, the meeting at ten doesn’t work. Can we move it to eleven?',
+        statusLabel: 'Dictation · local',
+        appLabel: 'Mail · Reply',
+        caption: 'Speak → text appears, 1:1 inside your app',
+      },
+      {
+        key: 'prompt',
+        label: 'Prompt',
+        hotkey: '⌘ right',
+        profile: 'Prompt Architect',
+        spoken:
+          'Generate me a hyperrealistic editorial photo. A top model sits sideways in a ’66 Mustang, vintage look, golden hour, very dramatic.',
+        output:
+          '## Role\nEditorial photographer, focus on vintage Americana and automotive.\n## Task\nHyperrealistic editorial photo: top model sideways in a 1966 Ford Mustang Convertible.\n## Style\nVintage Americana, dramatic golden-hour rim light, 35mm film grain, shallow depth of field.\n## Format\n4:5 portrait, photorealistic, --style raw',
+        outputType: 'structured',
+        statusLabel: 'Prompt · Prompt Architect',
+        appLabel: 'ChatGPT · new chat',
+        caption: 'Profile active → voice note becomes a prompt with role, task, style',
+      },
+      {
+        key: 'agent',
+        label: 'Agent',
+        hotkey: '⌥ right',
+        spoken: 'hey agent, turn this into bullet points',
+        selected:
+          'We agreed Luke takes the investor pitch on Wednesday — he has the final slide deck. Sarah delivers the revised slides including the new revenue projection by Tuesday evening. I’m handling catering, logistics and the reception briefing. If Luke is out, I step in.',
+        output:
+          '• Luke — investor pitch Wednesday, has final slides\n• Sarah — slides by Tuesday evening, incl. revenue projection\n• Marcel — catering, logistics, reception briefing\n• Backup — Marcel takes the pitch if Luke is out',
+        statusLabel: 'Agent · working',
+        appLabel: 'Notes · Meeting',
+        caption: 'Select + speak → Agent turns prose into structure',
+      },
+    ],
   },
-  {
-    key: 'agent',
-    label: 'Agent',
-    hotkey: '⌥ rechts',
-    icon: Bot,
-    spoken: 'hey agent, mach mir Bullet Points daraus',
-    selected:
-      'Wir haben besprochen, dass Lukas am Mittwoch den Investor-Pitch übernimmt — er hat den finalen Slide-Stand. Sarah liefert bis Dienstagabend die überarbeiteten Slides inklusive der neuen Umsatz-Projektion. Ich kümmere mich um Catering, Logistik und das Briefing der Empfangs-Crew. Falls Lukas kurzfristig ausfällt, springe ich ein.',
-    output:
-      '• Lukas — Investor-Pitch Mittwoch, hat finalen Slide-Stand\n• Sarah — Slides bis Dienstagabend, inkl. Umsatz-Projektion\n• Marcel — Catering, Logistik, Empfangs-Crew-Briefing\n• Backup — Marcel übernimmt Pitch falls Lukas ausfällt',
-    statusLabel: 'Agent · arbeitet',
-    accent: '#CCFF00',
-    typeMs: 14,
-    holdMs: 3200,
-    appLabel: 'Notes · Meeting',
-    caption: 'Markiert + Sprich → Agent transformiert Fließtext zu Struktur',
-  },
+};
+
+const MODE_META = [
+  { icon: Mic, accent: '#CCFF00', typeMs: 22, holdMs: 1600 },
+  { icon: Wand2, accent: '#6FA0FF', typeMs: 11, holdMs: 3200 },
+  { icon: Bot, accent: '#CCFF00', typeMs: 14, holdMs: 3200 },
 ];
 
-export default function VoiceItHero() {
+export default function VoiceItHero({ lang = 'de' }) {
   const compRef = useRef(null);
   const [modeIdx, setModeIdx] = useState(0);
   const [phase, setPhase] = useState('listen');
@@ -63,6 +144,8 @@ export default function VoiceItHero() {
   const [pinned, setPinned] = useState(false);
   const phaseTimer = useRef(null);
 
+  const c = COPY[lang] || COPY.de;
+  const MODES = c.modes.map((m, i) => ({ ...m, ...MODE_META[i] }));
   const mode = MODES[modeIdx];
 
   useEffect(() => {
@@ -92,7 +175,7 @@ export default function VoiceItHero() {
     }, 1300);
 
     return () => clearTimeout(phaseTimer.current);
-  }, [modeIdx]);
+  }, [modeIdx, lang]);
 
   useEffect(() => {
     if (phase !== 'type') return;
@@ -130,12 +213,11 @@ export default function VoiceItHero() {
         <div className="flair-hero-glow-violet" style={{ bottom: '-180px', left: '-80px' }} />
 
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-12 items-center">
-          {/* Left: copy */}
           <div className="flex flex-col">
             <div className="hero-elem flair-pill-light w-fit mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-[#CCFF00]" style={{ boxShadow: '0 0 8px rgba(204,255,0,0.6)' }} />
               <span className="font-data uppercase tracking-[0.2em] text-[11px]">
-                Voice Agent für macOS
+                {c.pill}
               </span>
             </div>
 
@@ -146,15 +228,15 @@ export default function VoiceItHero() {
                 color: '#FFFFFF',
               }}
             >
-              Du sprichst.{' '}
-              <span style={{ color: 'rgba(255,255,255,0.5)' }}>Text erscheint.</span>{' '}
+              {c.headingA}{' '}
+              <span style={{ color: 'rgba(255,255,255,0.5)' }}>{c.headingB}</span>{' '}
               <span
                 style={{
                   color: '#CCFF00',
                   textShadow: '0 0 40px rgba(204,255,0,0.35)',
                 }}
               >
-                5× schneller.
+                {c.headingC}
               </span>
             </h1>
 
@@ -162,9 +244,7 @@ export default function VoiceItHero() {
               className="hero-elem font-sans text-[16px] md:text-[17px] mt-5 leading-relaxed max-w-[52ch]"
               style={{ color: 'rgba(255,255,255,0.72)' }}
             >
-              Lokales Voice-Modell, optimiert für Apple Silicon. Kein Cloud-Roundtrip.
-              Bis zu <span style={{ color: '#FFFFFF', fontWeight: 600 }}>5× schneller</span> als Cloud-basierte Tools.
-              Audio bleibt auf deinem Mac. Diktat ist gratis. Für immer.
+              {c.body}
             </p>
 
             <div
@@ -181,7 +261,7 @@ export default function VoiceItHero() {
                 style={{ background: '#CCFF00', boxShadow: '0 0 8px rgba(204,255,0,0.7)' }}
               />
               <span className="font-data uppercase tracking-[0.14em] text-[11px]" style={{ color: '#CCFF00' }}>
-                100% lokal · ab 15 € zzgl. MwSt
+                {c.badge}
               </span>
             </div>
 
@@ -193,11 +273,11 @@ export default function VoiceItHero() {
                 className="flair-btn-primary"
               >
                 <Download size={16} />
-                Download for Mac
+                {c.cta}
                 <ArrowRight size={16} />
               </a>
               <a href="#modi" className="flair-btn-secondary-dark">
-                So funktionierts
+                {c.secondary}
               </a>
             </div>
 
@@ -206,20 +286,18 @@ export default function VoiceItHero() {
               style={{ color: 'rgba(255,255,255,0.45)' }}
             >
               <span className="flex items-center gap-1.5 font-data text-[11px] uppercase tracking-[0.16em]">
-                <Lock size={12} /> 100% lokal
+                <Lock size={12} /> {c.chip1}
               </span>
               <span className="font-data text-[11px] uppercase tracking-[0.16em]">
-                macOS 13+ · Apple Silicon
+                {c.chip2}
               </span>
               <span className="font-data text-[11px] uppercase tracking-[0.16em]">
-                Diktat unbegrenzt gratis
+                {c.chip3}
               </span>
             </div>
           </div>
 
-          {/* Right: compact animated demo */}
           <div className="hero-elem relative max-w-[460px] w-full mx-auto lg:ml-auto">
-            {/* Mode tabs */}
             <div
               className="flex items-center gap-1 p-1 mb-3 rounded-xl"
               style={{
@@ -253,7 +331,6 @@ export default function VoiceItHero() {
               })}
             </div>
 
-            {/* Demo window */}
             <div
               className="relative rounded-xl overflow-hidden border"
               style={{
@@ -263,7 +340,6 @@ export default function VoiceItHero() {
                 backdropFilter: 'blur(8px)',
               }}
             >
-              {/* Title bar — compact */}
               <div
                 className="flex items-center gap-1.5 px-3 h-8 border-b"
                 style={{ borderColor: 'rgba(255,255,255,0.08)' }}
@@ -279,9 +355,7 @@ export default function VoiceItHero() {
                 </span>
               </div>
 
-              {/* Body */}
               <div className="px-4 py-4 min-h-[180px] md:min-h-[200px]">
-                {/* Voice-line */}
                 <div className="flex items-start gap-2.5 mb-2">
                   <div
                     className="shrink-0 mt-0.5 w-6 h-6 rounded-full flex items-center justify-center"
@@ -305,7 +379,6 @@ export default function VoiceItHero() {
                   </p>
                 </div>
 
-                {/* Selected text for Agent mode */}
                 {mode.selected && (
                   <div
                     className="mb-2 px-2.5 py-1.5 rounded-md font-sans text-[11.5px] leading-[1.4]"
@@ -319,13 +392,12 @@ export default function VoiceItHero() {
                       className="font-data uppercase tracking-[0.16em] text-[9px] block mb-0.5"
                       style={{ color: '#6FA0FF' }}
                     >
-                      Markiert
+                      {c.markedLabel}
                     </span>
                     {mode.selected}
                   </div>
                 )}
 
-                {/* Profile hint for Prompt mode */}
                 {mode.profile && phase !== 'listen' && (
                   <div
                     className="mb-2 inline-flex items-center gap-1.5 px-2 py-1 rounded-md"
@@ -344,11 +416,10 @@ export default function VoiceItHero() {
                   </div>
                 )}
 
-                {/* Thinking */}
                 {phase === 'think' && (
                   <div className="flex items-center gap-2 mt-1.5" style={{ color: 'rgba(255,255,255,0.55)' }}>
                     <span className="font-data uppercase tracking-[0.18em] text-[9.5px]">
-                      {mode.key === 'agent' ? 'Agent denkt' : 'KI schreibt'}
+                      {mode.key === 'agent' ? c.thinkingAgent : c.thinkingDictation}
                     </span>
                     <span className="flex gap-1">
                       {[0, 1, 2].map((d) => (
@@ -365,7 +436,6 @@ export default function VoiceItHero() {
                   </div>
                 )}
 
-                {/* Output */}
                 {phase === 'type' && (
                   mode.outputType === 'structured' ? (
                     <div className="leading-[1.5]">
@@ -418,7 +488,6 @@ export default function VoiceItHero() {
                 )}
               </div>
 
-              {/* Status bar */}
               <div
                 className="flex items-center px-4 py-2.5 border-t"
                 style={{ borderColor: 'rgba(255,255,255,0.08)' }}
@@ -438,7 +507,7 @@ export default function VoiceItHero() {
                     className="font-data text-[9.5px] uppercase tracking-[0.18em]"
                     style={{ color: 'rgba(255,255,255,0.65)' }}
                   >
-                    {phase === 'listen' ? `Recording · ${mode.hotkey}` : mode.statusLabel}
+                    {phase === 'listen' ? `${c.recording} · ${mode.hotkey}` : mode.statusLabel}
                   </span>
                 </div>
                 <div className="ml-auto flex items-center gap-[3px] h-4">

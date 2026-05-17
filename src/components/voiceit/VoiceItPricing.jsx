@@ -1,60 +1,150 @@
 'use client';
 import { useEffect, useRef } from 'react';
 import { gsap, ScrollTrigger } from '@/lib/gsap';
-import { Check, Download, Sparkles } from 'lucide-react';
+import { Check, Download } from 'lucide-react';
 
-const PLANS = [
-  {
-    name: 'Free',
-    price: '0',
-    suffix: '€ / immer',
-    tagline: 'Reines Diktat. Für immer kostenlos.',
-    features: [
-      'Diktat-Modus unbegrenzt',
-      '100% lokal, Audio bleibt auf deinem Mac',
-      '10 KI-Aufrufe / Monat (Prompt-Modus)',
-      'Bis zu 2 Min Aufnahme',
+const COPY = {
+  de: {
+    pill: 'Preise',
+    headingA: 'Diktat ist',
+    headingB: 'gratis.',
+    headingC: 'Agent ist günstiger als Wispr.',
+    sub: 'Keine Demo-Frist. Keine Kreditkarte fürs Laden. Sprich los, entscheide später ob du Agent willst.',
+    roi: {
+      hourLabel: 'Deine Stunde',
+      hourValue: '50 €',
+      hourSub: 'Annahme · selbständig',
+      saveLabel: 'Du sparst',
+      saveValue: '20 h',
+      saveSub: 'pro Monat · 1 h pro Tag',
+      worthLabel: 'Wert',
+      worthValue: '1.000 €',
+      worthSub: 'pro Monat · zurück',
+      payLabel: 'Du zahlst',
+      payValue: '15 €',
+      paySub: '= 67× ROI',
+      footer: 'Konservative Rechnung · skaliert mit deinem Stundensatz',
+    },
+    popularBadge: 'Beliebteste Wahl',
+    freeBadge: 'Gratis',
+    footer: 'Preise zzgl. 19% MwSt · Stripe Checkout · jederzeit kündbar',
+    plans: [
+      {
+        name: 'Free',
+        price: '0',
+        suffix: '€ / immer',
+        tagline: 'Reines Diktat. Für immer kostenlos.',
+        features: [
+          'Diktat-Modus unbegrenzt',
+          '100% lokal, Audio bleibt auf deinem Mac',
+          '10 KI-Aufrufe / Monat (Prompt-Modus)',
+          'Bis zu 2 Min Aufnahme',
+        ],
+        cta: 'Download for Mac',
+      },
+      {
+        name: 'Pro',
+        price: '15',
+        suffix: '€ / Monat · zzgl. MwSt',
+        tagline: 'Diktat + Prompt + Agent. Für aktive Anwender, die Voice produktiv nutzen.',
+        features: [
+          'Alles aus Free',
+          '500 KI-Aufrufe / Monat',
+          'Agent-Modus (eigene Prompts)',
+          'Bis zu 5 Min Aufnahme',
+          'Priorität auf neue Features',
+        ],
+        cta: 'Download for Mac',
+      },
+      {
+        name: 'Premium',
+        price: '30',
+        suffix: '€ / Monat · zzgl. MwSt',
+        tagline: 'Für Power-Nutzer mit maximalem KI-Volumen.',
+        features: [
+          'Alles aus Pro',
+          '3.000 KI-Aufrufe / Monat',
+          'Bis zu 10 Min Aufnahme',
+          'Priority Models (höhere Qualität)',
+          'Frühen Zugang zu neuen Modellen',
+        ],
+        cta: 'Download for Mac',
+      },
     ],
-    cta: 'Download for Mac',
-    free: true,
-    accent: false,
   },
-  {
-    name: 'Pro',
-    price: '15',
-    suffix: '€ / Monat · zzgl. MwSt',
-    tagline: 'Diktat + Prompt + Agent. Für aktive Anwender, die Voice produktiv nutzen.',
-    features: [
-      'Alles aus Free',
-      '500 KI-Aufrufe / Monat',
-      'Agent-Modus (eigene Prompts)',
-      'Bis zu 5 Min Aufnahme',
-      'Priorität auf neue Features',
+  en: {
+    pill: 'Pricing',
+    headingA: 'Dictation is',
+    headingB: 'free.',
+    headingC: 'Agent is cheaper than Wispr.',
+    sub: 'No demo limit. No credit card to download. Start speaking, decide later if you want Agent.',
+    roi: {
+      hourLabel: 'Your hour',
+      hourValue: '€50',
+      hourSub: 'Assumption · self-employed',
+      saveLabel: 'You save',
+      saveValue: '20 h',
+      saveSub: 'per month · 1 h a day',
+      worthLabel: 'Worth',
+      worthValue: '€1,000',
+      worthSub: 'per month · returned',
+      payLabel: 'You pay',
+      payValue: '€15',
+      paySub: '= 67× ROI',
+      footer: 'Conservative math · scales with your hourly rate',
+    },
+    popularBadge: 'Most popular',
+    freeBadge: 'Free',
+    footer: 'Prices plus VAT · Stripe checkout · cancel any time',
+    plans: [
+      {
+        name: 'Free',
+        price: '0',
+        suffix: '€ / forever',
+        tagline: 'Pure dictation. Free forever.',
+        features: [
+          'Unlimited dictation mode',
+          '100% local, audio stays on your Mac',
+          '10 AI calls / month (Prompt mode)',
+          'Up to 2 min recording',
+        ],
+        cta: 'Download for Mac',
+      },
+      {
+        name: 'Pro',
+        price: '15',
+        suffix: '€ / month · plus VAT',
+        tagline: 'Dictation + Prompt + Agent. For people who actually use voice productively.',
+        features: [
+          'Everything in Free',
+          '500 AI calls / month',
+          'Agent mode (custom prompts)',
+          'Up to 5 min recording',
+          'Priority on new features',
+        ],
+        cta: 'Download for Mac',
+      },
+      {
+        name: 'Premium',
+        price: '30',
+        suffix: '€ / month · plus VAT',
+        tagline: 'For power users who want maximum AI volume.',
+        features: [
+          'Everything in Pro',
+          '3,000 AI calls / month',
+          'Up to 10 min recording',
+          'Priority models (higher quality)',
+          'Early access to new models',
+        ],
+        cta: 'Download for Mac',
+      },
     ],
-    cta: 'Download for Mac',
-    free: false,
-    accent: true,
   },
-  {
-    name: 'Premium',
-    price: '30',
-    suffix: '€ / Monat · zzgl. MwSt',
-    tagline: 'Für Power-Nutzer mit maximalem KI-Volumen.',
-    features: [
-      'Alles aus Pro',
-      '3.000 KI-Aufrufe / Monat',
-      'Bis zu 10 Min Aufnahme',
-      'Priority Models (höhere Qualität)',
-      'Frühen Zugang zu neuen Modellen',
-    ],
-    cta: 'Download for Mac',
-    free: false,
-    accent: false,
-  },
-];
+};
 
-export default function VoiceItPricing() {
+export default function VoiceItPricing({ lang = 'de' }) {
   const compRef = useRef(null);
+  const c = COPY[lang] || COPY.de;
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -75,7 +165,7 @@ export default function VoiceItPricing() {
     <section
       id="preise"
       ref={compRef}
-      aria-label="Preise"
+      aria-label={lang === 'en' ? 'Pricing' : 'Preise'}
       className="relative w-full py-14 md:py-20 px-4 sm:px-6 md:px-8"
       style={{ background: 'var(--fv-bg)' }}
     >
@@ -84,25 +174,24 @@ export default function VoiceItPricing() {
       <div className="relative z-10 max-w-[1200px] mx-auto">
         <div className="text-center mb-14">
           <div className="price-elem flair-pill-blue w-fit mx-auto mb-5">
-            <span className="font-data uppercase tracking-[0.2em] text-[10px]">Preise</span>
+            <span className="font-data uppercase tracking-[0.2em] text-[10px]">{c.pill}</span>
           </div>
           <h2
             className="price-elem flair-heading"
             style={{ fontSize: 'clamp(2rem, 5vw, 3.25rem)' }}
           >
-            Diktat ist{' '}
-            <span style={{ color: 'var(--fv-blue)' }}>gratis.</span>{' '}
-            Agent ist günstiger als Wispr.
+            {c.headingA}{' '}
+            <span style={{ color: 'var(--fv-blue)' }}>{c.headingB}</span>{' '}
+            {c.headingC}
           </h2>
           <p
             className="price-elem font-sans text-base md:text-lg mt-5 max-w-[58ch] mx-auto"
             style={{ color: 'var(--fv-text-muted)' }}
           >
-            Keine Demo-Frist. Keine Kreditkarte fürs Laden. Sprich los, entscheide später ob du Agent willst.
+            {c.sub}
           </p>
         </div>
 
-        {/* ROI-Rechnung über den Plans */}
         <div
           className="price-elem max-w-[920px] mx-auto mb-10 md:mb-14 rounded-2xl overflow-hidden relative"
           style={{
@@ -114,37 +203,37 @@ export default function VoiceItPricing() {
           <div className="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x" style={{ borderColor: 'var(--fv-divider)' }}>
             <div className="px-4 py-5 md:py-6 text-center" style={{ borderColor: 'var(--fv-divider)' }}>
               <div className="font-data uppercase tracking-[0.16em] text-[9.5px] mb-1.5" style={{ color: 'var(--fv-text-muted)' }}>
-                Deine Stunde
+                {c.roi.hourLabel}
               </div>
               <div className="font-heading font-extrabold text-[26px] md:text-[32px] leading-none" style={{ color: 'var(--fv-text)' }}>
-                50&nbsp;€
+                {c.roi.hourValue}
               </div>
               <div className="font-sans text-[11px] mt-1.5" style={{ color: 'var(--fv-text-muted)' }}>
-                Annahme · selbständig
+                {c.roi.hourSub}
               </div>
             </div>
 
             <div className="px-4 py-5 md:py-6 text-center" style={{ borderColor: 'var(--fv-divider)' }}>
               <div className="font-data uppercase tracking-[0.16em] text-[9.5px] mb-1.5" style={{ color: 'var(--fv-text-muted)' }}>
-                Du sparst
+                {c.roi.saveLabel}
               </div>
               <div className="font-heading font-extrabold text-[26px] md:text-[32px] leading-none" style={{ color: 'var(--fv-text)' }}>
-                20&nbsp;h
+                {c.roi.saveValue}
               </div>
               <div className="font-sans text-[11px] mt-1.5" style={{ color: 'var(--fv-text-muted)' }}>
-                pro Monat · 1 h pro Tag
+                {c.roi.saveSub}
               </div>
             </div>
 
             <div className="px-4 py-5 md:py-6 text-center" style={{ borderColor: 'var(--fv-divider)' }}>
               <div className="font-data uppercase tracking-[0.16em] text-[9.5px] mb-1.5" style={{ color: 'var(--fv-text-muted)' }}>
-                Wert
+                {c.roi.worthLabel}
               </div>
               <div className="font-heading font-extrabold text-[26px] md:text-[32px] leading-none" style={{ color: 'var(--fv-blue)' }}>
-                1.000&nbsp;€
+                {c.roi.worthValue}
               </div>
               <div className="font-sans text-[11px] mt-1.5" style={{ color: 'var(--fv-text-muted)' }}>
-                pro Monat · zurück
+                {c.roi.worthSub}
               </div>
             </div>
 
@@ -163,13 +252,13 @@ export default function VoiceItPricing() {
               />
               <div className="relative z-10">
                 <div className="font-data uppercase tracking-[0.16em] text-[9.5px] mb-1.5" style={{ color: 'var(--fv-text-muted)' }}>
-                  Du zahlst
+                  {c.roi.payLabel}
                 </div>
                 <div className="font-heading font-extrabold text-[26px] md:text-[32px] leading-none" style={{ color: 'var(--fv-text)' }}>
-                  15&nbsp;€
+                  {c.roi.payValue}
                 </div>
                 <div className="font-sans text-[11px] mt-1.5 font-semibold" style={{ color: 'var(--fv-text-strong)' }}>
-                  = 67× ROI
+                  {c.roi.paySub}
                 </div>
               </div>
             </div>
@@ -182,114 +271,118 @@ export default function VoiceItPricing() {
               color: 'var(--fv-text-muted)',
             }}
           >
-            Konservative Rechnung · skaliert mit deinem Stundensatz
+            {c.roi.footer}
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-          {PLANS.map((p, i) => (
-            <div
-              key={i}
-              className={`price-elem flair-card p-7 md:p-8 flex flex-col relative ${p.accent ? 'lg:scale-[1.03]' : ''}`}
-              style={
-                p.accent
-                  ? {
-                      borderColor: 'rgba(37,99,235,0.4)',
-                      boxShadow: '0 4px 14px rgba(37,99,235,0.18), 0 24px 60px rgba(15,23,42,0.08)',
-                    }
-                  : undefined
-              }
-            >
-              {p.accent && (
-                <span
-                  className="absolute -top-3 left-1/2 -translate-x-1/2"
-                  style={{
-                    background: 'var(--fv-blue)',
-                    color: '#FFFFFF',
-                    padding: '0.3rem 0.75rem',
-                    borderRadius: '9999px',
-                    fontFamily: 'var(--font-data)',
-                    fontSize: '10px',
-                    fontWeight: 700,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.14em',
-                    boxShadow: '0 4px 12px rgba(37,99,235,0.35)',
-                    whiteSpace: 'nowrap',
-                  }}
-                >
-                  Beliebteste Wahl
-                </span>
-              )}
-
-              <div className="flex items-center justify-between mb-5">
-                <h3 className="font-heading font-extrabold text-2xl" style={{ color: 'var(--fv-text)' }}>
-                  {p.name}
-                </h3>
-                {p.free && (
+          {c.plans.map((p, i) => {
+            const accent = i === 1;
+            const free = i === 0;
+            return (
+              <div
+                key={i}
+                className={`price-elem flair-card p-7 md:p-8 flex flex-col relative ${accent ? 'lg:scale-[1.03]' : ''}`}
+                style={
+                  accent
+                    ? {
+                        borderColor: 'rgba(37,99,235,0.4)',
+                        boxShadow: '0 4px 14px rgba(37,99,235,0.18), 0 24px 60px rgba(15,23,42,0.08)',
+                      }
+                    : undefined
+                }
+              >
+                {accent && (
                   <span
+                    className="absolute -top-3 left-1/2 -translate-x-1/2"
                     style={{
-                      background: '#CCFF00',
-                      color: '#2563EB',
-                      boxShadow: '0 0 16px rgba(204,255,0,0.45)',
-                      border: '1px solid rgba(37,99,235,0.25)',
-                      padding: '0.25rem 0.625rem',
+                      background: 'var(--fv-blue)',
+                      color: '#FFFFFF',
+                      padding: '0.3rem 0.75rem',
                       borderRadius: '9999px',
                       fontFamily: 'var(--font-data)',
                       fontSize: '10px',
                       fontWeight: 700,
                       textTransform: 'uppercase',
-                      letterSpacing: '0.12em',
+                      letterSpacing: '0.14em',
+                      boxShadow: '0 4px 12px rgba(37,99,235,0.35)',
+                      whiteSpace: 'nowrap',
                     }}
                   >
-                    Gratis
+                    {c.popularBadge}
                   </span>
                 )}
+
+                <div className="flex items-center justify-between mb-5">
+                  <h3 className="font-heading font-extrabold text-2xl" style={{ color: 'var(--fv-text)' }}>
+                    {p.name}
+                  </h3>
+                  {free && (
+                    <span
+                      style={{
+                        background: '#CCFF00',
+                        color: '#2563EB',
+                        boxShadow: '0 0 16px rgba(204,255,0,0.45)',
+                        border: '1px solid rgba(37,99,235,0.25)',
+                        padding: '0.25rem 0.625rem',
+                        borderRadius: '9999px',
+                        fontFamily: 'var(--font-data)',
+                        fontSize: '10px',
+                        fontWeight: 700,
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.12em',
+                      }}
+                    >
+                      {c.freeBadge}
+                    </span>
+                  )}
+                </div>
+
+                <div className="flex items-baseline gap-2 mb-2">
+                  <span className="font-heading font-extrabold text-5xl tracking-tight" style={{ color: 'var(--fv-text)' }}>
+                    {p.price}
+                  </span>
+                  <span className="font-sans text-sm" style={{ color: 'var(--fv-text-muted)' }}>
+                    {p.suffix}
+                  </span>
+                </div>
+                <p className="font-sans text-[14px] mb-6" style={{ color: 'var(--fv-text-muted)' }}>
+                  {p.tagline}
+                </p>
+
+                <ul className="space-y-3 mb-8 flex-1">
+                  {p.features.map((f, j) => (
+                    <li key={j} className="flex items-start gap-2.5 font-sans text-[14px]" style={{ color: 'var(--fv-text-strong)' }}>
+                      <Check
+                        size={16}
+                        style={{ color: accent ? 'var(--fv-blue)' : '#16A34A', flexShrink: 0, marginTop: 2 }}
+                        strokeWidth={2.5}
+                      />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+
+                <a
+                  href="https://github.com/newwaysai/voiceit-releases/releases/latest/download/Voiceit.dmg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={accent ? 'flair-btn-primary' : 'flair-btn-secondary-light'}
+                  style={{ justifyContent: 'center' }}
+                >
+                  <Download size={16} />
+                  {p.cta}
+                </a>
               </div>
-
-              <div className="flex items-baseline gap-2 mb-2">
-                <span className="font-heading font-extrabold text-5xl tracking-tight" style={{ color: 'var(--fv-text)' }}>
-                  {p.price}
-                </span>
-                <span className="font-sans text-sm" style={{ color: 'var(--fv-text-muted)' }}>
-                  {p.suffix}
-                </span>
-              </div>
-              <p className="font-sans text-[14px] mb-6" style={{ color: 'var(--fv-text-muted)' }}>
-                {p.tagline}
-              </p>
-
-              <ul className="space-y-3 mb-8 flex-1">
-                {p.features.map((f, j) => (
-                  <li key={j} className="flex items-start gap-2.5 font-sans text-[14px]" style={{ color: 'var(--fv-text-strong)' }}>
-                    <Check
-                      size={16}
-                      style={{ color: p.accent ? 'var(--fv-blue)' : '#16A34A', flexShrink: 0, marginTop: 2 }}
-                      strokeWidth={2.5}
-                    />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-
-              <a
-                href="https://github.com/newwaysai/voiceit-releases/releases/latest/download/Voiceit.dmg"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={p.accent ? 'flair-btn-primary' : 'flair-btn-secondary-light'}
-                style={{ justifyContent: 'center' }}
-              >
-                <Download size={16} />
-                {p.cta}
-              </a>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <p
           className="price-elem mt-10 text-center font-data text-[11px] uppercase tracking-[0.18em]"
           style={{ color: 'var(--fv-text-light)' }}
         >
-          Preise zzgl. 19% MwSt · Stripe Checkout · jederzeit kündbar
+          {c.footer}
         </p>
       </div>
     </section>

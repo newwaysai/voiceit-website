@@ -292,7 +292,7 @@ export default function Datenschutz() {
           </p>
         </div>
       </main>
-      <Footer />
+      <Footer lang="de" />
     </div>
   );
 }

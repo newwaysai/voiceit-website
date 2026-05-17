@@ -3,46 +3,62 @@ import { useEffect, useRef } from 'react';
 import { gsap, ScrollTrigger } from '@/lib/gsap';
 import { Check, X } from 'lucide-react';
 
-const ROWS = [
-  {
-    label: 'Audio bleibt auf deinem Mac',
-    voiceit: { ok: true, note: 'Lokales Voice-Modell' },
-    wispr: { ok: false, note: 'Streamt in die Cloud' },
+const COPY = {
+  de: {
+    pill: 'Vergleich',
+    headingA: 'Wispr diktiert.',
+    headingB: 'Voiceit arbeitet.',
+    sub: 'Gleicher Preis. Mehr Funktion. Audio bleibt auf deinem Mac. Punkt.',
+    featureHeader: 'Feature',
+    yes: 'Ja',
+    no: 'Nein',
+    asOf: 'Stand 05/2026 · öffentliche Angaben & eigene Tests',
+    ctaPill: 'Direkt-Vergleich',
+    ctaHeadingA: 'Bei Wispr zahlst du fürs Diktat.',
+    ctaHeadingB: 'Hier ist Diktat gratis.',
+    ctaBody:
+      'Und für den gleichen Preis wie deine Wispr-Subscription bekommst du obendrauf den Prompt- und Agent-Modus. Audio bleibt auf deinem Mac.',
+    ctaButton: 'Voiceit holen',
+    rows: [
+      { label: 'Audio bleibt auf deinem Mac', voiceit: 'Lokales Voice-Modell', wispr: 'Streamt in die Cloud' },
+      { label: 'Transkriptions-Speed', voiceit: 'Bis 5× schneller als Cloud-Tools', wispr: 'Netzwerk-Round-Trip pro Satz' },
+      { label: 'Kostenloser Modus', voiceit: 'Diktat unbegrenzt gratis', wispr: 'Subscription ab Tag 1' },
+      { label: 'Latenz beim Diktat', voiceit: 'Sofort, offline-fähig', wispr: 'Netzwerk-Round-Trip' },
+      { label: 'Pro-Preis pro Monat', voiceit: '15 € zzgl. MwSt', wispr: 'ab 15 $ + Cloud-Kosten' },
+      { label: 'DSGVO-Position', voiceit: 'EU-Backend (Supabase, Stripe)', wispr: 'US-Cloud Default' },
+      { label: 'Funktioniert ohne Internet', voiceit: 'Diktat-Modus, 7 Tage Grace', wispr: 'Cloud-STT zwingend' },
+    ],
   },
-  {
-    label: 'Transkriptions-Speed',
-    voiceit: { ok: true, note: 'Bis 5× schneller als Cloud-Tools' },
-    wispr: { ok: false, note: 'Netzwerk-Round-Trip pro Satz' },
+  en: {
+    pill: 'Comparison',
+    headingA: 'Wispr dictates.',
+    headingB: 'Voiceit works.',
+    sub: 'Same price. More function. Audio stays on your Mac. Period.',
+    featureHeader: 'Feature',
+    yes: 'Yes',
+    no: 'No',
+    asOf: 'As of 05/2026 · public info & in-house testing',
+    ctaPill: 'Head to head',
+    ctaHeadingA: 'With Wispr you pay for dictation.',
+    ctaHeadingB: 'Here, dictation is free.',
+    ctaBody:
+      'And for the same price as your Wispr subscription you get Prompt and Agent mode on top. Audio stays on your Mac.',
+    ctaButton: 'Get Voiceit',
+    rows: [
+      { label: 'Audio stays on your Mac', voiceit: 'Local voice model', wispr: 'Streams to the cloud' },
+      { label: 'Transcription speed', voiceit: 'Up to 5× faster than cloud tools', wispr: 'Network round-trip per sentence' },
+      { label: 'Free tier', voiceit: 'Unlimited dictation, free', wispr: 'Subscription from day 1' },
+      { label: 'Dictation latency', voiceit: 'Instant, works offline', wispr: 'Network round-trip' },
+      { label: 'Pro price per month', voiceit: '€15 plus VAT', wispr: '$15+ and cloud costs' },
+      { label: 'GDPR posture', voiceit: 'EU backend (Supabase, Stripe)', wispr: 'US cloud by default' },
+      { label: 'Works without internet', voiceit: 'Dictation mode, 7-day grace', wispr: 'Cloud STT required' },
+    ],
   },
-  {
-    label: 'Kostenloser Modus',
-    voiceit: { ok: true, note: 'Diktat unbegrenzt gratis' },
-    wispr: { ok: false, note: 'Subscription ab Tag 1' },
-  },
-  {
-    label: 'Latenz beim Diktat',
-    voiceit: { ok: true, note: 'Sofort, offline-fähig' },
-    wispr: { ok: false, note: 'Netzwerk-Round-Trip' },
-  },
-  {
-    label: 'Pro-Preis pro Monat',
-    voiceit: { ok: true, note: '15 € zzgl. MwSt' },
-    wispr: { ok: false, note: 'ab 15 $ + Cloud-Kosten' },
-  },
-  {
-    label: 'DSGVO-Position',
-    voiceit: { ok: true, note: 'EU-Backend (Supabase, Stripe)' },
-    wispr: { ok: false, note: 'US-Cloud Default' },
-  },
-  {
-    label: 'Funktioniert ohne Internet',
-    voiceit: { ok: true, note: 'Diktat-Modus, 7 Tage Grace' },
-    wispr: { ok: false, note: 'Cloud-STT zwingend' },
-  },
-];
+};
 
-export default function VoiceItVsWispr() {
+export default function VoiceItVsWispr({ lang = 'de' }) {
   const compRef = useRef(null);
+  const c = COPY[lang] || COPY.de;
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -71,25 +87,24 @@ export default function VoiceItVsWispr() {
       <div className="relative z-10 max-w-[1100px] mx-auto">
         <div className="text-center mb-14">
           <div className="cmp-elem flair-pill-blue w-fit mx-auto mb-5">
-            <span className="font-data uppercase tracking-[0.2em] text-[10px]">Vergleich</span>
+            <span className="font-data uppercase tracking-[0.2em] text-[10px]">{c.pill}</span>
           </div>
           <h2
             className="cmp-elem flair-heading"
             style={{ fontSize: 'clamp(2rem, 5vw, 3.25rem)' }}
           >
-            Wispr diktiert.{' '}
-            <span style={{ color: 'var(--fv-blue)' }}>Voiceit arbeitet.</span>
+            {c.headingA}{' '}
+            <span style={{ color: 'var(--fv-blue)' }}>{c.headingB}</span>
           </h2>
           <p
             className="cmp-elem font-sans text-base md:text-lg mt-5 max-w-[56ch] mx-auto"
             style={{ color: 'var(--fv-text-muted)' }}
           >
-            Gleicher Preis. Mehr Funktion. Audio bleibt auf deinem Mac. Punkt.
+            {c.sub}
           </p>
         </div>
 
         <div className="cmp-elem flair-card overflow-hidden">
-          {/* Header row */}
           <div
             className="grid grid-cols-[1.4fr_1fr_1fr] md:grid-cols-[1.6fr_1fr_1fr]"
             style={{
@@ -99,7 +114,7 @@ export default function VoiceItVsWispr() {
           >
             <div className="px-4 md:px-6 py-4 md:py-5">
               <span className="font-data uppercase tracking-[0.18em] text-[10px] md:text-[11px]" style={{ color: 'var(--fv-text-muted)' }}>
-                Feature
+                {c.featureHeader}
               </span>
             </div>
             <div className="px-3 md:px-6 py-4 md:py-5 flex items-center gap-2" style={{ borderLeft: '1px solid var(--fv-divider)' }}>
@@ -115,13 +130,12 @@ export default function VoiceItVsWispr() {
             </div>
           </div>
 
-          {/* Rows */}
-          {ROWS.map((r, i) => (
+          {c.rows.map((r, i) => (
             <div
               key={i}
               className="grid grid-cols-[1.4fr_1fr_1fr] md:grid-cols-[1.6fr_1fr_1fr] items-stretch"
               style={{
-                borderBottom: i < ROWS.length - 1 ? '1px solid var(--fv-divider)' : 'none',
+                borderBottom: i < c.rows.length - 1 ? '1px solid var(--fv-divider)' : 'none',
               }}
             >
               <div className="px-4 md:px-6 py-4 md:py-5">
@@ -139,11 +153,11 @@ export default function VoiceItVsWispr() {
                 <div className="flex items-center gap-2">
                   <Check size={16} style={{ color: '#16A34A' }} strokeWidth={2.5} />
                   <span className="font-data uppercase tracking-[0.12em] text-[10px] md:text-[11px] font-bold" style={{ color: '#16A34A' }}>
-                    Ja
+                    {c.yes}
                   </span>
                 </div>
                 <span className="font-sans text-[12px] md:text-[13px]" style={{ color: 'var(--fv-text-muted)' }}>
-                  {r.voiceit.note}
+                  {r.voiceit}
                 </span>
               </div>
               <div
@@ -153,11 +167,11 @@ export default function VoiceItVsWispr() {
                 <div className="flex items-center gap-2">
                   <X size={16} style={{ color: '#DC2626' }} strokeWidth={2.5} />
                   <span className="font-data uppercase tracking-[0.12em] text-[10px] md:text-[11px] font-bold" style={{ color: '#DC2626' }}>
-                    Nein
+                    {c.no}
                   </span>
                 </div>
                 <span className="font-sans text-[12px] md:text-[13px]" style={{ color: 'var(--fv-text-muted)' }}>
-                  {r.wispr.note}
+                  {r.wispr}
                 </span>
               </div>
             </div>
@@ -168,10 +182,9 @@ export default function VoiceItVsWispr() {
           className="cmp-elem mt-6 text-center font-data text-[11px] uppercase tracking-[0.18em]"
           style={{ color: 'var(--fv-text-light)' }}
         >
-          Stand 05/2026 · öffentliche Angaben & eigene Tests
+          {c.asOf}
         </p>
 
-        {/* Cancel Wispr push */}
         <div
           className="cmp-elem mt-10 max-w-[760px] mx-auto rounded-2xl overflow-hidden relative px-6 md:px-10 py-7 md:py-9 text-center"
           style={{
@@ -210,7 +223,7 @@ export default function VoiceItVsWispr() {
                 marginBottom: '0.75rem',
               }}
             >
-              Direkt-Vergleich
+              {c.ctaPill}
             </span>
             <h3
               className="font-heading font-extrabold leading-[1.05] mb-3"
@@ -219,16 +232,16 @@ export default function VoiceItVsWispr() {
                 color: '#FFFFFF',
               }}
             >
-              Bei Wispr zahlst du fürs Diktat.{' '}
+              {c.ctaHeadingA}{' '}
               <span style={{ color: '#CCFF00', textShadow: '0 0 30px rgba(204,255,0,0.4)' }}>
-                Hier ist Diktat gratis.
+                {c.ctaHeadingB}
               </span>
             </h3>
             <p
               className="font-sans text-sm md:text-base max-w-[54ch] mx-auto"
               style={{ color: 'rgba(255,255,255,0.7)' }}
             >
-              Und für den gleichen Preis wie deine Wispr-Subscription bekommst du obendrauf den Prompt- und Agent-Modus. Audio bleibt auf deinem Mac.
+              {c.ctaBody}
             </p>
             <a
               href="https://github.com/newwaysai/voiceit-releases/releases/latest/download/Voiceit.dmg"
@@ -237,7 +250,7 @@ export default function VoiceItVsWispr() {
               className="flair-btn-primary mt-6"
               style={{ display: 'inline-flex' }}
             >
-              Voiceit holen
+              {c.ctaButton}
             </a>
           </div>
         </div>

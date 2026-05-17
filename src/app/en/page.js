@@ -16,18 +16,19 @@ import VoiceItProofOfUse from '@/components/voiceit/VoiceItProofOfUse';
 import VoiceItFeatures from '@/components/voiceit/VoiceItFeatures';
 
 export const metadata = {
-  title: 'Voiceit — Text erscheint. Fertig.',
+  title: 'Voiceit — Text appears. Done.',
   description:
-    'Voice-Agent für Mac. Mehr als Diktat: Prompt-Modus poliert, Agent-Modus arbeitet. Audio bleibt auf deinem Mac. Diktat ist gratis. Agent günstiger als Wispr.',
+    'Voice agent for Mac. More than dictation: Prompt mode polishes, Agent mode works. Audio stays on your Mac. Dictation is free. Agent cheaper than Wispr.',
   openGraph: {
-    title: 'Voiceit — Text erscheint. Fertig.',
+    title: 'Voiceit — Text appears. Done.',
     description:
-      'Voice-Agent für Mac. Audio bleibt lokal. Diktat gratis. Agent-Modus günstiger als Wispr Flow.',
-    url: 'https://voiceitai.app',
+      'Voice agent for Mac. Audio stays local. Dictation free. Agent mode cheaper than Wispr Flow.',
+    url: 'https://voiceitai.app/en',
     type: 'website',
+    locale: 'en_US',
   },
   alternates: {
-    canonical: 'https://voiceitai.app',
+    canonical: 'https://voiceitai.app/en',
     languages: {
       'de-DE': 'https://voiceitai.app/',
       'en-US': 'https://voiceitai.app/en',
@@ -35,57 +36,57 @@ export const metadata = {
   },
 };
 
-export default function VoiceItPage() {
+export default function VoiceItPageEN() {
   return (
     <div id="top" className="bg-background min-h-screen text-primary overflow-x-hidden selection:bg-accent/20 selection:text-primary">
-      <VoiceItNavbar lang="de" />
+      <VoiceItNavbar lang="en" />
       <main role="main">
-        <VoiceItHero lang="de" />
+        <VoiceItHero lang="en" />
 
         <VoiceItFeatureStrip />
 
-        <VoiceItPain lang="de" />
+        <VoiceItPain lang="en" />
 
         <VoiceItDownloadStrip
-          headline="Schluss mit Tippen."
-          sub="Diktat-Modus ist gratis. Zwei Minuten Installation. Eine Taste lernen."
+          headline="Stop typing."
+          sub="Dictation mode is free. Two-minute install. Learn one key."
           cta="Download for Mac"
         />
 
-        <VoiceItModes lang="de" />
+        <VoiceItModes lang="en" />
 
-        <VoiceItPromptCompare lang="de" />
+        <VoiceItPromptCompare lang="en" />
 
-        <VoiceItFeatures lang="de" />
+        <VoiceItFeatures lang="en" />
 
-        <VoiceItProof lang="de" />
+        <VoiceItProof lang="en" />
 
-        <VoiceItProofOfUse lang="de" />
+        <VoiceItProofOfUse lang="en" />
 
         <VoiceItDownloadStrip
           variant="lime"
-          headline="Diktat gratis. Agent gibts obendrauf."
-          sub="Audio bleibt auf deinem Mac. Wispr-Preis bringt dir den KI-Agent dazu."
+          headline="Dictation free. Agent on top."
+          sub="Audio stays on your Mac. Wispr-price gets you the AI agent included."
           cta="Download for Mac"
         />
 
-        <VoiceItVsWispr lang="de" />
+        <VoiceItVsWispr lang="en" />
 
-        <VoiceItBonusStack lang="de" />
+        <VoiceItBonusStack lang="en" />
 
-        <VoiceItPricing lang="de" />
+        <VoiceItPricing lang="en" />
 
         <VoiceItDownloadStrip
-          headline="Voiceit. Fertig."
-          sub="macOS 13+ · Apple Silicon · keine Kreditkarte fürs Diktat."
+          headline="Voiceit. Done."
+          sub="macOS 13+ · Apple Silicon · no credit card for dictation."
           cta="Download for Mac"
         />
 
-        <VoiceItFAQ lang="de" />
+        <VoiceItFAQ lang="en" />
 
-        <VoiceItFinalCTA lang="de" />
+        <VoiceItFinalCTA lang="en" />
       </main>
-      <Footer lang="de" />
+      <Footer lang="en" />
     </div>
   );
 }

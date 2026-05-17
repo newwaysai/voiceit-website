@@ -1,14 +1,25 @@
 'use client';
 import { Download } from 'lucide-react';
+import Link from 'next/link';
 import ThemeToggle from '@/components/ThemeToggle';
 
-const LINKS = [
-  { href: '#modi', label: 'Modi' },
+const LINKS_DE = [
+  { href: '#modi', label: 'Modes' },
+  { href: '#features', label: 'Features' },
   { href: '#preise', label: 'Preise' },
   { href: '#faq', label: 'FAQ' },
 ];
 
-export default function VoiceItNavbar() {
+const LINKS_EN = [
+  { href: '#modi', label: 'Modes' },
+  { href: '#features', label: 'Features' },
+  { href: '#preise', label: 'Pricing' },
+  { href: '#faq', label: 'FAQ' },
+];
+
+export default function VoiceItNavbar({ lang = 'de' }) {
+  const links = lang === 'en' ? LINKS_EN : LINKS_DE;
+
   return (
     <nav
       aria-label="Voiceit Navigation"
@@ -18,17 +29,21 @@ export default function VoiceItNavbar() {
         borderBottom: '1px solid var(--fv-border)',
       }}
     >
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8 h-14 md:h-16 flex items-center justify-between gap-4">
-        <a href="#top" className="text-xl md:text-2xl font-heading font-bold tracking-tight" style={{ color: 'var(--fv-text)' }}>
+      <div className="max-w-[1280px] mx-auto px-3 sm:px-6 md:px-8 h-14 md:h-16 flex items-center gap-2 sm:gap-3 md:gap-4 overflow-x-auto no-scrollbar">
+        <a
+          href="#top"
+          className="text-lg sm:text-xl md:text-2xl font-heading font-bold tracking-tight shrink-0"
+          style={{ color: 'var(--fv-text)' }}
+        >
           Voiceit<span style={{ color: 'var(--fv-blue)' }}>.</span>
         </a>
 
-        <div className="hidden sm:flex items-center gap-1">
-          {LINKS.map((l) => (
+        <div className="flex items-center gap-0.5 sm:gap-1 shrink-0">
+          {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="font-sans text-sm px-3 py-1.5 rounded-full transition-colors"
+              className="font-sans text-[12px] sm:text-sm px-2 sm:px-3 py-1.5 rounded-full transition-colors whitespace-nowrap"
               style={{ color: 'var(--fv-text-muted)' }}
               onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--fv-text)')}
               onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--fv-text-muted)')}
@@ -38,13 +53,47 @@ export default function VoiceItNavbar() {
           ))}
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="ml-auto flex items-center gap-1.5 sm:gap-2 md:gap-3 shrink-0">
+          <div
+            className="inline-flex items-center rounded-full text-[10px] sm:text-xs font-heading font-semibold overflow-hidden"
+            style={{ border: '1px solid var(--fv-border)' }}
+            role="group"
+            aria-label={lang === 'en' ? 'Switch language' : 'Sprache wechseln'}
+          >
+            <Link
+              href="/"
+              prefetch={false}
+              aria-current={lang === 'de' ? 'page' : undefined}
+              className="px-1.5 sm:px-2.5 py-1 transition-colors"
+              style={{
+                background: lang === 'de' ? 'var(--fv-text)' : 'transparent',
+                color: lang === 'de' ? 'var(--fv-bg)' : 'var(--fv-text-muted)',
+              }}
+            >
+              DE
+            </Link>
+            <Link
+              href="/en"
+              prefetch={false}
+              aria-current={lang === 'en' ? 'page' : undefined}
+              className="px-1.5 sm:px-2.5 py-1 transition-colors"
+              style={{
+                background: lang === 'en' ? 'var(--fv-text)' : 'transparent',
+                color: lang === 'en' ? 'var(--fv-bg)' : 'var(--fv-text-muted)',
+              }}
+            >
+              EN
+            </Link>
+          </div>
+
           <ThemeToggle />
+
           <a
             href="https://github.com/newwaysai/voiceit-releases/releases/latest/download/Voiceit.dmg"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-1.5 font-heading font-semibold text-xs md:text-sm px-3.5 md:px-4 py-2 rounded-full transition-all"
+            aria-label="Download for Mac"
+            className="inline-flex items-center gap-1.5 font-heading font-semibold text-[11px] sm:text-xs md:text-sm px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 rounded-full transition-all whitespace-nowrap"
             style={{
               background: 'var(--fv-blue)',
               color: '#FFFFFF',
@@ -54,7 +103,8 @@ export default function VoiceItNavbar() {
             onMouseLeave={(e) => (e.currentTarget.style.background = 'var(--fv-blue)')}
           >
             <Download size={14} />
-            Download for Mac
+            <span className="hidden md:inline">Download for Mac</span>
+            <span className="md:hidden">Download</span>
           </a>
         </div>
       </div>

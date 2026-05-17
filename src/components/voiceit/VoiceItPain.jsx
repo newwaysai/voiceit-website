@@ -3,29 +3,64 @@ import { useEffect, useRef } from 'react';
 import { gsap, ScrollTrigger } from '@/lib/gsap';
 import { Clock, CloudOff, Zap } from 'lucide-react';
 
-const POINTS = [
-  {
-    icon: Clock,
-    stat: '30+ Std',
-    title: 'pro Monat fürs Tippen.',
-    body: 'E-Mails, Slack, Notizen, Code-Kommentare. Stundenlang Buchstaben einklopfen, statt zu denken oder zu bauen.',
+const COPY = {
+  de: {
+    pill: 'Das Problem',
+    headingA: 'Tastatur frisst',
+    headingB: 'deine Zeit.',
+    headingC: 'Cloud-Diktate fressen',
+    headingD: 'deine Daten.',
+    sub: 'Du sprichst 3× schneller als du tippst. Und trotzdem klopfst du jeden Tag Stunden auf eine Tastatur ein. Warum?',
+    points: [
+      {
+        stat: '30+ Std',
+        title: 'pro Monat fürs Tippen.',
+        body: 'E-Mails, Slack, Notizen, Code-Kommentare. Stundenlang Buchstaben einklopfen, statt zu denken oder zu bauen.',
+      },
+      {
+        stat: 'Cloud-Audio',
+        title: 'bei jedem Wort.',
+        body: 'Wispr Flow und Co. streamen jede Sprachnotiz an fremde Server. Vertrauliche Gespräche. Kunden­namen. Alles raus.',
+      },
+      {
+        stat: 'Latenz',
+        title: 'die dich rausreißt.',
+        body: 'Cloud-Diktate hängen. Lokale Lösungen sind klobig. Bis das Tool reagiert, hast du den Satz schon getippt.',
+      },
+    ],
   },
-  {
-    icon: CloudOff,
-    stat: 'Cloud-Audio',
-    title: 'bei jedem Wort.',
-    body: 'Wispr Flow und Co. streamen jede Sprachnotiz an fremde Server. Vertrauliche Gespräche. Kunden­namen. Alles raus.',
+  en: {
+    pill: 'The problem',
+    headingA: 'Your keyboard eats',
+    headingB: 'your time.',
+    headingC: 'Cloud dictation eats',
+    headingD: 'your data.',
+    sub: 'You speak 3× faster than you type. Yet you still pound keys for hours every day. Why?',
+    points: [
+      {
+        stat: '30+ hrs',
+        title: 'a month just typing.',
+        body: 'Email, Slack, notes, code comments. Hours of hammering keys instead of thinking or building.',
+      },
+      {
+        stat: 'Cloud audio',
+        title: 'on every word.',
+        body: 'Wispr Flow and friends stream every voice note to someone elses servers. Private conversations. Client names. All gone.',
+      },
+      {
+        stat: 'Latency',
+        title: 'that breaks your flow.',
+        body: 'Cloud dictation lags. Local tools are clunky. By the time it reacts, you typed the sentence yourself.',
+      },
+    ],
   },
-  {
-    icon: Zap,
-    stat: 'Latenz',
-    title: 'die dich rausreißt.',
-    body: 'Cloud-Diktate hängen. Lokale Lösungen sind klobig. Bis das Tool reagiert, hast du den Satz schon getippt.',
-  },
-];
+};
 
-export default function VoiceItPain() {
+const ICONS = [Clock, CloudOff, Zap];
+
+export default function VoiceItPain({ lang = 'de' }) {
   const compRef = useRef(null);
+  const c = COPY[lang] || COPY.de;
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -54,32 +89,28 @@ export default function VoiceItPain() {
       <div className="relative z-10 max-w-[1200px] mx-auto">
         <div className="text-center mb-14 md:mb-20">
           <div className="pain-elem flair-pill-blue w-fit mx-auto mb-5">
-            <span className="font-data uppercase tracking-[0.2em] text-[10px]">Das Problem</span>
+            <span className="font-data uppercase tracking-[0.2em] text-[10px]">{c.pill}</span>
           </div>
           <h2
             className="pain-elem flair-heading"
             style={{ fontSize: 'clamp(2rem, 5vw, 3.25rem)' }}
           >
-            Tastatur frisst{' '}
-            <span style={{ color: 'var(--fv-blue)' }}>
-              deine Zeit.
-            </span>{' '}
-            Cloud-Diktate fressen{' '}
-            <span style={{ color: 'var(--fv-blue)' }}>
-              deine Daten.
-            </span>
+            {c.headingA}{' '}
+            <span style={{ color: 'var(--fv-blue)' }}>{c.headingB}</span>{' '}
+            {c.headingC}{' '}
+            <span style={{ color: 'var(--fv-blue)' }}>{c.headingD}</span>
           </h2>
           <p
             className="pain-elem font-sans text-base md:text-lg mt-5 max-w-[60ch] mx-auto"
             style={{ color: 'var(--fv-text-muted)' }}
           >
-            Du sprichst 3× schneller als du tippst. Und trotzdem klopfst du jeden Tag Stunden auf eine Tastatur ein. Warum?
+            {c.sub}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-          {POINTS.map((p, i) => {
-            const Icon = p.icon;
+          {c.points.map((p, i) => {
+            const Icon = ICONS[i];
             return (
               <div
                 key={i}

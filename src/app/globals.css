@@ -571,3 +571,12 @@ html {
 .seva-modal {
   z-index: 100000 !important;
 }
+
+/* Hide scrollbar utility (mobile nav strip) */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

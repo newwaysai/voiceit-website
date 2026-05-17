@@ -4,8 +4,36 @@ import { gsap, ScrollTrigger } from '@/lib/gsap';
 import { Download, ArrowRight, Lock, Cpu, HardDrive } from 'lucide-react';
 import TrustpilotBadge from '@/components/TrustpilotBadge';
 
-export default function VoiceItFinalCTA() {
+const COPY = {
+  de: {
+    pill: 'Bereit?',
+    headingA: 'Voiceit.',
+    headingB: 'Fertig.',
+    sub: 'Zwei Minuten Installation. Eine Taste lernen. Tippen ist Geschichte. Diktat kostet nichts und bleibt gratis.',
+    download: 'Download for Mac',
+    pricing: 'Preise ansehen',
+    silicon: 'Apple Silicon',
+    macos: 'macOS 13+',
+    local: '100% lokal',
+    footer: 'Beta · GitHub Releases · gebaut von newways.ai',
+  },
+  en: {
+    pill: 'Ready?',
+    headingA: 'Voiceit.',
+    headingB: 'Done.',
+    sub: 'Two-minute install. Learn one key. Typing is over. Dictation costs nothing and stays free.',
+    download: 'Download for Mac',
+    pricing: 'See pricing',
+    silicon: 'Apple Silicon',
+    macos: 'macOS 13+',
+    local: '100% local',
+    footer: 'Beta · GitHub Releases · built by newways.ai',
+  },
+};
+
+export default function VoiceItFinalCTA({ lang = 'de' }) {
   const compRef = useRef(null);
+  const c = COPY[lang] || COPY.de;
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -42,7 +70,7 @@ export default function VoiceItFinalCTA() {
         <div className="relative z-10 max-w-3xl mx-auto text-center">
           <div className="final-elem flair-pill-light mx-auto w-fit mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-[#CCFF00]" style={{ boxShadow: '0 0 8px rgba(204,255,0,0.6)' }} />
-            <span className="font-data uppercase tracking-[0.15em]">Bereit?</span>
+            <span className="font-data uppercase tracking-[0.15em]">{c.pill}</span>
           </div>
 
           <h2
@@ -52,14 +80,14 @@ export default function VoiceItFinalCTA() {
               color: '#FFFFFF',
             }}
           >
-            Voiceit.{' '}
+            {c.headingA}{' '}
             <span
               style={{
                 color: '#CCFF00',
                 textShadow: '0 0 40px rgba(204,255,0,0.35)',
               }}
             >
-              Fertig.
+              {c.headingB}
             </span>
           </h2>
 
@@ -67,7 +95,7 @@ export default function VoiceItFinalCTA() {
             className="final-elem font-sans text-base md:text-lg mt-6 leading-relaxed max-w-[56ch] mx-auto"
             style={{ color: 'rgba(255,255,255,0.7)' }}
           >
-            Zwei Minuten Installation. Eine Taste lernen. Tippen ist Geschichte. Diktat kostet nichts und bleibt gratis.
+            {c.sub}
           </p>
 
           <div className="final-elem flex flex-wrap justify-center items-center gap-4 mt-10">
@@ -78,14 +106,14 @@ export default function VoiceItFinalCTA() {
               className="flair-btn-primary"
             >
               <Download size={16} />
-              Download for Mac
+              {c.download}
               <ArrowRight size={16} />
             </a>
             <a
               href="#preise"
               className="flair-btn-secondary-dark"
             >
-              Preise ansehen
+              {c.pricing}
             </a>
           </div>
 
@@ -98,7 +126,7 @@ export default function VoiceItFinalCTA() {
             >
               <Cpu size={14} style={{ color: '#6FA0FF' }} />
               <span className="font-data text-[11px] uppercase tracking-[0.16em]" style={{ color: 'rgba(255,255,255,0.7)' }}>
-                Apple Silicon
+                {c.silicon}
               </span>
             </div>
             <div
@@ -107,7 +135,7 @@ export default function VoiceItFinalCTA() {
             >
               <HardDrive size={14} style={{ color: '#6FA0FF' }} />
               <span className="font-data text-[11px] uppercase tracking-[0.16em]" style={{ color: 'rgba(255,255,255,0.7)' }}>
-                macOS 13+
+                {c.macos}
               </span>
             </div>
             <div
@@ -116,7 +144,7 @@ export default function VoiceItFinalCTA() {
             >
               <Lock size={14} style={{ color: '#CCFF00' }} />
               <span className="font-data text-[11px] uppercase tracking-[0.16em]" style={{ color: 'rgba(255,255,255,0.7)' }}>
-                100% lokal
+                {c.local}
               </span>
             </div>
           </div>
@@ -125,7 +153,7 @@ export default function VoiceItFinalCTA() {
             className="final-elem font-data text-[10px] uppercase tracking-[0.2em] mt-8"
             style={{ color: 'rgba(255,255,255,0.35)' }}
           >
-            Beta · GitHub Releases · gebaut von newways.ai
+            {c.footer}
           </p>
 
           <div className="final-elem mt-8">

@@ -118,7 +118,7 @@ export default function Impressum() {
           </section>
         </div>
       </main>
-      <Footer />
+      <Footer lang="de" />
     </div>
   );
 }

@@ -3,40 +3,40 @@ import { useEffect, useRef } from 'react';
 import { gsap } from '@/lib/gsap';
 import { Activity, Type, Mic, Timer } from 'lucide-react';
 
-const STATS = [
-  {
-    icon: Type,
-    value: '10.842',
-    unit: 'Wörter',
-    label: 'in 24 Stunden diktiert.',
-    sub: 'Heute. Auf meinem eigenen Mac.',
+const COPY = {
+  de: {
+    pill: 'Beweis · Live-Daten',
+    headingA: 'Ich nutze es selbst.',
+    headingB: 'Jeden Tag.',
+    sub: 'Echte Stats aus meiner eigenen Voiceit-Installation. Direkt aus der lokalen History-DB. Heute, 14.05.2026.',
+    source: 'Quelle · ~/Library/Application Support/com.newways.voiceit/history.db · Marcel Porcher · 14.05.2026',
+    stats: [
+      { value: '10.842', unit: 'Wörter', label: 'in 24 Stunden diktiert.', sub: 'Heute. Auf meinem eigenen Mac.' },
+      { value: '271', unit: 'Sessions', label: 'in einem Tag.', sub: 'Mail, Slack, Code, Notes.' },
+      { value: '63', unit: 'Minuten', label: 'gesprochen statt getippt.', sub: 'Bei 172 Wörter pro Minute.' },
+      { value: '3h 28min', unit: '', label: 'Tippzeit gespart.', sub: 'Bei 40 Wörter pro Minute Tipp-Tempo.', highlight: true },
+    ],
   },
-  {
-    icon: Mic,
-    value: '271',
-    unit: 'Sessions',
-    label: 'in einem Tag.',
-    sub: 'Mail, Slack, Code, Notes.',
+  en: {
+    pill: 'Proof · live data',
+    headingA: 'I use it myself.',
+    headingB: 'Every day.',
+    sub: 'Real stats from my own Voiceit install. Straight out of the local history DB. Today, 2026-05-14.',
+    source: 'Source · ~/Library/Application Support/com.newways.voiceit/history.db · Marcel Porcher · 2026-05-14',
+    stats: [
+      { value: '10,842', unit: 'words', label: 'dictated in 24 hours.', sub: 'Today. On my own Mac.' },
+      { value: '271', unit: 'sessions', label: 'in a single day.', sub: 'Mail, Slack, code, notes.' },
+      { value: '63', unit: 'minutes', label: 'spoken instead of typed.', sub: 'At 172 words per minute.' },
+      { value: '3h 28min', unit: '', label: 'of typing saved.', sub: 'At a 40 wpm typing pace.', highlight: true },
+    ],
   },
-  {
-    icon: Activity,
-    value: '63',
-    unit: 'Minuten',
-    label: 'gesprochen statt getippt.',
-    sub: 'Bei 172 Wörter pro Minute.',
-  },
-  {
-    icon: Timer,
-    value: '3h 28min',
-    unit: '',
-    label: 'Tippzeit gespart.',
-    sub: 'Bei 40 Wörter pro Minute Tipp-Tempo.',
-    highlight: true,
-  },
-];
+};
 
-export default function VoiceItProofOfUse() {
+const ICONS = [Type, Mic, Activity, Timer];
+
+export default function VoiceItProofOfUse({ lang = 'de' }) {
   const compRef = useRef(null);
+  const c = COPY[lang] || COPY.de;
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -56,7 +56,7 @@ export default function VoiceItProofOfUse() {
   return (
     <section
       ref={compRef}
-      aria-label="Proof of Use — eigene Stats"
+      aria-label="Proof of Use"
       className="relative w-full py-14 md:py-20 px-4 sm:px-6 md:px-8"
       style={{ background: 'var(--fv-bg)' }}
     >
@@ -65,26 +65,26 @@ export default function VoiceItProofOfUse() {
       <div className="relative z-10 max-w-[1100px] mx-auto">
         <div className="text-center mb-12 md:mb-14">
           <div className="pou-elem flair-pill-blue w-fit mx-auto mb-5">
-            <span className="font-data uppercase tracking-[0.2em] text-[10px]">Beweis · Live-Daten</span>
+            <span className="font-data uppercase tracking-[0.2em] text-[10px]">{c.pill}</span>
           </div>
           <h2
             className="pou-elem flair-heading"
             style={{ fontSize: 'clamp(1.9rem, 4.8vw, 3rem)' }}
           >
-            Ich nutze es selbst.{' '}
-            <span style={{ color: 'var(--fv-blue)' }}>Jeden Tag.</span>
+            {c.headingA}{' '}
+            <span style={{ color: 'var(--fv-blue)' }}>{c.headingB}</span>
           </h2>
           <p
             className="pou-elem font-sans text-base md:text-lg mt-5 max-w-[60ch] mx-auto"
             style={{ color: 'var(--fv-text-muted)' }}
           >
-            Echte Stats aus meiner eigenen Voiceit-Installation. Direkt aus der lokalen History-DB. Heute, 14.05.2026.
+            {c.sub}
           </p>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
-          {STATS.map((s, i) => {
-            const Icon = s.icon;
+          {c.stats.map((s, i) => {
+            const Icon = ICONS[i];
             return (
               <div
                 key={i}
@@ -153,7 +153,7 @@ export default function VoiceItProofOfUse() {
           className="pou-elem mt-8 text-center font-data text-[10px] uppercase tracking-[0.18em]"
           style={{ color: 'var(--fv-text-light)' }}
         >
-          Quelle · ~/Library/Application Support/com.newways.voiceit/history.db · Marcel Porcher · 14.05.2026
+          {c.source}
         </p>
       </div>
     </section>
