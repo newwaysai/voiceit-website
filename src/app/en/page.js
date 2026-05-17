@@ -38,7 +38,7 @@ export const metadata = {
 
 export default function VoiceItPageEN() {
   return (
-    <div id="top" className="bg-background min-h-screen text-primary overflow-x-hidden selection:bg-accent/20 selection:text-primary">
+    <div id="top" className="bg-background min-h-screen text-primary overflow-x-clip selection:bg-accent/20 selection:text-primary">
       <VoiceItNavbar lang="en" />
       <main role="main">
         <VoiceItHero lang="en" />

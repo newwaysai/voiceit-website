@@ -92,7 +92,7 @@ main, footer, nav { position: relative; z-index: 1; }
 
 html,
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 html {
