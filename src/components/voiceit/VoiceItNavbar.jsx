@@ -25,7 +25,7 @@ export default function VoiceItNavbar({ lang = 'de' }) {
       aria-label="Voiceit Navigation"
       className="sticky top-0 z-40 w-full backdrop-blur-xl"
       style={{
-        background: 'color-mix(in oklab, var(--color-background) 75%, transparent)',
+        background: 'var(--fv-nav-bg)',
         borderBottom: '1px solid var(--fv-border)',
       }}
     >

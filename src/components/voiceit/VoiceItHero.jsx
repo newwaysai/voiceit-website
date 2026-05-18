@@ -213,7 +213,7 @@ export default function VoiceItHero({ lang = 'de' }) {
         <div className="flair-hero-glow-blue" style={{ top: '-220px', right: '-120px' }} />
         <div className="flair-hero-glow-violet" style={{ bottom: '-180px', left: '-80px' }} />
 
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-12 items-center">
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[1fr_1.15fr] gap-10 lg:gap-12 items-center">
           <div className="flex flex-col">
             <div className="hero-elem flair-pill-light w-fit mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-[#CCFF00]" style={{ boxShadow: '0 0 8px rgba(204,255,0,0.6)' }} />
@@ -298,7 +298,7 @@ export default function VoiceItHero({ lang = 'de' }) {
             </div>
           </div>
 
-          <div className="hero-elem relative max-w-[520px] w-full mx-auto lg:ml-auto">
+          <div className="hero-elem relative max-w-[600px] w-full mx-auto lg:ml-auto">
             <VoiceItModesDemo />
           </div>
         </div>

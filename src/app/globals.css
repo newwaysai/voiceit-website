@@ -34,6 +34,7 @@
   --fv-card-bg: #0F1A36;
   --fv-border: rgba(255, 255, 255, 0.08);
   --fv-divider: rgba(255, 255, 255, 0.08);
+  --fv-nav-bg: rgba(6, 10, 26, 0.82);
 }
 
 /* Light theme override */
@@ -45,6 +46,7 @@
   --color-border: rgba(0, 0, 0, 0.08);
 
   --fv-bg: #F5FBFF;
+  --fv-nav-bg: #F5FBFF;
   --fv-text: #000000;
   --fv-text-strong: #222222;
   --fv-text-muted: #6F6F6F;

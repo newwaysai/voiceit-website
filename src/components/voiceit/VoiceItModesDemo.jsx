@@ -251,30 +251,40 @@ export default function VoiceItModesDemo() {
   return (
     <div className="vm-root">
       <style jsx>{`
-        .vm-root { width: 100%; max-width: 720px; margin: 0 auto; }
+        /* App-aligned tokens (mirrors apps/Voiceit/Voiceit App/src/styles/global.css :root) */
+        .vm-root {
+          --vm-surface: #1E293B;
+          --vm-border: rgba(255, 255, 255, 0.06);
+          --vm-text: #F8FAFC;
+          --vm-text-muted: #94A3B8;
+          width: 100%; max-width: 600px; margin: 0 auto;
+        }
         .vm-progress-row {
-          width: 100%; max-width: 720px; margin: 0 auto 8px;
+          width: 100%; max-width: 600px; margin: 0 auto 8px;
           display: flex; flex-direction: column; align-items: center; gap: 5px;
         }
-        .vm-progress-track { height: 2px; background: rgba(255,255,255,0.10); border-radius: 1px; overflow: hidden; width: 100%; }
+        .vm-progress-track { height: 2px; background: var(--vm-border); border-radius: 1px; overflow: hidden; width: 100%; }
         .vm-progress-fill { height: 100%; background: rgba(255,255,255,0.45); transition: width 100ms linear; }
         .vm-progress-track.paused .vm-progress-fill { background: rgba(255,255,255,0.22); }
-        .vm-tab-hint { margin: 0; font-size: 9.5px; font-family: monospace; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 1.2px; font-weight: 600; text-align: center; }
-        .vm-tabs-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; padding: 0; }
+        .vm-tab-hint { margin: 0; font-size: 9.5px; font-family: monospace; color: var(--vm-text-muted); text-transform: uppercase; letter-spacing: 1.2px; font-weight: 600; text-align: center; }
+        .vm-tabs-row {
+          width: 100%; max-width: 600px; margin: 0 auto;
+          display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; padding: 0;
+          background: transparent; border: none;
+        }
         .vm-tab {
           display: flex; align-items: center; justify-content: center; gap: 5px;
-          padding: 9px 4px; border: 1px solid rgba(255,255,255,0.08); border-bottom: none;
-          border-radius: 8px 8px 0 0; background: rgba(0,0,0,0.20);
-          color: rgba(255,255,255,0.55); font-size: 11.5px; font-weight: 600;
+          padding: 9px 4px; border: 1px solid var(--vm-border); border-bottom: none;
+          border-radius: 8px 8px 0 0; background: rgba(0,0,0,0.18);
+          color: var(--vm-text-muted); font: inherit; font-size: 11.5px; font-weight: 600;
           cursor: pointer; transition: all 280ms ease; white-space: nowrap; position: relative; z-index: 1;
-          font-family: inherit;
         }
         .vm-tab:not(.active) { opacity: 0.85; }
-        .vm-tab.active { background: var(--surface-fallback, #181b22); color: #fff; z-index: 3; }
+        .vm-tab.active { background: var(--vm-surface); color: var(--vm-text); z-index: 3; }
         .vm-tab.active::after {
           content: ""; position: absolute; left: -1px; right: -1px; bottom: -7px; height: 8px;
-          background: var(--surface-fallback, #181b22);
-          border-left: 1px solid rgba(255,255,255,0.08); border-right: 1px solid rgba(255,255,255,0.08); z-index: 4;
+          background: var(--vm-surface);
+          border-left: 1px solid var(--vm-border); border-right: 1px solid var(--vm-border); z-index: 4;
         }
         .vm-tab.subfeature { font-weight: 500; }
         .vm-tab .vm-dot-sm { width: 7px; height: 7px; border-radius: 50%; opacity: 0.5; flex-shrink: 0; }
@@ -285,12 +295,23 @@ export default function VoiceItModesDemo() {
         .vm-tab .vm-sub-arrow { color: #1C64FF; font-size: 13px; font-weight: 700; margin-right: 1px; flex-shrink: 0; }
         .vm-ai-badge { font-size: 9px; font-family: monospace; font-weight: 800; padding: 2px 5px; border-radius: 3px; background: color-mix(in srgb, #1C64FF 28%, transparent); color: #9dc0ff; letter-spacing: 0.5px; flex-shrink: 0; }
         .vm-local-badge { font-size: 9px; font-family: monospace; font-weight: 800; padding: 2px 5px; border-radius: 3px; background: color-mix(in srgb, #22c55e 28%, transparent); color: #86efac; letter-spacing: 0.5px; flex-shrink: 0; }
-        .vm-descbox { padding: 9px 14px; background: #181b22; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; border-top-left-radius: 0; border-top-right-radius: 0; text-align: left; margin: -5px auto 0; position: relative; z-index: 1; }
-        .vm-mode-desc { margin: 0; font-size: 12.5px; line-height: 1.45; color: #fff; }
-        .vm-demo { background: #181b22; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; text-align: left; border: 1px solid rgba(255,255,255,0.08); margin: 5px auto 0; }
-        .vm-demo-titlebar { display: flex; align-items: center; gap: 6px; padding: 6px 10px; border-bottom: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.15); }
+        .vm-descbox {
+          width: 100%; max-width: 600px; margin: -5px auto 0;
+          padding: 9px 14px; background: var(--vm-surface);
+          border: 1px solid var(--vm-border); border-radius: 10px;
+          border-top-left-radius: 0; border-top-right-radius: 0;
+          text-align: left; position: relative; z-index: 1;
+        }
+        .vm-mode-desc { margin: 0; font-size: 12px; line-height: 1.4; color: var(--vm-text); }
+        .vm-demo {
+          width: 100%; max-width: 600px; margin: 0 auto;
+          background: var(--vm-surface); border-radius: 10px; overflow: hidden;
+          display: flex; flex-direction: column; text-align: left;
+          border: 1px solid var(--vm-border);
+        }
+        .vm-demo-titlebar { display: flex; align-items: center; gap: 6px; padding: 6px 10px; border-bottom: 1px solid var(--vm-border); background: rgba(0,0,0,0.15); }
         .vm-traffic { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.15); }
-        .vm-app-label { margin-left: auto; font-size: 9px; font-family: monospace; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 1px; }
+        .vm-app-label { margin-left: auto; font-size: 9px; font-family: monospace; color: var(--vm-text-muted); text-transform: uppercase; letter-spacing: 1px; }
         .vm-demo-body { padding: 9px 11px 11px; min-height: 110px; display: flex; flex-direction: column; gap: 5px; }
         .vm-lbl-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
         .vm-lbl-left { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; font-family: monospace; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
@@ -298,20 +319,20 @@ export default function VoiceItModesDemo() {
         .vm-rec-tag { display: inline-flex; align-items: center; gap: 4px; font-size: 9px; font-family: monospace; font-weight: 800; color: #fca5a5; text-transform: uppercase; letter-spacing: 1px; padding: 2px 6px; border-radius: 3px; background: rgba(239,68,68,0.18); border: 1px solid rgba(239,68,68,0.45); flex-shrink: 0; }
         .vm-rec-tag::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #ef4444; animation: vm-rec-pulse 1.4s ease-in-out infinite; }
         @keyframes vm-rec-pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
-        .vm-kbd-key { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; font-weight: 700; color: #fff; background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04)); border: 1px solid rgba(255,255,255,0.20); border-bottom-color: rgba(255,255,255,0.30); border-radius: 5px; padding: 3px 10px; box-shadow: 0 1px 0 rgba(0,0,0,0.30), inset 0 1px 0 rgba(255,255,255,0.05); min-width: 30px; text-align: center; letter-spacing: 0.5px; white-space: nowrap; flex-shrink: 0; }
+        .vm-kbd-key { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; font-weight: 700; color: var(--vm-text); background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04)); border: 1px solid rgba(255,255,255,0.20); border-bottom-color: rgba(255,255,255,0.30); border-radius: 5px; padding: 3px 10px; box-shadow: 0 1px 0 rgba(0,0,0,0.30), inset 0 1px 0 rgba(255,255,255,0.05); min-width: 30px; text-align: center; letter-spacing: 0.5px; white-space: nowrap; flex-shrink: 0; }
         .vm-spoken-frame { padding: 5px 9px; border-radius: 6px; background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.35); display: flex; flex-direction: column; gap: 3px; }
         .vm-spoken-frame .vm-lbl-left { color: #fca5a5; }
         .vm-spoken-frame .vm-lbl-left::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #ef4444; display: inline-block; margin-right: 3px; }
         .vm-spoken { display: flex; align-items: flex-start; gap: 6px; }
         .vm-mic-circle { flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 50%; background: rgba(239,68,68,0.30); border: 1px solid rgba(239,68,68,0.70); box-shadow: 0 0 12px rgba(239,68,68,0.55); }
-        .vm-spoken p { margin: 0; font-size: 13px; line-height: 1.45; color: #fff; }
+        .vm-spoken p { margin: 0; font-size: 13px; line-height: 1.45; color: var(--vm-text); }
         .vm-filler-strike { color: rgba(239,68,68,0.7); text-decoration: line-through; text-decoration-color: rgba(239,68,68,0.85); text-decoration-thickness: 1.5px; }
-        .vm-agent-input { padding: 7px 11px; border-radius: 8px; background: rgba(239,68,68,0.06); border: 1px solid color-mix(in srgb, #ef4444 30%, rgba(255,255,255,0.08)); display: flex; flex-direction: column; gap: 4px; }
+        .vm-agent-input { padding: 7px 11px; border-radius: 8px; background: rgba(239,68,68,0.06); border: 1px solid color-mix(in srgb, #ef4444 30%, var(--vm-border)); display: flex; flex-direction: column; gap: 4px; }
         .vm-section-hdr { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
         .vm-section-hdr.orange .vm-lbl-left { color: #fbbf24; }
         .vm-section-hdr.red .vm-lbl-left { color: #fca5a5; }
         .vm-selected-row { margin-bottom: 2px; }
-        .vm-selected-row p { margin: 0; font-size: 12.5px; line-height: 1.45; color: #fff; }
+        .vm-selected-row p { margin: 0; font-size: 12.5px; line-height: 1.45; color: var(--vm-text); }
         .vm-text-content { background-image: linear-gradient(rgba(245,158,11,0.32), rgba(245,158,11,0.32)); background-repeat: no-repeat; background-position: left center; background-size: 100% 100%; padding: 1px 2px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
         .vm-agent-input.vm-phase-idle .vm-text-content { background-size: 0% 100%; }
         .vm-agent-input.vm-phase-selecting .vm-text-content { animation: vm-sweep-select 2200ms ease-in-out forwards; }
@@ -320,18 +341,18 @@ export default function VoiceItModesDemo() {
         @keyframes vm-ibeam-blink { 0%,49%{opacity:1} 50%,100%{opacity:0} }
         .vm-spoken-section { display: flex; flex-direction: column; gap: 3px; padding-top: 5px; margin-top: 3px; border-top: 1px dashed rgba(239,68,68,0.30); max-height: 60px; overflow: hidden; transition: opacity 380ms, max-height 380ms, padding-top 380ms, margin-top 380ms, border-top-width 380ms; }
         .vm-spoken-section.hidden { opacity: 0; max-height: 0; padding-top: 0; margin-top: 0; border-top-width: 0; }
-        .vm-spoken-text { margin: 0; font-size: 12.5px; line-height: 1.4; color: #fff; padding-left: 18px; }
+        .vm-spoken-text { margin: 0; font-size: 12.5px; line-height: 1.4; color: var(--vm-text); padding-left: 18px; }
         .vm-transform-step { text-align: center; font-size: 9.5px; font-family: monospace; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #9dc0ff; padding: 1px 0; display: flex; align-items: center; justify-content: center; gap: 6px; }
         .vm-transform-step .vm-arrow { color: #1C64FF; font-size: 12px; line-height: 1; }
         .vm-output-frame { padding: 5px 9px; border-radius: 6px; display: flex; flex-direction: column; gap: 3px; background: color-mix(in srgb, #1C64FF 10%, transparent); border: 1px solid color-mix(in srgb, #1C64FF 38%, transparent); }
         .vm-output-lbl { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; font-family: monospace; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; color: #9dc0ff; }
         .vm-output-lbl::before { content: ""; width: 6px; height: 6px; border-radius: 1px; background: #1C64FF; display: inline-block; }
         .vm-output { margin-top: 6px; display: flex; flex-direction: column; gap: 2px; }
-        .vm-output p { margin: 0; font-size: 12px; line-height: 1.4; color: #fff; }
-        .vm-md-output { margin-top: 6px; margin-bottom: 0; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; line-height: 1.5; color: #fff; white-space: pre-wrap; }
-        .vm-md-h { color: #fff; font-weight: 700; }
-        .vm-md-p { color: #fff; }
-        .vm-plain-output { margin: 6px 0 0; font-size: 12px; line-height: 1.4; color: #fff; }
+        .vm-output p { margin: 0; font-size: 12px; line-height: 1.4; color: var(--vm-text); }
+        .vm-md-output { margin-top: 6px; margin-bottom: 0; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; line-height: 1.5; color: var(--vm-text); white-space: pre-wrap; }
+        .vm-md-h { color: var(--vm-text); font-weight: 700; }
+        .vm-md-p { color: var(--vm-text); }
+        .vm-plain-output { margin: 6px 0 0; font-size: 12px; line-height: 1.4; color: var(--vm-text); }
         .vm-caret { display: inline-block; width: 2px; height: 11px; margin-left: 1px; vertical-align: middle; background: #1C64FF; animation: vm-caret-blink 1s steps(1,end) infinite; }
         @keyframes vm-caret-blink { 0%,49%{opacity:1} 50%,100%{opacity:0} }
       `}</style>
