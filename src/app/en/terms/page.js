@@ -168,9 +168,8 @@ export default function TermsEN() {
           <section>
             <h2 className="text-xl font-bold text-primary mb-4">9. AI features and acceptable use</h2>
             <p>
-              Prompt Mode and Agent Mode forward your transcribed text to AI providers (default:
-              Supabase Edge Function → OpenRouter → Google Gemini; additional models selectable in
-              the app settings via OpenRouter as routing partner; see{' '}
+              Prompt Mode and Agent Mode forward your transcribed text to AI providers (routing:
+              Supabase Edge Function → Google Cloud Vertex AI, Frankfurt EU; see{' '}
               <Link href="/en/privacy" className="text-accent underline">Privacy Policy</Link>).
               You are responsible for the content you submit. You agree{' '}
               <strong className="text-primary">not</strong> to use the AI features to:
@@ -231,7 +230,7 @@ export default function TermsEN() {
           <section>
             <h2 className="text-xl font-bold text-primary mb-4">13. Service availability</h2>
             <p>
-              We aim for high availability of the Supabase- and OpenRouter-backed features but make
+              We aim for high availability of the Supabase- and Google-Vertex-AI-backed features but make
               no guarantee of uninterrupted service. Local features (Dictation, history, settings)
               work without any internet connection. If a third-party AI provider has an outage, AI
               modes will be temporarily unavailable. Pro-rata refunds apply only for sustained

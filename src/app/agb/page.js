@@ -170,8 +170,7 @@ export default function AGB() {
             <h2 className="text-xl font-bold text-primary mb-4">9. KI-Funktionen und akzeptable Nutzung</h2>
             <p>
               Prompt Mode und Agent Mode leiten den transkribierten Text an KI-Anbieter weiter
-              (Default: Supabase Edge Function → OpenRouter → Google Gemini; weitere Modelle in den
-              App-Einstellungen über OpenRouter als Routing-Partner wählbar; siehe{' '}
+              (Routing: Supabase Edge Function → Google Cloud Vertex AI, Frankfurt EU; siehe{' '}
               <Link href="/datenschutz" className="text-accent underline">Datenschutzerklärung</Link>).
               Du bist für die Inhalte verantwortlich, die du übermittelst. Du verpflichtest dich,
               die KI-Funktionen <strong className="text-primary">nicht</strong> zu nutzen, um:
@@ -232,7 +231,7 @@ export default function AGB() {
           <section>
             <h2 className="text-xl font-bold text-primary mb-4">13. Verfügbarkeit</h2>
             <p>
-              Wir streben eine hohe Verfügbarkeit der Supabase- und OpenRouter-basierten Funktionen
+              Wir streben eine hohe Verfügbarkeit der Supabase- und Google-Vertex-AI-basierten Funktionen
               an, garantieren aber keine ununterbrochene Verfügbarkeit. Lokale Funktionen (Diktat,
               Historie, Einstellungen) funktionieren ohne Internetverbindung. Bei einem Ausfall
               eines KI-Anbieters sind die KI-Modi vorübergehend nicht verfügbar. Eine

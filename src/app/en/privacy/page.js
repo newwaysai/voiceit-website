@@ -225,8 +225,7 @@ export default function PrivacyEN() {
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Vercel Inc.</td><td className="py-2 pr-3">USA</td><td className="py-2 pr-3">Website hosting</td><td className="py-2 pr-3">IP, logs</td><td className="py-2 pr-3">DPF + SCC</td><td className="py-2"><a href="https://vercel.com/legal/privacy-policy" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Supabase Inc.</td><td className="py-2 pr-3">EU Frankfurt</td><td className="py-2 pr-3">Account, license check, app backend</td><td className="py-2 pr-3">Email, device ID</td><td className="py-2 pr-3">EU-internal</td><td className="py-2"><a href="https://supabase.com/privacy" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Stripe, Inc.</td><td className="py-2 pr-3">USA + EU + UK</td><td className="py-2 pr-3">Subscription payment</td><td className="py-2 pr-3">Name, address, card/bank data, tax info</td><td className="py-2 pr-3">DPF + SCC + UK Adequacy</td><td className="py-2"><a href="https://stripe.com/privacy" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
-                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">OpenRouter, Inc.</td><td className="py-2 pr-3">USA</td><td className="py-2 pr-3">AI routing (Prompt/Agent Mode)</td><td className="py-2 pr-3">Transcribed text, device ID</td><td className="py-2 pr-3">DPF + SCC</td><td className="py-2"><a href="https://openrouter.ai/privacy" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
-                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">Google LLC (Gemini API)</td><td className="py-2 pr-3">USA</td><td className="py-2 pr-3">Default AI model provider</td><td className="py-2 pr-3">Transcribed text</td><td className="py-2 pr-3">DPF + SCC</td><td className="py-2"><a href="https://policies.google.com/privacy" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
+                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">Google Cloud EMEA Ltd</td><td className="py-2 pr-3">Ireland / Frankfurt, DE</td><td className="py-2 pr-3">AI model Gemini via Vertex AI (Prompt/Agent Mode)</td><td className="py-2 pr-3">Transcribed text (opt-in)</td><td className="py-2 pr-3">EU-internal (europe-west3)</td><td className="py-2"><a href="https://cloud.google.com/terms/data-processing-addendum" className="text-accent underline" target="_blank" rel="noopener noreferrer">Cloud DPA</a></td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Brevo (Sendinblue GmbH)</td><td className="py-2 pr-3">Berlin</td><td className="py-2 pr-3">Newsletter, lead-magnet emails</td><td className="py-2 pr-3">Email, name</td><td className="py-2 pr-3">EU-internal</td><td className="py-2"><a href="https://www.brevo.com/legal/privacypolicy/" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">ManyChat Inc.</td><td className="py-2 pr-3">USA</td><td className="py-2 pr-3">Instagram DM automation</td><td className="py-2 pr-3">IG handle, DM content</td><td className="py-2 pr-3">DPF + SCC</td><td className="py-2"><a href="https://manychat.com/privacy.html" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">WhatsApp Ireland Ltd. (Meta)</td><td className="py-2 pr-3">Ireland / USA</td><td className="py-2 pr-3">Contact link</td><td className="py-2 pr-3">Metadata on click</td><td className="py-2 pr-3">DPF + SCC</td><td className="py-2"><a href="https://www.whatsapp.com/legal/privacy-policy-eea" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
@@ -251,15 +250,12 @@ export default function PrivacyEN() {
               Function to an AI provider for refinement or transformation.
             </p>
             <p className="mt-3">
-              <strong className="text-primary">Default routing:</strong> Supabase Edge Function →
-              OpenRouter → Google Gemini.<br />
-              <strong className="text-primary">Alternative models:</strong> Additional models are
-              selectable in the app settings — the respective model providers are reached via
-              OpenRouter as routing partner; their privacy policies are accessible through
-              OpenRouter.<br />
-              <strong className="text-primary">Bring your own key:</strong> You can optionally use
-              your own OpenRouter API key — requests then go directly to OpenRouter, bypassing our
-              proxy.
+              <strong className="text-primary">Routing:</strong> Supabase Edge Function →
+              Google Cloud Vertex AI (europe-west3 Frankfurt, failover europe-west4 Amsterdam).<br />
+              <strong className="text-primary">Model:</strong> Gemini 2.5 Flash via Vertex AI.<br />
+              <strong className="text-primary">No training:</strong> Google does not use your data to train AI models
+              (Google Cloud DPA guarantee).<br />
+              <strong className="text-primary">No US routing:</strong> All AI requests stay in the EU.
             </p>
             <p className="mt-3">
               <strong className="text-primary">Art. 50 AI Act transparency:</strong> This app uses
