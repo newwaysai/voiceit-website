@@ -1,10 +1,10 @@
 # VoiceIt Website
 
-Standalone-Marketing-Site für die VoiceIt macOS-App. Standalone-Repo `voiceitai/website` auf GitHub, Domain `voiceitai.app`, auto-deploy via Vercel. Forked von `projects/newways-website/` am 2026-05-15.
+Standalone-Marketing-Site für die VoiceIt macOS-App. Standalone-Repo `voiceitai/website` auf GitHub, Domain `voiceitai.app`, auto-deploy via Vercel. Forked von `websites/newways-website/` am 2026-05-15.
 
 ## Tech Stack
 
-Identisch zu `projects/newways-website/` (siehe dortige CLAUDE.md für Design-System-Details):
+Identisch zu `websites/newways-website/` (siehe dortige CLAUDE.md für Design-System-Details):
 
 - Next.js 16 (App Router, ESM, Turbopack)
 - React 19, Tailwind CSS 4, GSAP 3.14 (ScrollTrigger)

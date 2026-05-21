@@ -101,7 +101,7 @@ export default function TermsEN() {
             <h2 className="text-xl font-bold text-primary mb-4">5. Subscription tiers</h2>
             <ul className="list-disc ml-6 space-y-1">
               <li><strong className="text-primary">Free:</strong> unlimited on-device dictation, limited monthly AI calls, audio length cap.</li>
-              <li><strong className="text-primary">Pro:</strong> higher monthly AI quota, longer audio cap, priority model access, custom prompts.</li>
+              <li><strong className="text-primary">Pro:</strong> higher monthly AI quota, longer audio cap, EU-hosted AI backend (GDPR), custom prompts.</li>
               <li><strong className="text-primary">Unlimited:</strong> no monthly call limits, longest audio cap.</li>
             </ul>
             <p className="mt-3">

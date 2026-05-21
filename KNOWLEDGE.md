@@ -12,7 +12,7 @@ scanned-by-kb: true
 
 Marketing site für VoiceIt-App. Live unter **voiceitai.app**. Hosting via Vercel (Hobby-Plan, Team `marcel-3840s-projects`), Auto-Deploy aus dem GitHub-Repo `newwaysai/voiceit-website` (Branch `main`).
 
-Forked am 2026-05-15 aus `projects/newways-website/`. Brand-Voice + Design-System siehe dortige CLAUDE.md.
+Forked am 2026-05-15 aus `websites/newways-website/`. Brand-Voice + Design-System siehe dortige CLAUDE.md.
 
 ## i18n / Sprachen
 

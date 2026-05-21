@@ -37,7 +37,7 @@ const COPY = {
         features: [
           'Diktat-Modus unbegrenzt',
           '100% lokal, Audio bleibt auf deinem Mac',
-          '10 KI-Aufrufe / Monat (Prompt-Modus)',
+          '15 KI-Aufrufe / Monat (Prompt-Modus)',
           'Bis zu 2 Min Aufnahme',
         ],
         cta: 'Download for Mac',
@@ -45,13 +45,13 @@ const COPY = {
       {
         name: 'Pro',
         price: '15',
-        suffix: '€ / Monat',
+        suffix: '€ / 4 Wochen',
         tagline: 'Diktat + Prompt + Agent. Für aktive Anwender, die Voice produktiv nutzen.',
         features: [
           'Alles aus Free',
           '500 KI-Aufrufe / Monat',
           'Agent-Modus (eigene Prompts)',
-          'Bis zu 5 Min Aufnahme',
+          'Bis zu 8 Min Aufnahme',
           'Priorität auf neue Features',
         ],
         cta: 'Download for Mac',
@@ -59,13 +59,13 @@ const COPY = {
       {
         name: 'Premium',
         price: '30',
-        suffix: '€ / Monat',
+        suffix: '€ / 4 Wochen',
         tagline: 'Für Power-Nutzer mit maximalem KI-Volumen.',
         features: [
           'Alles aus Pro',
           '3.000 KI-Aufrufe / Monat',
-          'Bis zu 10 Min Aufnahme',
-          'Priority Models (höhere Qualität)',
+          'Bis zu 20 Min Aufnahme',
+          'EU-gehostete KI (DSGVO-konform)',
           'Frühen Zugang zu neuen Modellen',
         ],
         cta: 'Download for Mac',
@@ -105,7 +105,7 @@ const COPY = {
         features: [
           'Unlimited dictation mode',
           '100% local, audio stays on your Mac',
-          '10 AI calls / month (Prompt mode)',
+          '15 AI calls / month (Prompt mode)',
           'Up to 2 min recording',
         ],
         cta: 'Download for Mac',
@@ -113,13 +113,13 @@ const COPY = {
       {
         name: 'Pro',
         price: '15',
-        suffix: '€ / month',
+        suffix: '€ / 4 weeks',
         tagline: 'Dictation + Prompt + Agent. For people who actually use voice productively.',
         features: [
           'Everything in Free',
           '500 AI calls / month',
           'Agent mode (custom prompts)',
-          'Up to 5 min recording',
+          'Up to 8 min recording',
           'Priority on new features',
         ],
         cta: 'Download for Mac',
@@ -127,13 +127,13 @@ const COPY = {
       {
         name: 'Premium',
         price: '30',
-        suffix: '€ / month',
+        suffix: '€ / 4 weeks',
         tagline: 'For power users who want maximum AI volume.',
         features: [
           'Everything in Pro',
           '3,000 AI calls / month',
-          'Up to 10 min recording',
-          'Priority models (higher quality)',
+          'Up to 20 min recording',
+          'EU-hosted AI (GDPR-compliant)',
           'Early access to new models',
         ],
         cta: 'Download for Mac',
