@@ -6,8 +6,8 @@ export const metadata = {
   title: 'Privacy Policy',
 };
 
-const LAST_UPDATED = '17 May 2026';
-const VERSION = 'v1.2';
+const LAST_UPDATED = '22 May 2026';
+const VERSION = 'v1.4';
 
 export default function PrivacyEN() {
   return (
@@ -321,7 +321,29 @@ export default function PrivacyEN() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-primary mb-4">14. Data security (Art. 32 GDPR)</h2>
+            <h2 className="text-xl font-bold text-primary mb-4">14. Local Mail.app Read for OTP Auto-Detect (v0.7.23+)</h2>
+            <p>
+              When you sign in with email, Voiceit sends you a 6-digit one-time code. Starting with v0.7.23, the app can optionally read this code directly from your macOS Mail.app so you don't have to copy it manually.
+            </p>
+            <p className="mt-3">
+              <strong className="text-primary">Where:</strong> the read happens <em>entirely on your Mac</em> via a single AppleScript query against the last 5 minutes of Mail.app inbox messages from sender addresses matching <code className="bg-primary/10 px-1.5 py-0.5 rounded text-xs">voiceit@</code>, <code className="bg-primary/10 px-1.5 py-0.5 rounded text-xs">supabase@</code>, or <code className="bg-primary/10 px-1.5 py-0.5 rounded text-xs">noreply@</code>.
+            </p>
+            <p className="mt-3">
+              <strong className="text-primary">What is read:</strong> only the 6-digit code in the email body. Voiceit does not read other email contents, subjects, or sender details beyond the address pattern match.
+            </p>
+            <p className="mt-3">
+              <strong className="text-primary">What is transmitted:</strong> nothing. The code stays on your device until you submit it to Supabase Auth to complete sign-in (same path as if you typed it manually).
+            </p>
+            <p className="mt-3">
+              <strong className="text-primary">Permission:</strong> the macOS Automation → Mail permission is requested only when you first sign in. You can revoke it at any time in System Settings → Privacy & Security → Automation.
+            </p>
+            <p className="mt-3">
+              <strong className="text-primary">Opt-out:</strong> if you decline the permission, sign-in still works — you just copy the code manually as before.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-primary mb-4">15. Data security (Art. 32 GDPR)</h2>
             <p>
               We implement technical and organisational measures (TOMs) to protect your data from
               loss, manipulation, and unauthorised access — encrypted transmission (TLS), strong
@@ -331,7 +353,7 @@ export default function PrivacyEN() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-primary mb-4">15. External links</h2>
+            <h2 className="text-xl font-bold text-primary mb-4">16. External links</h2>
             <p>
               This website includes links to third-party sites. When you click an external link,
               your IP address, the time, and the previously visited page are in particular
@@ -341,7 +363,7 @@ export default function PrivacyEN() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-primary mb-4">16. Changes to this policy</h2>
+            <h2 className="text-xl font-bold text-primary mb-4">17. Changes to this policy</h2>
             <p>
               We will update this document and bump the version number above whenever material
               changes are made. Significant changes (new sub-processors, new categories of data,

@@ -6,7 +6,7 @@ export const metadata = {
   title: 'Datenschutzerklärung',
 };
 
-const LAST_UPDATED = '17. Mai 2026';
+const LAST_UPDATED = '22. Mai 2026';
 const VERSION = 'v1.2';
 
 export default function Datenschutz() {
@@ -335,7 +335,29 @@ export default function Datenschutz() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-primary mb-4">14. Datensicherheit (TOM nach Art. 32 DSGVO)</h2>
+            <h2 className="text-xl font-bold text-primary mb-4">14. Lokales Mail.app-Lesen für OTP-Auto-Erkennung (v0.7.23+)</h2>
+            <p>
+              Bei der Anmeldung per E-Mail sendet Voiceit dir einen 6-stelligen Einmal-Code. Ab v0.7.23 kann die App diesen Code optional direkt aus deiner macOS Mail.app auslesen, damit du ihn nicht manuell kopieren musst.
+            </p>
+            <p className="mt-3">
+              <strong className="text-primary">Wo das passiert:</strong> Das Lesen findet <em>vollständig auf deinem Mac</em> über eine einzelne AppleScript-Abfrage gegen die letzten 5 Minuten deines Mail.app-Posteingangs statt. Voiceit filtert nach Sender-Adressen, die <code className="bg-primary/10 px-1.5 py-0.5 rounded text-xs">voiceit@</code>, <code className="bg-primary/10 px-1.5 py-0.5 rounded text-xs">supabase@</code> oder <code className="bg-primary/10 px-1.5 py-0.5 rounded text-xs">noreply@</code> enthalten.
+            </p>
+            <p className="mt-3">
+              <strong className="text-primary">Was wird gelesen:</strong> nur der 6-stellige Code aus der E-Mail. Voiceit liest keine anderen E-Mail-Inhalte, Betreffzeilen oder Absenderinformationen außer dem Muster der Absender-Adresse.
+            </p>
+            <p className="mt-3">
+              <strong className="text-primary">Was wird übertragen:</strong> nichts. Der Code bleibt auf deinem Gerät, bis du ihn an Supabase Auth übermittelst, um die Anmeldung abzuschließen (gleicher Weg wie wenn du ihn manuell eintippen würdest).
+            </p>
+            <p className="mt-3">
+              <strong className="text-primary">Berechtigung:</strong> Die macOS Automation → Mail-Berechtigung wird nur bei der ersten Anmeldung angefordert. Du kannst sie jederzeit in Systemeinstellungen → Datenschutz & Sicherheit → Automation widerrufen.
+            </p>
+            <p className="mt-3">
+              <strong className="text-primary">Opt-out:</strong> Wenn du die Berechtigung ablehnst, funktioniert die Anmeldung trotzdem — du kopierst den Code einfach manuell wie gehabt.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-primary mb-4">15. Datensicherheit (TOM nach Art. 32 DSGVO)</h2>
             <p>
               Wir setzen technische und organisatorische Maßnahmen (TOMs) ein, um deine Daten vor
               Verlust, Manipulation und unberechtigtem Zugriff zu schützen — verschlüsselte
@@ -346,7 +368,7 @@ export default function Datenschutz() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-primary mb-4">15. Externe Links</h2>
+            <h2 className="text-xl font-bold text-primary mb-4">16. Externe Links</h2>
             <p>
               Diese Webseite enthält Links zu Webseiten Dritter. Beim Klick werden insbesondere
               deine IP-Adresse, der Zeitpunkt und die zuvor besuchte Seite an den Anbieter
@@ -356,7 +378,7 @@ export default function Datenschutz() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-primary mb-4">16. Änderungen dieser Datenschutzerklärung</h2>
+            <h2 className="text-xl font-bold text-primary mb-4">17. Änderungen dieser Datenschutzerklärung</h2>
             <p>
               Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den
               aktuellen rechtlichen Anforderungen entspricht. Materielle Änderungen kündigen wir in

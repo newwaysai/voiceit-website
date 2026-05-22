@@ -6,8 +6,8 @@ export const metadata = {
   title: 'Terms of Service',
 };
 
-const LAST_UPDATED = '17 May 2026';
-const VERSION = 'v1.2';
+const LAST_UPDATED = '22 May 2026';
+const VERSION = 'v1.4';
 
 export default function TermsEN() {
   return (
@@ -100,12 +100,12 @@ export default function TermsEN() {
           <section>
             <h2 className="text-xl font-bold text-primary mb-4">5. Subscription tiers</h2>
             <ul className="list-disc ml-6 space-y-1">
-              <li><strong className="text-primary">Free:</strong> unlimited on-device dictation, limited monthly AI calls, audio length cap.</li>
-              <li><strong className="text-primary">Pro:</strong> higher monthly AI quota, longer audio cap, EU-hosted AI backend (GDPR), custom prompts.</li>
-              <li><strong className="text-primary">Unlimited:</strong> no monthly call limits, longest audio cap.</li>
+              <li><strong className="text-primary">Free</strong> — unlimited on-device dictation (4,000 words/week), 15 monthly AI calls, 2-minute audio length cap.</li>
+              <li><strong className="text-primary">Pro (€15/4-week cycle)</strong> — unlimited words, 500 monthly AI calls, 8-minute audio length cap, all custom format templates.</li>
+              <li><strong className="text-primary">Unlimited (€30/4-week cycle)</strong> — unlimited words, 3,000 monthly AI calls, 20-minute audio length cap.</li>
             </ul>
             <p className="mt-3">
-              Exact quotas, prices, and features are shown in the App and on voiceitai.app and may
+              All tiers use Google Vertex AI in the EU (Frankfurt) with the Gemini 2.5 Flash model — the differentiation between tiers is monthly call quota and audio length, not model quality. Exact quotas, prices, and features are shown in the App and on voiceitai.app and may
               change with notice. Changes do not retroactively reduce any quotas you have already
               paid for in the current billing period.
             </p>
@@ -114,9 +114,9 @@ export default function TermsEN() {
           <section>
             <h2 className="text-xl font-bold text-primary mb-4">6. Payment, billing and taxes</h2>
             <ul className="list-disc ml-6 space-y-1">
-              <li>Subscriptions are billed monthly in advance through <strong className="text-primary">Stripe</strong>.</li>
+              <li>Subscriptions are billed in <strong className="text-primary">4-week cycles</strong> in advance through <strong className="text-primary">Stripe</strong>.</li>
               <li>Prices include German VAT (currently 19%) where applicable and are shown on the checkout page.</li>
-              <li>Your subscription auto-renews monthly until you cancel.</li>
+              <li>Your subscription auto-renews each 4-week cycle until you cancel.</li>
               <li>Invoices are sent by email and are available in the Stripe customer portal.</li>
             </ul>
           </section>
@@ -205,6 +205,8 @@ export default function TermsEN() {
             <ul className="list-disc ml-6 mt-3 space-y-1">
               <li><strong className="text-primary">Microphone</strong> — to capture audio for transcription</li>
               <li><strong className="text-primary">Accessibility</strong> — to inject the resulting text into the focused application</li>
+              <li><strong className="text-primary">Automation</strong> — to inject text into certain apps (e.g. Electron apps) and optionally to read OTP codes from Apple Mail when signing in</li>
+              <li><strong className="text-primary">Notifications (optional, v0.7.24+)</strong> — to alert you when a new app version is available</li>
             </ul>
             <p className="mt-3">
               You grant these voluntarily through macOS System Settings. You can revoke them at any
@@ -216,8 +218,12 @@ export default function TermsEN() {
           <section>
             <h2 className="text-xl font-bold text-primary mb-4">12. Updates</h2>
             <p>
-              Voiceit automatically checks for updates and will prompt you to install them. Updates
+              Voiceit checks every 30 minutes automatically against{' '}
+              <code className="bg-primary/10 px-1.5 py-0.5 rounded text-xs">github.com/newwaysai/voiceit-releases</code> and prompts you to install new versions. Updates
               may include bug fixes, new features, changes to AI prompts, or security patches.
+            </p>
+            <p className="mt-3">
+              If you grant the optional macOS Notifications permission (v0.7.24+), the app will also send you a system notification when a new version is available.
             </p>
             <p className="mt-3">
               <strong className="text-primary">Material feature changes</strong> are announced with

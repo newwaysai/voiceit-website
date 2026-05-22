@@ -6,8 +6,8 @@ export const metadata = {
   title: 'Allgemeine Geschäftsbedingungen',
 };
 
-const LAST_UPDATED = '17. Mai 2026';
-const VERSION = 'v1.2';
+const LAST_UPDATED = '22. Mai 2026';
+const VERSION = 'v1.4';
 
 export default function AGB() {
   return (
@@ -101,23 +101,21 @@ export default function AGB() {
           <section>
             <h2 className="text-xl font-bold text-primary mb-4">5. Subscription-Stufen</h2>
             <ul className="list-disc ml-6 space-y-1">
-              <li><strong className="text-primary">Free:</strong> unbegrenztes lokales Diktat, begrenzte monatliche KI-Aufrufe, Audio-Längen-Limit.</li>
-              <li><strong className="text-primary">Pro:</strong> höhere monatliche KI-Aufruf-Quote, längeres Audio-Limit, priorisierter Modell-Zugang, eigene Prompts.</li>
-              <li><strong className="text-primary">Unlimited:</strong> keine monatlichen Aufruf-Limits, längstes Audio-Limit.</li>
+              <li><strong className="text-primary">Free:</strong> unbegrenztes lokales Diktat (4.000 Wörter/Woche), 15 monatliche KI-Aufrufe, 2-Minuten-Audio-Cap pro Aufnahme.</li>
+              <li><strong className="text-primary">Pro (15 €/4-Wochen-Zyklus):</strong> unbegrenzte Wörter, 500 monatliche KI-Aufrufe, 8-Minuten-Audio-Cap, alle Custom-Format-Templates.</li>
+              <li><strong className="text-primary">Unlimited (30 €/4-Wochen-Zyklus):</strong> unbegrenzte Wörter, 3.000 monatliche KI-Aufrufe, 20-Minuten-Audio-Cap.</li>
             </ul>
             <p className="mt-3">
-              Konkrete Quoten, Preise und Features werden in der App und auf voiceitai.app gezeigt
-              und können mit Vorankündigung geändert werden. Änderungen reduzieren keine Quoten, die
-              du in der laufenden Abrechnungsperiode bereits bezahlt hast.
+              Alle Tarife nutzen Google Vertex AI in der EU (Frankfurt) mit dem Modell Gemini 2.5 Flash — die Tarif-Differenzierung erfolgt ausschließlich über Aufruf-Quoten und Audio-Länge, nicht über die Modell-Qualität. Konkrete Quoten, Preise und Features werden in der App und auf voiceitai.app gezeigt und können mit Vorankündigung geändert werden. Änderungen reduzieren keine Quoten, die du in der laufenden Abrechnungsperiode bereits bezahlt hast.
             </p>
           </section>
 
           <section>
             <h2 className="text-xl font-bold text-primary mb-4">6. Zahlung, Abrechnung und Steuern</h2>
             <ul className="list-disc ml-6 space-y-1">
-              <li>Subscriptions werden monatlich im Voraus über <strong className="text-primary">Stripe</strong> abgerechnet.</li>
+              <li>Subscriptions werden in <strong className="text-primary">4-Wochen-Zyklen</strong> im Voraus über <strong className="text-primary">Stripe</strong> abgerechnet.</li>
               <li>Preise enthalten die deutsche Umsatzsteuer (aktuell 19 %) soweit anwendbar und werden auf der Checkout-Seite ausgewiesen.</li>
-              <li>Deine Subscription verlängert sich automatisch monatlich bis zur Kündigung.</li>
+              <li>Deine Subscription verlängert sich automatisch alle 4 Wochen bis zur Kündigung.</li>
               <li>Rechnungen erhältst du per E-Mail und über das Stripe Customer Portal.</li>
             </ul>
           </section>
@@ -205,6 +203,8 @@ export default function AGB() {
             <ul className="list-disc ml-6 mt-3 space-y-1">
               <li><strong className="text-primary">Mikrofon</strong> — zur Aufnahme des Audios für die Transkription</li>
               <li><strong className="text-primary">Bedienungshilfen (Accessibility)</strong> — zum Einfügen des Texts in die aktive Anwendung</li>
+              <li><strong className="text-primary">Automation</strong> — zum Einfügen von Text in bestimmte Apps (z. B. Electron-Apps) und optional zum Lesen von OTP-Codes aus Apple Mail beim Anmelden</li>
+              <li><strong className="text-primary">Mitteilungen (optional, ab v0.7.24)</strong> — zur Benachrichtigung bei neuen App-Versionen</li>
             </ul>
             <p className="mt-3">
               Du erteilst diese Berechtigungen freiwillig in den macOS-Systemeinstellungen und kannst
@@ -216,9 +216,13 @@ export default function AGB() {
           <section>
             <h2 className="text-xl font-bold text-primary mb-4">12. Updates</h2>
             <p>
-              Voiceit prüft automatisch auf Updates und schlägt deren Installation vor. Updates
+              Voiceit prüft alle 30 Minuten automatisch auf Updates gegen{' '}
+              <code className="bg-primary/10 px-1.5 py-0.5 rounded text-xs">github.com/newwaysai/voiceit-releases</code> und schlägt deren Installation vor. Updates
               können Fehlerbehebungen, neue Funktionen, Änderungen an KI-Prompts oder
               Sicherheits-Patches enthalten.
+            </p>
+            <p className="mt-3">
+              Wenn du die optionale macOS-Mitteilungs-Berechtigung erteilst (ab v0.7.24), benachrichtigt dich die App auch per System-Notification, wenn eine neue Version verfügbar ist.
             </p>
             <p className="mt-3">
               <strong className="text-primary">Wesentliche Funktionsänderungen</strong> kündigen wir
