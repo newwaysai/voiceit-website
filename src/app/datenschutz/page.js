@@ -7,7 +7,7 @@ export const metadata = {
 };
 
 const LAST_UPDATED = '22. Mai 2026';
-const VERSION = 'v1.2';
+const VERSION = 'v1.4';
 
 export default function Datenschutz() {
   return (
@@ -77,7 +77,7 @@ export default function Datenschutz() {
             <h2 className="text-xl font-bold text-primary mb-4">4. Rechtsgrundlagen und Speicherdauer</h2>
             <h3 className="font-bold text-primary mb-2">Rechtsgrundlagen Art. 6 DSGVO</h3>
             <ul className="list-disc ml-6 space-y-1">
-              <li><strong>Art. 6 Abs. 1 lit. a</strong> (Einwilligung): Newsletter, Lead-Magnete, ManyChat-DM, Marketing-E-Mails</li>
+              <li><strong>Art. 6 Abs. 1 lit. a</strong> (Einwilligung): Newsletter, Lead-Magnete, Instagram-Keyword-Comment-DM, Marketing-E-Mails</li>
               <li><strong>Art. 6 Abs. 1 lit. b</strong> (Vertragserfüllung): App-Bereitstellung, Account, Pro-Subscription via Stripe</li>
               <li><strong>Art. 6 Abs. 1 lit. c</strong> (rechtliche Verpflichtung): Aufbewahrung steuerrelevanter Daten</li>
               <li><strong>Art. 6 Abs. 1 lit. f</strong> (berechtigtes Interesse): Hosting-Logs, Trustpilot-Widget, externe Verlinkungen, Update-Checks</li>
@@ -101,12 +101,14 @@ export default function Datenschutz() {
                   </tr>
                 </thead>
                 <tbody className="text-primary/70">
-                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">Hosting-Logs (IP, User-Agent)</td><td className="py-2 pr-3">30 Tage</td><td className="py-2">Art. 6(1)(f)</td></tr>
+                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">Hosting-Logs Vercel (IP, User-Agent)</td><td className="py-2 pr-3">7 Tage volle Logs, danach 23 Tage aggregiert</td><td className="py-2">Art. 6(1)(f)</td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Newsletter-/Lead-Magnet-E-Mails</td><td className="py-2 pr-3">bis Widerruf + 1 Monat</td><td className="py-2">Art. 6(1)(a)</td></tr>
-                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">Account-Daten Supabase</td><td className="py-2 pr-3">solange Account besteht</td><td className="py-2">Art. 6(1)(b)</td></tr>
+                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">Account-Daten Supabase</td><td className="py-2 pr-3">solange Account besteht, bei Löschung sofort</td><td className="py-2">Art. 6(1)(b)</td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Stripe-Zahlungsbelege</td><td className="py-2 pr-3">10 Jahre (GoBD/§ 147 AO)</td><td className="py-2">Art. 6(1)(c)</td></tr>
-                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">Lokale Transkripte und Audio</td><td className="py-2 pr-3">30 Tage, dann Auto-Löschung</td><td className="py-2">lokal, keine Übertragung</td></tr>
-                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">KI-Text-Anfragen beim Provider</td><td className="py-2 pr-3">nach Provider-Policy (z.&nbsp;B. Google ca. 24h Abuse-Cache)</td><td className="py-2">Art. 6(1)(b)</td></tr>
+                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">Lokale Transkripte und Audio</td><td className="py-2 pr-3">30 Tage Auto-Löschung, jederzeit manuell löschbar</td><td className="py-2">lokal, keine Übertragung</td></tr>
+                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">KI-Anfragen Google Vertex AI</td><td className="py-2 pr-3">~24h Abuse-Cache (kein Training auf Kundendaten)</td><td className="py-2">Art. 6(1)(b)</td></tr>
+                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">Lizenz-Verifikations-Logs</td><td className="py-2 pr-3">30 Tage (Supabase Edge Function Logs)</td><td className="py-2">Art. 6(1)(b)/(f)</td></tr>
+                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">In-App-Feedback</td><td className="py-2 pr-3">bis Issue geschlossen, danach 2 Jahre Archiv</td><td className="py-2">Art. 6(1)(f)</td></tr>
                   <tr><td className="py-2 pr-3">E-Mail-Korrespondenz</td><td className="py-2 pr-3">3 Jahre nach Anliegen-Abschluss</td><td className="py-2">Art. 6(1)(b)/(f)</td></tr>
                 </tbody>
               </table>
@@ -237,11 +239,14 @@ export default function Datenschutz() {
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Stripe, Inc.</td><td className="py-2 pr-3">USA + EU + UK</td><td className="py-2 pr-3">Pro-Subscription-Zahlung</td><td className="py-2 pr-3">Name, Adresse, Karten-/Bankdaten, Steuerinfo</td><td className="py-2 pr-3">DPF + SCC + UK-Adequacy</td><td className="py-2"><a href="https://stripe.com/privacy" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Google Cloud EMEA Ltd</td><td className="py-2 pr-3">Irland / Frankfurt, DE</td><td className="py-2 pr-3">KI-Modell Gemini via Vertex AI (Prompt/Agent-Mode)</td><td className="py-2 pr-3">transkribierter Text (opt-in)</td><td className="py-2 pr-3">EU-intern (europe-west3)</td><td className="py-2"><a href="https://cloud.google.com/terms/data-processing-addendum" className="text-accent underline" target="_blank" rel="noopener noreferrer">Cloud DPA</a></td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Brevo (Sendinblue GmbH)</td><td className="py-2 pr-3">Berlin</td><td className="py-2 pr-3">Newsletter, Lead-Magnet-E-Mails</td><td className="py-2 pr-3">E-Mail, Name</td><td className="py-2 pr-3">EU-intern</td><td className="py-2"><a href="https://www.brevo.com/de/legal/privacypolicy/" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
-                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">ManyChat Inc.</td><td className="py-2 pr-3">USA</td><td className="py-2 pr-3">Instagram-DM-Automation</td><td className="py-2 pr-3">IG-Username, DM-Inhalt</td><td className="py-2 pr-3">DPF + SCC</td><td className="py-2"><a href="https://manychat.com/privacy.html" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
+                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">Newways Lead-Magnet-Service (self-hosted)</td><td className="py-2 pr-3">Frankfurt, DE</td><td className="py-2 pr-3">Instagram-Comment-to-DM-Automation (Lead-Magnete)</td><td className="py-2 pr-3">IG-Username, DM-Inhalt (Lead-Magnet-Links)</td><td className="py-2 pr-3">EU-intern (Hostinger Frankfurt)</td><td className="py-2"><a href="https://www.hostinger.com/legal/data-processing-agreement" className="text-accent underline" target="_blank" rel="noopener noreferrer">Hostinger AVV</a></td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">WhatsApp Ireland Ltd. (Meta)</td><td className="py-2 pr-3">Irland / USA</td><td className="py-2 pr-3">Kontakt-Link</td><td className="py-2 pr-3">Metadaten bei Klick</td><td className="py-2 pr-3">DPF + SCC</td><td className="py-2"><a href="https://www.whatsapp.com/legal/privacy-policy-eea" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Skool Inc.</td><td className="py-2 pr-3">USA</td><td className="py-2 pr-3">Community-Verlinkung</td><td className="py-2 pr-3">Klick-Metadaten</td><td className="py-2 pr-3">DPF + SCC</td><td className="py-2"><a href="https://www.skool.com/privacy" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Trustpilot A/S</td><td className="py-2 pr-3">Dänemark</td><td className="py-2 pr-3">Reviews-Widget</td><td className="py-2 pr-3">IP bei Widget-Ladung</td><td className="py-2 pr-3">EU-intern</td><td className="py-2"><a href="https://legal.trustpilot.com/end-user-privacy-terms" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
-                  <tr><td className="py-2 pr-3">GitHub Inc. (Microsoft)</td><td className="py-2 pr-3">USA</td><td className="py-2 pr-3">Release-Distribution, Update-Check</td><td className="py-2 pr-3">IP bei Download</td><td className="py-2 pr-3">DPF + SCC</td><td className="py-2"><a href="https://docs.github.com/en/site-policy/privacy-policies" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
+                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">GitHub Inc. (Microsoft)</td><td className="py-2 pr-3">USA</td><td className="py-2 pr-3">Release-Distribution, Update-Check (alle 30 Min)</td><td className="py-2 pr-3">IP bei Download / Polling</td><td className="py-2 pr-3">DPF + SCC + Microsoft DPA</td><td className="py-2"><a href="https://docs.github.com/en/site-policy/privacy-policies" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
+                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">Google Workspace</td><td className="py-2 pr-3">USA</td><td className="py-2 pr-3">Geschäftsmail marcel@newways.ai</td><td className="py-2 pr-3">E-Mail-Inhalte, Empfänger-Metadaten</td><td className="py-2 pr-3">DPF + SCC</td><td className="py-2"><a href="https://workspace.google.com/terms/dpa_terms.html" className="text-accent underline" target="_blank" rel="noopener noreferrer">DPA</a></td></tr>
+                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">Apple Inc. (Sign-in mit Apple — aktuell deaktiviert)</td><td className="py-2 pr-3">USA / EU</td><td className="py-2 pr-3">Optionale OAuth-Anmeldung</td><td className="py-2 pr-3">Apple-Nutzer-ID, E-Mail</td><td className="py-2 pr-3">DPF + Apple-Standards</td><td className="py-2"><a href="https://www.apple.com/legal/privacy/" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
+                  <tr><td className="py-2 pr-3">Google LLC (Sign-in mit Google — aktuell deaktiviert)</td><td className="py-2 pr-3">USA</td><td className="py-2 pr-3">Optionale OAuth-Anmeldung</td><td className="py-2 pr-3">Google-Nutzer-ID, E-Mail, Name</td><td className="py-2 pr-3">DPF + SCC</td><td className="py-2"><a href="https://policies.google.com/privacy" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
                 </tbody>
               </table>
             </div>
@@ -298,25 +303,49 @@ export default function Datenschutz() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-primary mb-4">12. Lead-Magnete und Instagram-DM (ManyChat)</h2>
+            <h2 className="text-xl font-bold text-primary mb-4">12. Lead-Magnete und Instagram-DM</h2>
             <p>
               Wenn du auf einem unserer Instagram-Posts ein bestimmtes Keyword kommentierst, sendet
-              ManyChat dir den angeforderten Lead-Magnet als DM.
+              dir unser <strong className="text-primary">eigener, self-hosted Lead-Magnet-Service</strong>{' '}
+              den angeforderten Lead-Magnet als Instagram-DM.
             </p>
             <p className="mt-3">
-              <strong className="text-primary">Anbieter:</strong> ManyChat Inc., 535 Mission Street,
-              San Francisco, CA 94105, USA.
+              <strong className="text-primary">Anbieter:</strong> Newways (Marcel Porcher),
+              Schlesische Str. 14, 10997 Berlin.
             </p>
             <p className="mt-3">
-              ManyChat verarbeitet deinen Instagram-Nutzernamen und den Nachrichteninhalt. Die
-              DM-Inhalte werden auf US-Servern gespeichert; abgesichert durch
-              EU-Standardvertragsklauseln und DPF.
+              <strong className="text-primary">Server-Standort:</strong> Self-hosted auf einem
+              Hostinger-VPS in <strong className="text-primary">Frankfurt, Deutschland</strong>{' '}
+              (Hostinger Operations Ltd., Datacenter „fra"). Keine Drittland-Übermittlung.
             </p>
             <p className="mt-3">
-              Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung durch Kommentar). Details:{' '}
-              <a href="https://manychat.com/privacy.html" target="_blank" rel="noopener noreferrer" className="text-accent underline">
-                manychat.com/privacy
+              <strong className="text-primary">Verarbeitete Daten:</strong> dein
+              Instagram-Nutzername, der Inhalt deines Kommentars (Keyword-Erkennung) und die
+              versendete DM-Antwort (standardisierte Lead-Magnet-Links/-Texte).
+            </p>
+            <p className="mt-3">
+              <strong className="text-primary">Speicherdauer:</strong> Keyword + IG-Username werden
+              in einer eigenen PostgreSQL-Datenbank für die Dauer der Kampagne und maximal 6 Monate
+              danach für statistische Auswertung gespeichert; danach automatische Löschung.
+            </p>
+            <p className="mt-3">
+              <strong className="text-primary">Sub-Prozessor:</strong> Hostinger Operations Ltd. als
+              VPS-Hoster. AVV:{' '}
+              <a href="https://www.hostinger.com/legal/data-processing-agreement" target="_blank" rel="noopener noreferrer" className="text-accent underline">
+                hostinger.com/legal/data-processing-agreement
               </a>.
+            </p>
+            <p className="mt-3">
+              <strong className="text-primary">Instagram-seitige Daten:</strong> Der Kommentar
+              selbst und alle Metadaten werden von Meta/Instagram verarbeitet — darauf haben wir
+              keinen Einfluss.{' '}
+              <a href="https://privacycenter.instagram.com/policy" target="_blank" rel="noopener noreferrer" className="text-accent underline">
+                Instagram-Datenschutzrichtlinie
+              </a>.
+            </p>
+            <p className="mt-3">
+              Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung durch aktive
+              Keyword-Kommentar-Aktion).
             </p>
           </section>
 

@@ -227,11 +227,14 @@ export default function PrivacyEN() {
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Stripe, Inc.</td><td className="py-2 pr-3">USA + EU + UK</td><td className="py-2 pr-3">Subscription payment</td><td className="py-2 pr-3">Name, address, card/bank data, tax info</td><td className="py-2 pr-3">DPF + SCC + UK Adequacy</td><td className="py-2"><a href="https://stripe.com/privacy" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Google Cloud EMEA Ltd</td><td className="py-2 pr-3">Ireland / Frankfurt, DE</td><td className="py-2 pr-3">AI model Gemini via Vertex AI (Prompt/Agent Mode)</td><td className="py-2 pr-3">Transcribed text (opt-in)</td><td className="py-2 pr-3">EU-internal (europe-west3)</td><td className="py-2"><a href="https://cloud.google.com/terms/data-processing-addendum" className="text-accent underline" target="_blank" rel="noopener noreferrer">Cloud DPA</a></td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Brevo (Sendinblue GmbH)</td><td className="py-2 pr-3">Berlin</td><td className="py-2 pr-3">Newsletter, lead-magnet emails</td><td className="py-2 pr-3">Email, name</td><td className="py-2 pr-3">EU-internal</td><td className="py-2"><a href="https://www.brevo.com/legal/privacypolicy/" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
-                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">ManyChat Inc.</td><td className="py-2 pr-3">USA</td><td className="py-2 pr-3">Instagram DM automation</td><td className="py-2 pr-3">IG handle, DM content</td><td className="py-2 pr-3">DPF + SCC</td><td className="py-2"><a href="https://manychat.com/privacy.html" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
+                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">Newways lead-magnet service (self-hosted)</td><td className="py-2 pr-3">Frankfurt, Germany</td><td className="py-2 pr-3">Instagram comment-to-DM automation</td><td className="py-2 pr-3">IG handle, DM content (lead-magnet links)</td><td className="py-2 pr-3">EU-internal (Hostinger Frankfurt)</td><td className="py-2"><a href="https://www.hostinger.com/legal/data-processing-agreement" className="text-accent underline" target="_blank" rel="noopener noreferrer">Hostinger DPA</a></td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">WhatsApp Ireland Ltd. (Meta)</td><td className="py-2 pr-3">Ireland / USA</td><td className="py-2 pr-3">Contact link</td><td className="py-2 pr-3">Metadata on click</td><td className="py-2 pr-3">DPF + SCC</td><td className="py-2"><a href="https://www.whatsapp.com/legal/privacy-policy-eea" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Skool Inc.</td><td className="py-2 pr-3">USA</td><td className="py-2 pr-3">Community link</td><td className="py-2 pr-3">Click metadata</td><td className="py-2 pr-3">DPF + SCC</td><td className="py-2"><a href="https://www.skool.com/privacy" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Trustpilot A/S</td><td className="py-2 pr-3">Denmark</td><td className="py-2 pr-3">Reviews widget</td><td className="py-2 pr-3">IP on widget load</td><td className="py-2 pr-3">EU-internal</td><td className="py-2"><a href="https://legal.trustpilot.com/end-user-privacy-terms" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
-                  <tr><td className="py-2 pr-3">GitHub Inc. (Microsoft)</td><td className="py-2 pr-3">USA</td><td className="py-2 pr-3">Release distribution, update check</td><td className="py-2 pr-3">IP on download</td><td className="py-2 pr-3">DPF + SCC</td><td className="py-2"><a href="https://docs.github.com/en/site-policy/privacy-policies" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
+                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">GitHub Inc. (Microsoft)</td><td className="py-2 pr-3">USA</td><td className="py-2 pr-3">Release distribution + update polling (every 30 min)</td><td className="py-2 pr-3">IP on download / polling</td><td className="py-2 pr-3">DPF + SCC + Microsoft DPA</td><td className="py-2"><a href="https://docs.github.com/en/site-policy/privacy-policies" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
+                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">Google Workspace</td><td className="py-2 pr-3">USA</td><td className="py-2 pr-3">Business email marcel@newways.ai</td><td className="py-2 pr-3">Email content, recipient metadata</td><td className="py-2 pr-3">DPF + SCC</td><td className="py-2"><a href="https://workspace.google.com/terms/dpa_terms.html" className="text-accent underline" target="_blank" rel="noopener noreferrer">DPA</a></td></tr>
+                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">Apple Inc. (Sign-in with Apple — currently disabled)</td><td className="py-2 pr-3">USA / EU</td><td className="py-2 pr-3">Optional OAuth sign-in</td><td className="py-2 pr-3">Apple user ID, email</td><td className="py-2 pr-3">DPF + Apple standards</td><td className="py-2"><a href="https://www.apple.com/legal/privacy/" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
+                  <tr><td className="py-2 pr-3">Google LLC (Sign-in with Google — currently disabled)</td><td className="py-2 pr-3">USA</td><td className="py-2 pr-3">Optional OAuth sign-in</td><td className="py-2 pr-3">Google user ID, email, name</td><td className="py-2 pr-3">DPF + SCC</td><td className="py-2"><a href="https://policies.google.com/privacy" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
                 </tbody>
               </table>
             </div>
@@ -285,24 +288,47 @@ export default function PrivacyEN() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-primary mb-4">12. Lead magnets and Instagram DM (ManyChat)</h2>
+            <h2 className="text-xl font-bold text-primary mb-4">12. Lead magnets and Instagram DM</h2>
             <p>
-              When you comment a specific keyword on one of our Instagram posts, ManyChat sends you
-              the requested lead magnet via DM.
+              When you comment a specific keyword on one of our Instagram posts, our{' '}
+              <strong className="text-primary">own self-hosted lead-magnet service</strong> sends
+              you the requested lead magnet via Instagram DM.
             </p>
             <p className="mt-3">
-              <strong className="text-primary">Provider:</strong> ManyChat Inc., 535 Mission Street,
-              San Francisco, CA 94105, USA.
+              <strong className="text-primary">Operator:</strong> Newways (Marcel Porcher),
+              Schlesische Str. 14, 10997 Berlin, Germany.
             </p>
             <p className="mt-3">
-              ManyChat processes your Instagram handle and the message content. DM content is stored
-              on US servers; safeguarded by EU Standard Contractual Clauses and DPF.
+              <strong className="text-primary">Server location:</strong> self-hosted on a Hostinger
+              VPS in <strong className="text-primary">Frankfurt, Germany</strong> (Hostinger
+              Operations Ltd., data center "fra"). No third-country transfer.
             </p>
             <p className="mt-3">
-              Legal basis: Art. 6(1)(a) GDPR (consent through comment action). Details:{' '}
-              <a href="https://manychat.com/privacy.html" target="_blank" rel="noopener noreferrer" className="text-accent underline">
-                manychat.com/privacy
+              <strong className="text-primary">Data processed:</strong> your Instagram handle, the
+              content of your comment (keyword detection) and the standardised lead-magnet DM we
+              send back.
+            </p>
+            <p className="mt-3">
+              <strong className="text-primary">Retention:</strong> keyword + IG handle are stored in
+              our own PostgreSQL database for the duration of the campaign plus a maximum of 6
+              months for statistical analysis, then auto-deleted.
+            </p>
+            <p className="mt-3">
+              <strong className="text-primary">Sub-processor:</strong> Hostinger Operations Ltd. as
+              VPS host. DPA:{' '}
+              <a href="https://www.hostinger.com/legal/data-processing-agreement" target="_blank" rel="noopener noreferrer" className="text-accent underline">
+                hostinger.com/legal/data-processing-agreement
               </a>.
+            </p>
+            <p className="mt-3">
+              <strong className="text-primary">Instagram side:</strong> The comment itself and all
+              related metadata are processed by Meta/Instagram — outside our control.{' '}
+              <a href="https://privacycenter.instagram.com/policy" target="_blank" rel="noopener noreferrer" className="text-accent underline">
+                Instagram privacy policy
+              </a>.
+            </p>
+            <p className="mt-3">
+              Legal basis: Art. 6(1)(a) GDPR (consent through active keyword-comment action).
             </p>
           </section>
 
