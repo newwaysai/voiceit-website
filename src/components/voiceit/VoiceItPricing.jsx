@@ -1,7 +1,9 @@
 'use client';
+import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import { gsap, ScrollTrigger } from '@/lib/gsap';
 import { Check, Download } from 'lucide-react';
+import { PLANS } from '@/lib/plans';
 
 const COPY = {
   de: {
@@ -28,49 +30,9 @@ const COPY = {
     popularBadge: 'Beliebteste Wahl',
     freeBadge: 'Gratis',
     footer: 'Abrechnung alle 4 Wochen · Stripe Checkout · jederzeit kündbar',
-    plans: [
-      {
-        name: 'Free',
-        price: '0',
-        suffix: '€ / immer',
-        tagline: 'Reines Diktat. Für immer kostenlos.',
-        features: [
-          'Diktat-Modus unbegrenzt',
-          '100% lokal, Audio bleibt auf deinem Mac',
-          '15 KI-Aufrufe / Monat (Prompt-Modus)',
-          'Bis zu 2 Min Aufnahme',
-        ],
-        cta: 'Download for Mac',
-      },
-      {
-        name: 'Pro',
-        price: '15',
-        suffix: '€ / 4 Wochen',
-        tagline: 'Diktat + Prompt + Agent. Für aktive Anwender, die Voice produktiv nutzen.',
-        features: [
-          'Alles aus Free',
-          '500 KI-Aufrufe / Monat',
-          'Agent-Modus (eigene Prompts)',
-          'Bis zu 8 Min Aufnahme',
-          'Priorität auf neue Features',
-        ],
-        cta: 'Download for Mac',
-      },
-      {
-        name: 'Premium',
-        price: '30',
-        suffix: '€ / 4 Wochen',
-        tagline: 'Für Power-Nutzer mit maximalem KI-Volumen.',
-        features: [
-          'Alles aus Pro',
-          '3.000 KI-Aufrufe / Monat',
-          'Bis zu 20 Min Aufnahme',
-          'EU-gehostete KI (DSGVO-konform)',
-          'Frühen Zugang zu neuen Modellen',
-        ],
-        cta: 'Download for Mac',
-      },
-    ],
+    plans: PLANS.de,
+    dsgvoBadgeAlt: '100% DSGVO konform',
+    dsgvoText: 'DSGVO-konform · Audio bleibt on-device',
   },
   en: {
     pill: 'Pricing',
@@ -96,49 +58,9 @@ const COPY = {
     popularBadge: 'Most popular',
     freeBadge: 'Free',
     footer: 'Billed every 4 weeks · Stripe checkout · cancel any time',
-    plans: [
-      {
-        name: 'Free',
-        price: '0',
-        suffix: '€ / forever',
-        tagline: 'Pure dictation. Free forever.',
-        features: [
-          'Unlimited dictation mode',
-          '100% local, audio stays on your Mac',
-          '15 AI calls / month (Prompt mode)',
-          'Up to 2 min recording',
-        ],
-        cta: 'Download for Mac',
-      },
-      {
-        name: 'Pro',
-        price: '15',
-        suffix: '€ / 4 weeks',
-        tagline: 'Dictation + Prompt + Agent. For people who actually use voice productively.',
-        features: [
-          'Everything in Free',
-          '500 AI calls / month',
-          'Agent mode (custom prompts)',
-          'Up to 8 min recording',
-          'Priority on new features',
-        ],
-        cta: 'Download for Mac',
-      },
-      {
-        name: 'Premium',
-        price: '30',
-        suffix: '€ / 4 weeks',
-        tagline: 'For power users who want maximum AI volume.',
-        features: [
-          'Everything in Pro',
-          '3,000 AI calls / month',
-          'Up to 20 min recording',
-          'EU-hosted AI (GDPR-compliant)',
-          'Early access to new models',
-        ],
-        cta: 'Download for Mac',
-      },
-    ],
+    plans: PLANS.en,
+    dsgvoBadgeAlt: 'GDPR compliant',
+    dsgvoText: 'GDPR-compliant · Audio stays on-device',
   },
 };
 
@@ -385,6 +307,19 @@ export default function VoiceItPricing({ lang = 'de', downloadUrl = 'https://git
         >
           {c.footer}
         </p>
+
+        <div className="price-elem flex items-center justify-center gap-3 mt-8">
+          <Image
+            src="/badges/dsgvo.png"
+            alt={c.dsgvoBadgeAlt}
+            width={56}
+            height={56}
+            className="h-14 w-14 object-contain"
+          />
+          <span className="font-sans text-xs" style={{ color: 'var(--fv-text-muted)' }}>
+            {c.dsgvoText}
+          </span>
+        </div>
       </div>
     </section>
   );

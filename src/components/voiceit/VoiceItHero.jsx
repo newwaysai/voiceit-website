@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from '@/lib/gsap';
 import { ArrowRight, Download, Lock, Mic, Wand2, Bot } from 'lucide-react';
@@ -66,6 +67,7 @@ const COPY = {
         caption: 'Markiert + Sprich → Agent transformiert Fließtext zu Struktur',
       },
     ],
+    dsgvoBadgeAlt: '100% DSGVO konform',
   },
   en: {
     pill: 'Voice agent for macOS',
@@ -128,6 +130,7 @@ const COPY = {
         caption: 'Select + speak → Agent turns prose into structure',
       },
     ],
+    dsgvoBadgeAlt: 'GDPR compliant',
   },
 };
 
@@ -296,6 +299,13 @@ export default function VoiceItHero({ lang = 'de', downloadUrl = 'https://github
               <span className="font-data text-[11px] uppercase tracking-[0.16em]">
                 {c.chip3}
               </span>
+              <Image
+                src="/badges/dsgvo.png"
+                alt={c.dsgvoBadgeAlt}
+                width={40}
+                height={40}
+                className="h-10 w-10 object-contain opacity-70 hover:opacity-100 transition-opacity"
+              />
             </div>
           </div>
 
