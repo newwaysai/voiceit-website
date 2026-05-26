@@ -32,7 +32,7 @@ const COPY = {
     footer: 'Abrechnung alle 4 Wochen · Stripe Checkout · jederzeit kündbar',
     plans: PLANS.de,
     dsgvoBadgeAlt: '100% DSGVO konform',
-    dsgvoText: 'DSGVO-konform · Audio bleibt on-device',
+    dsgvoText: 'DSGVO-konform · Diktat lokal · KI in EU (Deutschland) · kein KI-Training',
   },
   en: {
     pill: 'Pricing',
@@ -60,7 +60,7 @@ const COPY = {
     footer: 'Billed every 4 weeks · Stripe checkout · cancel any time',
     plans: PLANS.en,
     dsgvoBadgeAlt: 'GDPR compliant',
-    dsgvoText: 'GDPR-compliant · Audio stays on-device',
+    dsgvoText: 'GDPR-compliant · Dictation local · AI in EU (Germany) · no AI training',
   },
 };
 
@@ -312,9 +312,9 @@ export default function VoiceItPricing({ lang = 'de', downloadUrl = 'https://git
           <Image
             src="/badges/dsgvo.png"
             alt={c.dsgvoBadgeAlt}
-            width={56}
-            height={56}
-            className="h-14 w-14 object-contain"
+            width={72}
+            height={72}
+            className="h-[72px] w-[72px] object-contain"
           />
           <span className="font-sans text-xs" style={{ color: 'var(--fv-text-muted)' }}>
             {c.dsgvoText}

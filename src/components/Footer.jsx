@@ -6,7 +6,7 @@ import WhatsAppButton from '@/components/WhatsAppButton';
 const COPY = {
   de: {
     tagline: 'Voice-Agent für Mac. Audio bleibt lokal. Diktat gratis. Ein Produkt von Newways.',
-    dsgvo: 'DSGVO-konform. Audio bleibt on-device.',
+    dsgvo: 'DSGVO-konform. Diktat lokal, KI in EU (Deutschland), kein KI-Training. 100% Safe.',
     waLabel: 'WhatsApp schreiben',
     waText: 'Hi Marcel, ich habe eine Frage zu Voiceit.',
     productHeader: 'Produkt',
@@ -24,7 +24,7 @@ const COPY = {
   },
   en: {
     tagline: 'Voice agent for Mac. Audio stays local. Dictation free. A Newways product.',
-    dsgvo: 'GDPR compliant. Audio stays on-device.',
+    dsgvo: 'GDPR compliant. Dictation local, AI in EU (Germany), no AI training. 100% Safe.',
     waLabel: 'WhatsApp us',
     waText: 'Hi Marcel, I have a question about Voiceit.',
     productHeader: 'Product',
@@ -64,11 +64,11 @@ export default function Footer({ lang = 'de', downloadUrl = 'https://github.com/
             <Image
               src="/badges/dsgvo.png"
               alt={isEN ? 'GDPR compliant' : '100% DSGVO konform'}
-              width={64}
-              height={64}
-              className="h-16 w-16 object-contain"
+              width={80}
+              height={80}
+              className="h-20 w-20 object-contain"
             />
-            <div className="font-sans text-xs text-primary/40 leading-snug max-w-[180px]">
+            <div className="font-sans text-xs text-primary/40 leading-snug max-w-[220px]">
               {c.dsgvo}
             </div>
           </div>

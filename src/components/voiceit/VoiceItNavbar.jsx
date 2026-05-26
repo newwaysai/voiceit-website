@@ -2,6 +2,7 @@
 import { Download } from 'lucide-react';
 import Link from 'next/link';
 import ThemeToggle from '@/components/ThemeToggle';
+import VoiceItTrustBanner from './VoiceItTrustBanner';
 
 const LINKS_DE = [
   { href: '#modi', label: 'Modes' },
@@ -21,9 +22,11 @@ export default function VoiceItNavbar({ lang = 'de', downloadUrl = 'https://gith
   const links = lang === 'en' ? LINKS_EN : LINKS_DE;
 
   return (
+    <div className="sticky top-0 z-40 w-full">
+    <VoiceItTrustBanner lang={lang} />
     <nav
       aria-label="Voiceit Navigation"
-      className="sticky top-0 z-40 w-full backdrop-blur-xl"
+      className="w-full backdrop-blur-xl"
       style={{
         background: 'var(--fv-nav-bg)',
         borderBottom: '1px solid var(--fv-border)',
@@ -110,5 +113,6 @@ export default function VoiceItNavbar({ lang = 'de', downloadUrl = 'https://gith
         </div>
       </div>
     </nav>
+    </div>
   );
 }

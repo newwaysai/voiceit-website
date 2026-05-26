@@ -15,7 +15,7 @@ const COPY = {
       <>
         Lokales Voice-Modell, optimiert für Apple Silicon. Kein Cloud-Roundtrip.
         Bis zu <span style={{ color: '#FFFFFF', fontWeight: 600 }}>5× schneller</span> als Cloud-basierte Tools.
-        Audio bleibt auf deinem Mac. Diktat ist gratis. Für immer.
+        Diktat lokal. KI-Features in EU (Deutschland). Kein KI-Training mit deinen Daten. 100% Safe.
       </>
     ),
     badge: '100% lokal · ab 15 €',
@@ -78,7 +78,7 @@ const COPY = {
       <>
         Local voice model, tuned for Apple Silicon. No cloud round-trip.
         Up to <span style={{ color: '#FFFFFF', fontWeight: 600 }}>5× faster</span> than cloud-based tools.
-        Audio stays on your Mac. Dictation is free. Forever.
+        Dictation 100% local. AI features in EU (Germany). No AI training with your data. 100% Safe.
       </>
     ),
     badge: '100% local · from €15',
@@ -302,9 +302,9 @@ export default function VoiceItHero({ lang = 'de', downloadUrl = 'https://github
               <Image
                 src="/badges/dsgvo.png"
                 alt={c.dsgvoBadgeAlt}
-                width={40}
-                height={40}
-                className="h-10 w-10 object-contain opacity-70 hover:opacity-100 transition-opacity"
+                width={48}
+                height={48}
+                className="h-12 w-12 object-contain opacity-70 hover:opacity-100 transition-opacity"
               />
             </div>
           </div>
