@@ -51,8 +51,8 @@ export default function PrivacyEN() {
             <p className="mt-3">
               Marcel Porcher<br />
               Newways<br />
-              Schlesische Str. 14<br />
-              10997 Berlin, Germany<br />
+              Rabestraße 6<br />
+              10405 Berlin, Germany<br />
               VAT ID: DE344920245<br />
               Email:{' '}
               <a href="mailto:marcel@newways.ai" className="text-accent underline">
@@ -223,7 +223,7 @@ export default function PrivacyEN() {
                 </thead>
                 <tbody className="text-primary/70 align-top">
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Vercel Inc.</td><td className="py-2 pr-3">USA</td><td className="py-2 pr-3">Website hosting</td><td className="py-2 pr-3">IP, logs</td><td className="py-2 pr-3">DPF + SCC</td><td className="py-2"><a href="https://vercel.com/legal/privacy-policy" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
-                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">Supabase Inc.</td><td className="py-2 pr-3">EU Frankfurt</td><td className="py-2 pr-3">Account, license check, app backend</td><td className="py-2 pr-3">Email, device ID</td><td className="py-2 pr-3">EU-internal</td><td className="py-2"><a href="https://supabase.com/privacy" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
+                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">Supabase Pte. Ltd.</td><td className="py-2 pr-3">EU (Frankfurt)</td><td className="py-2 pr-3">Account, license check, app backend</td><td className="py-2 pr-3">Email, device ID</td><td className="py-2 pr-3">EU hosting, US parent (Supabase Inc., Delaware) — DPF + SCC</td><td className="py-2"><a href="https://supabase.com/privacy" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Stripe, Inc.</td><td className="py-2 pr-3">USA + EU + UK</td><td className="py-2 pr-3">Subscription payment</td><td className="py-2 pr-3">Name, address, card/bank data, tax info</td><td className="py-2 pr-3">DPF + SCC + UK Adequacy</td><td className="py-2"><a href="https://stripe.com/privacy" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Google Cloud EMEA Ltd</td><td className="py-2 pr-3">Ireland / Frankfurt, DE</td><td className="py-2 pr-3">AI model Gemini via Vertex AI (Prompt/Agent Mode)</td><td className="py-2 pr-3">Transcribed text (opt-in)</td><td className="py-2 pr-3">EU-internal (europe-west3)</td><td className="py-2"><a href="https://cloud.google.com/terms/data-processing-addendum" className="text-accent underline" target="_blank" rel="noopener noreferrer">Cloud DPA</a></td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Brevo (Sendinblue GmbH)</td><td className="py-2 pr-3">Berlin</td><td className="py-2 pr-3">Newsletter, lead-magnet emails</td><td className="py-2 pr-3">Email, name</td><td className="py-2 pr-3">EU-internal</td><td className="py-2"><a href="https://www.brevo.com/legal/privacypolicy/" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
@@ -238,6 +238,12 @@ export default function PrivacyEN() {
                 </tbody>
               </table>
             </div>
+            <p className="mt-6">
+              <strong className="text-primary">Note on US parent companies (CLOUD Act).</strong> Some sub-processors listed above (Google Cloud EMEA Ltd, Supabase Pte. Ltd., Stripe, Vercel, GitHub) belong to groups with a US parent. The US CLOUD Act in principle allows US authorities to request data even when it is stored physically in the EU. We actively reduce this risk: audio recordings never leave your device. Only transcribed text is sent in AI modes to Vertex AI in Frankfurt. For account and payment data we rely on EU hosting plus EU Standard Contractual Clauses and the EU-US Data Privacy Framework. The framework&apos;s status is being monitored through pending CJEU proceedings (Schrems III) — should it fall, we will inform you proactively and switch to SCCs plus a Transfer Impact Assessment.
+            </p>
+            <p className="mt-3">
+              <strong className="text-primary">Supabase DPA:</strong> signed on 2026-05-25 (Document Ref: WQJGP-LPPWT-HOCVQ-FZYVT, Part 2 dated August 5, 2025). Annexes EU Standard Contractual Clauses (Commission Decision 2021/914).
+            </p>
           </section>
 
           <section>
@@ -296,7 +302,7 @@ export default function PrivacyEN() {
             </p>
             <p className="mt-3">
               <strong className="text-primary">Operator:</strong> Newways (Marcel Porcher),
-              Schlesische Str. 14, 10997 Berlin, Germany.
+              Rabestraße 6, 10405 Berlin, Germany.
             </p>
             <p className="mt-3">
               <strong className="text-primary">Server location:</strong> self-hosted on a Hostinger
