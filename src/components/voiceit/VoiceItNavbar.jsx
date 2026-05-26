@@ -17,7 +17,7 @@ const LINKS_EN = [
   { href: '#faq', label: 'FAQ' },
 ];
 
-export default function VoiceItNavbar({ lang = 'de' }) {
+export default function VoiceItNavbar({ lang = 'de', downloadUrl = 'https://github.com/newwaysai/voiceit-releases/releases/latest', downloadFilename = 'Voiceit.dmg' }) {
   const links = lang === 'en' ? LINKS_EN : LINKS_DE;
 
   return (
@@ -89,7 +89,8 @@ export default function VoiceItNavbar({ lang = 'de' }) {
           <ThemeToggle />
 
           <a
-            href="https://github.com/newwaysai/voiceit-releases/releases/latest/download/Voiceit.dmg"
+            href={downloadUrl}
+            download={downloadFilename}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Download for Mac"

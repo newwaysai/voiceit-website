@@ -142,7 +142,7 @@ const COPY = {
   },
 };
 
-export default function VoiceItPricing({ lang = 'de' }) {
+export default function VoiceItPricing({ lang = 'de', downloadUrl = 'https://github.com/newwaysai/voiceit-releases/releases/latest', downloadFilename = 'Voiceit.dmg' }) {
   const compRef = useRef(null);
   const c = COPY[lang] || COPY.de;
 
@@ -364,7 +364,8 @@ export default function VoiceItPricing({ lang = 'de' }) {
                 </ul>
 
                 <a
-                  href="https://github.com/newwaysai/voiceit-releases/releases/latest/download/Voiceit.dmg"
+                  href={downloadUrl}
+                  download={downloadFilename}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={accent ? 'flair-btn-primary' : 'flair-btn-secondary-light'}

@@ -5,7 +5,7 @@ import { Download, ArrowRight } from 'lucide-react';
  * Compact strip between sections. Variant "lime" or "blue".
  * Default: blue (light bg). Use "lime" sparingly (one max per page).
  */
-export default function VoiceItDownloadStrip({ headline, sub, cta = 'Jetzt laden', variant = 'blue' }) {
+export default function VoiceItDownloadStrip({ headline, sub, cta = 'Jetzt laden', variant = 'blue', downloadUrl = 'https://github.com/newwaysai/voiceit-releases/releases/latest', downloadFilename = 'Voiceit.dmg' }) {
   const isLime = variant === 'lime';
   return (
     <section
@@ -56,7 +56,8 @@ export default function VoiceItDownloadStrip({ headline, sub, cta = 'Jetzt laden
         </div>
 
         <a
-          href="https://github.com/newwaysai/voiceit-releases/releases/latest/download/Voiceit.dmg"
+          href={downloadUrl}
+          download={downloadFilename}
           target="_blank"
           rel="noopener noreferrer"
           className={isLime ? 'flair-btn-primary' : 'flair-btn-primary'}

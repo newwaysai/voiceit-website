@@ -42,7 +42,7 @@ const COPY = {
   },
 };
 
-export default function Footer({ lang = 'de' }) {
+export default function Footer({ lang = 'de', downloadUrl = 'https://github.com/newwaysai/voiceit-releases/releases/latest', downloadFilename = 'Voiceit.dmg' }) {
   const c = COPY[lang] || COPY.de;
   const isEN = lang === 'en';
 
@@ -86,7 +86,7 @@ export default function Footer({ lang = 'de' }) {
         <div className="flex flex-wrap gap-10 md:gap-16">
           <div className="flex flex-col gap-1">
             <h5 className="font-data text-xs text-primary/40 uppercase tracking-widest mb-2">{c.productHeader}</h5>
-            <a href="https://github.com/newwaysai/voiceit-releases/releases/latest/download/Voiceit.dmg" target="_blank" rel="noopener noreferrer" className="font-sans text-sm text-primary/30 hover:text-primary/60 transition-colors duration-200 flex items-center min-h-[44px] py-2">{c.download}</a>
+            <a href={downloadUrl} download={downloadFilename} target="_blank" rel="noopener noreferrer" className="font-sans text-sm text-primary/30 hover:text-primary/60 transition-colors duration-200 flex items-center min-h-[44px] py-2">{c.download}</a>
             <a href="#preise" className="font-sans text-sm text-primary/30 hover:text-primary/60 transition-colors duration-200 flex items-center min-h-[44px] py-2">{c.pricing}</a>
             <a href="#modi" className="font-sans text-sm text-primary/30 hover:text-primary/60 transition-colors duration-200 flex items-center min-h-[44px] py-2">{c.modes}</a>
           </div>

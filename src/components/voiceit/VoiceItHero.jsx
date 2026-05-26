@@ -137,7 +137,7 @@ const MODE_META = [
   { icon: Bot, accent: '#CCFF00', typeMs: 14, holdMs: 3200 },
 ];
 
-export default function VoiceItHero({ lang = 'de' }) {
+export default function VoiceItHero({ lang = 'de', downloadUrl = 'https://github.com/newwaysai/voiceit-releases/releases/latest', downloadFilename = 'Voiceit.dmg' }) {
   const compRef = useRef(null);
   const [modeIdx, setModeIdx] = useState(0);
   const [phase, setPhase] = useState('listen');
@@ -268,7 +268,8 @@ export default function VoiceItHero({ lang = 'de' }) {
 
             <div className="hero-elem flex flex-wrap items-center gap-3 mt-7">
               <a
-                href="https://github.com/newwaysai/voiceit-releases/releases/latest/download/Voiceit.dmg"
+                href={downloadUrl}
+                download={downloadFilename}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flair-btn-primary"

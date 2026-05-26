@@ -31,7 +31,7 @@ const COPY = {
   },
 };
 
-export default function VoiceItFinalCTA({ lang = 'de' }) {
+export default function VoiceItFinalCTA({ lang = 'de', downloadUrl = 'https://github.com/newwaysai/voiceit-releases/releases/latest', downloadFilename = 'Voiceit.dmg' }) {
   const compRef = useRef(null);
   const c = COPY[lang] || COPY.de;
 
@@ -100,7 +100,8 @@ export default function VoiceItFinalCTA({ lang = 'de' }) {
 
           <div className="final-elem flex flex-wrap justify-center items-center gap-4 mt-10">
             <a
-              href="https://github.com/newwaysai/voiceit-releases/releases/latest/download/Voiceit.dmg"
+              href={downloadUrl}
+              download={downloadFilename}
               target="_blank"
               rel="noopener noreferrer"
               className="flair-btn-primary"

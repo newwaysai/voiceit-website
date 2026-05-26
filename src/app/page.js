@@ -1,4 +1,5 @@
 import Footer from '@/components/Footer';
+import { getDownloadInfo } from '@/lib/version';
 import VoiceItNavbar from '@/components/voiceit/VoiceItNavbar';
 import VoiceItHero from '@/components/voiceit/VoiceItHero';
 import VoiceItFeatureStrip from '@/components/voiceit/VoiceItFeatureStrip';
@@ -35,12 +36,13 @@ export const metadata = {
   },
 };
 
-export default function VoiceItPage() {
+export default async function VoiceItPage() {
+  const { url: downloadUrl, filename: downloadFilename } = await getDownloadInfo();
   return (
     <div id="top" className="bg-background min-h-screen text-primary overflow-x-clip selection:bg-accent/20 selection:text-primary">
-      <VoiceItNavbar lang="de" />
+      <VoiceItNavbar lang="de" downloadUrl={downloadUrl} downloadFilename={downloadFilename} />
       <main role="main">
-        <VoiceItHero lang="de" />
+        <VoiceItHero lang="de" downloadUrl={downloadUrl} downloadFilename={downloadFilename} />
 
         <VoiceItFeatureStrip />
 
@@ -50,6 +52,8 @@ export default function VoiceItPage() {
           headline="Schluss mit Tippen."
           sub="Diktat-Modus ist gratis. Zwei Minuten Installation. Eine Taste lernen."
           cta="Download for Mac"
+          downloadUrl={downloadUrl}
+          downloadFilename={downloadFilename}
         />
 
         <VoiceItModes lang="de" />
@@ -67,25 +71,29 @@ export default function VoiceItPage() {
           headline="Diktat gratis. Agent gibts obendrauf."
           sub="Audio bleibt auf deinem Mac. Wispr-Preis bringt dir den KI-Agent dazu."
           cta="Download for Mac"
+          downloadUrl={downloadUrl}
+          downloadFilename={downloadFilename}
         />
 
-        <VoiceItVsWispr lang="de" />
+        <VoiceItVsWispr lang="de" downloadUrl={downloadUrl} downloadFilename={downloadFilename} />
 
         <VoiceItBonusStack lang="de" />
 
-        <VoiceItPricing lang="de" />
+        <VoiceItPricing lang="de" downloadUrl={downloadUrl} downloadFilename={downloadFilename} />
 
         <VoiceItDownloadStrip
           headline="Voiceit. Fertig."
           sub="macOS 13+ · Apple Silicon · keine Kreditkarte fürs Diktat."
           cta="Download for Mac"
+          downloadUrl={downloadUrl}
+          downloadFilename={downloadFilename}
         />
 
         <VoiceItFAQ lang="de" />
 
-        <VoiceItFinalCTA lang="de" />
+        <VoiceItFinalCTA lang="de" downloadUrl={downloadUrl} downloadFilename={downloadFilename} />
       </main>
-      <Footer lang="de" />
+      <Footer lang="de" downloadUrl={downloadUrl} downloadFilename={downloadFilename} />
     </div>
   );
 }
