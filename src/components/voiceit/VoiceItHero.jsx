@@ -18,12 +18,12 @@ const COPY = {
         Diktat lokal. KI-Features in EU (Deutschland). Kein KI-Training mit deinen Daten. 100% Safe.
       </>
     ),
-    badge: '100% lokal · ab 15 €',
+    badge: 'Kostenlos testen · DSGVO',
     cta: 'Download for Mac',
     secondary: 'So funktionierts',
     chip1: '100% lokal',
     chip2: 'macOS 13+ · Apple Silicon',
-    chip3: 'Diktat unbegrenzt gratis',
+    chip3: 'Diktat lokal, gratis',
     thinkingDictation: 'KI schreibt',
     thinkingAgent: 'Agent denkt',
     markedLabel: 'Markiert',
@@ -81,12 +81,12 @@ const COPY = {
         Dictation 100% local. AI features in EU (Germany). No AI training with your data. 100% Safe.
       </>
     ),
-    badge: '100% local · from €15',
+    badge: 'Test for free · GDPR',
     cta: 'Download for Mac',
     secondary: 'How it works',
     chip1: '100% local',
     chip2: 'macOS 13+ · Apple Silicon',
-    chip3: 'Unlimited dictation, free',
+    chip3: 'Dictation local, free',
     thinkingDictation: 'AI writes',
     thinkingAgent: 'Agent thinks',
     markedLabel: 'Selected',

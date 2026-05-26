@@ -54,21 +54,6 @@ export default function VoiceItNavbar({ lang = 'de', downloadUrl = 'https://gith
               {l.label}
             </a>
           ))}
-          <Link
-            href={dsgvoHref}
-            aria-label={dsgvoAlt}
-            title={dsgvoAlt}
-            className="shrink-0 ml-1 sm:ml-2 inline-flex items-center transition-opacity hover:opacity-100"
-            style={{ opacity: 0.85 }}
-          >
-            <Image
-              src="/badges/dsgvo.png"
-              alt={dsgvoAlt}
-              width={36}
-              height={36}
-              className="h-7 w-7 sm:h-8 sm:w-8 md:h-9 md:w-9 object-contain"
-            />
-          </Link>
         </div>
 
         <div className="ml-auto flex items-center gap-1.5 sm:gap-2 md:gap-3 shrink-0">
@@ -105,6 +90,22 @@ export default function VoiceItNavbar({ lang = 'de', downloadUrl = 'https://gith
           </div>
 
           <ThemeToggle />
+
+          <Link
+            href={dsgvoHref}
+            aria-label={dsgvoAlt}
+            title={dsgvoAlt}
+            className="shrink-0 inline-flex items-center transition-opacity hover:opacity-100"
+            style={{ opacity: 0.9 }}
+          >
+            <Image
+              src="/badges/dsgvo.png"
+              alt={dsgvoAlt}
+              width={44}
+              height={44}
+              className="h-9 w-9 sm:h-10 sm:w-10 md:h-11 md:w-11 object-contain"
+            />
+          </Link>
 
           <a
             href={downloadUrl}

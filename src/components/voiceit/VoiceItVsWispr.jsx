@@ -22,7 +22,7 @@ const COPY = {
     rows: [
       { label: 'Audio bleibt auf deinem Mac', voiceit: 'Lokales Voice-Modell', wispr: 'Streamt in die Cloud' },
       { label: 'Transkriptions-Speed', voiceit: 'Bis 5× schneller als Cloud-Tools', wispr: 'Netzwerk-Round-Trip pro Satz' },
-      { label: 'Kostenloser Modus', voiceit: 'Diktat unbegrenzt gratis', wispr: 'Subscription ab Tag 1' },
+      { label: 'Kostenloser Modus', voiceit: 'Diktat lokal, gratis', wispr: 'Subscription ab Tag 1' },
       { label: 'Latenz beim Diktat', voiceit: 'Sofort, offline-fähig', wispr: 'Netzwerk-Round-Trip' },
       { label: 'Pro-Preis pro Monat', voiceit: '15 €', wispr: 'ab 15 $ + Cloud-Kosten' },
       { label: 'DSGVO-Position', voiceit: 'EU-Backend (Supabase, Stripe)', wispr: 'US-Cloud Default' },
@@ -47,7 +47,7 @@ const COPY = {
     rows: [
       { label: 'Audio stays on your Mac', voiceit: 'Local voice model', wispr: 'Streams to the cloud' },
       { label: 'Transcription speed', voiceit: 'Up to 5× faster than cloud tools', wispr: 'Network round-trip per sentence' },
-      { label: 'Free tier', voiceit: 'Unlimited dictation, free', wispr: 'Subscription from day 1' },
+      { label: 'Free tier', voiceit: 'Dictation local, free', wispr: 'Subscription from day 1' },
       { label: 'Dictation latency', voiceit: 'Instant, works offline', wispr: 'Network round-trip' },
       { label: 'Pro price per month', voiceit: '€15', wispr: '$15+ and cloud costs' },
       { label: 'GDPR posture', voiceit: 'EU backend (Supabase, Stripe)', wispr: 'US cloud by default' },

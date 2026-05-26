@@ -14,7 +14,7 @@ const MODES = [
   {
     key: 'dictation',
     name: 'Dictation Mode',
-    description: 'Speech is transcribed and inserted as-is. No AI cleanup. 100% local, free forever.',
+    description: 'Speech is transcribed and inserted as-is. No AI cleanup. 100% local.',
     appLabel: 'Mail · Reply',
     spoken: "hey luke the 10am doesn't work can we move to 11",
     output: "Hey Luke, the 10am doesn't work. Can we move to 11?",
@@ -41,7 +41,7 @@ const MODES = [
   {
     key: 'prompt',
     name: 'Prompt Mode',
-    description: 'Converts your spoken transcript automatically into a world-class prompt.',
+    description: 'Converts your spoken idea into a structured, professional prompt.',
     appLabel: 'ChatGPT · new chat',
     spoken:
       'create a hyperrealistic editorial photo a top model sits sideways in a 66 mustang vintage look golden hour very dramatic',
@@ -258,7 +258,12 @@ export default function VoiceItModesDemo() {
           --vm-text: #F8FAFC;
           --vm-text-muted: #94A3B8;
           width: 100%; max-width: 600px; margin: 0 auto;
+          display: flex; flex-direction: column; gap: 5px;
         }
+        .vm-headline { text-align: center; padding: 4px 0 8px; }
+        .vm-headline h2 { margin: 0; font-size: 22px; font-weight: 600; color: var(--vm-text); letter-spacing: -0.2px; }
+        .vm-headline p { margin: 6px 0 0; font-size: 13px; color: var(--vm-text-muted); }
+        .vm-step-content { display: flex; flex-direction: column; gap: 5px; padding: 0; justify-content: flex-start; }
         .vm-progress-row {
           width: 100%; max-width: 600px; margin: 0 auto 8px;
           display: flex; flex-direction: column; align-items: center; gap: 5px;
@@ -293,8 +298,8 @@ export default function VoiceItModesDemo() {
         .vm-tab.vm-tab-prompt .vm-dot-sm { background: #10b981; }
         .vm-tab.vm-tab-agent .vm-dot-sm { background: #f59e0b; }
         .vm-tab .vm-sub-arrow { color: #1C64FF; font-size: 13px; font-weight: 700; margin-right: 1px; flex-shrink: 0; }
-        .vm-ai-badge { font-size: 9px; font-family: monospace; font-weight: 800; padding: 2px 5px; border-radius: 3px; background: color-mix(in srgb, #1C64FF 28%, transparent); color: #9dc0ff; letter-spacing: 0.5px; flex-shrink: 0; }
-        .vm-local-badge { font-size: 9px; font-family: monospace; font-weight: 800; padding: 2px 5px; border-radius: 3px; background: color-mix(in srgb, #22c55e 28%, transparent); color: #86efac; letter-spacing: 0.5px; flex-shrink: 0; }
+        .vm-ai-badge { font-size: 9px; font-family: monospace; font-weight: 800; padding: 2px 5px; border-radius: 3px; background: color-mix(in srgb, #1C64FF 28%, transparent); color: #9dc0ff; letter-spacing: 0.5px; flex-shrink: 0; margin-left: 6px; margin-right: 8px; }
+        .vm-local-badge { font-size: 9px; font-family: monospace; font-weight: 800; padding: 2px 5px; border-radius: 3px; background: #22c55e; color: #ffffff; letter-spacing: 0.5px; flex-shrink: 0; box-shadow: 0 1px 2px rgba(34, 197, 94, 0.25); }
         .vm-descbox {
           width: 100%; max-width: 600px; margin: -5px auto 0;
           padding: 9px 14px; background: var(--vm-surface);
@@ -349,6 +354,7 @@ export default function VoiceItModesDemo() {
         .vm-output-lbl::before { content: ""; width: 6px; height: 6px; border-radius: 1px; background: #1C64FF; display: inline-block; }
         .vm-output { margin-top: 6px; display: flex; flex-direction: column; gap: 2px; }
         .vm-output p { margin: 0; font-size: 12px; line-height: 1.4; color: var(--vm-text); }
+        .vm-output p.vm-bullet { font-size: 12px; line-height: 1.4; }
         .vm-md-output { margin-top: 6px; margin-bottom: 0; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; line-height: 1.5; color: var(--vm-text); white-space: pre-wrap; }
         .vm-md-h { color: var(--vm-text); font-weight: 700; }
         .vm-md-p { color: var(--vm-text); }
@@ -356,45 +362,65 @@ export default function VoiceItModesDemo() {
         .vm-caret { display: inline-block; width: 2px; height: 11px; margin-left: 1px; vertical-align: middle; background: #1C64FF; animation: vm-caret-blink 1s steps(1,end) infinite; }
         @keyframes vm-caret-blink { 0%,49%{opacity:1} 50%,100%{opacity:0} }
       `}</style>
+      <div className="vm-headline">
+        <h2>Three modes — Dictation, Prompt, Agent</h2>
+        <p>Each mode has its own hotkey.</p>
+      </div>
+
       <div className="vm-progress-row">
         <div className={`vm-progress-track ${progressPaused ? 'paused' : ''}`}>
           <div className="vm-progress-fill" style={{ width: `${progressPct}%` }} />
         </div>
-        <p className="vm-tab-hint">Click any tab to explore · auto-cycles every few seconds</p>
+        <p className="vm-tab-hint">Click a tab to pause</p>
       </div>
 
-      <div className="vm-tabs-row">
-        {MODES.map((m, i) => {
-          const active = i === currentIdx;
-          const cls = `vm-tab vm-tab-${m.key}${active ? ' active' : ''}${m.isSubFeature ? ' subfeature' : ''}`;
-          return (
-            <button key={m.key} type="button" className={cls} onClick={() => handleTabClick(i)}>
-              {m.isSubFeature ? <span className="vm-sub-arrow">+</span> : <span className="vm-dot-sm" />}
-              <span>{m.name}</span>
-              {m.badge === 'AI' && <span className="vm-ai-badge">AI</span>}
-              {m.badge === 'LOCAL' && <span className="vm-local-badge">LOCAL</span>}
-            </button>
-          );
-        })}
-      </div>
-
-      <div className="vm-descbox" data-active={mode.key}>
-        <p className="vm-mode-desc">{mode.description}</p>
-      </div>
-
-      <div className="vm-demo">
-        <div className="vm-demo-titlebar">
-          <span className="vm-traffic" />
-          <span className="vm-traffic" />
-          <span className="vm-traffic" />
-          <span className="vm-app-label">{mode.appLabel}</span>
+      <div className="vm-step-content">
+        <div className="vm-tabs-row">
+          {MODES.map((m, i) => {
+            const active = i === currentIdx;
+            const cls = `vm-tab vm-tab-${m.key}${active ? ' active' : ''}${m.isSubFeature ? ' subfeature' : ''}`;
+            return (
+              <button key={m.key} type="button" className={cls} onClick={() => handleTabClick(i)}>
+                {m.isSubFeature ? <span className="vm-sub-arrow">+</span> : <span className="vm-dot-sm" />}
+                <span>{m.name}</span>
+                {m.badge === 'AI' && <span className="vm-ai-badge">AI</span>}
+                {m.badge === 'LOCAL' && <span className="vm-local-badge">LOCAL</span>}
+              </button>
+            );
+          })}
         </div>
-        <div className="vm-demo-body">
-          {mode.key === 'agent' ? (
-            <AgentDemo mode={mode} phase={agentPhase} typed={typed} />
-          ) : (
-            <StaticDemo mode={mode} />
-          )}
+
+        <div className="vm-descbox" data-active={mode.key}>
+          <p className="vm-mode-desc">{mode.description}</p>
+        </div>
+
+        <div
+          className="vm-demo"
+          role="button"
+          tabIndex={0}
+          aria-label="Click to pause auto-cycle"
+          style={{ cursor: 'pointer' }}
+          onClick={() => handleTabClick(currentIdx)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              handleTabClick(currentIdx);
+            }
+          }}
+        >
+          <div className="vm-demo-titlebar">
+            <span className="vm-traffic" />
+            <span className="vm-traffic" />
+            <span className="vm-traffic" />
+            <span className="vm-app-label">{mode.appLabel}</span>
+          </div>
+          <div className="vm-demo-body">
+            {mode.key === 'agent' ? (
+              <AgentDemo mode={mode} phase={agentPhase} typed={typed} />
+            ) : (
+              <StaticDemo mode={mode} />
+            )}
+          </div>
         </div>
       </div>
     </div>
@@ -413,7 +439,7 @@ function SpokenFrame({ mode, content }) {
         </span>
       </div>
       <div className="vm-spoken">
-        <span className="vm-mic-circle">
+        <span className="vm-mic-circle vm-mic-glow">
           <MicIcon color="#ef4444" />
         </span>
         <p>{content}</p>
@@ -457,7 +483,7 @@ function OutputFrame({ mode, text, showCaret = false }) {
     body = (
       <div className="vm-output">
         {lines.map((line, i) => (
-          <p key={i}>{line}</p>
+          <p key={i} className="vm-bullet">{line}</p>
         ))}
         {showCaret && <span className="vm-caret" />}
       </div>

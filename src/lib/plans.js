@@ -10,7 +10,7 @@ export const PLANS = {
       suffix: '€ / immer',
       tagline: 'Diktat gratis & lokal. KI-Features (EU, kein Training).',
       features: [
-        'Diktat-Modus unbegrenzt (lokal, kein Server)',
+        'Diktat-Modus lokal (4.000 Wörter/Woche)',
         'Diktat 100% lokal, Audio bleibt auf deinem Mac',
         '20 KI-Aufrufe / Monat (EU-Server, Frankfurt)',
         'Bis zu 2 Min Aufnahme',
@@ -53,7 +53,7 @@ export const PLANS = {
       suffix: '€ / forever',
       tagline: 'Dictation free & local. AI features (EU, no training).',
       features: [
-        'Unlimited dictation mode (local, no server)',
+        'Dictation mode local (4,000 words/week)',
         'Dictation 100% local, audio stays on your Mac',
         '20 AI calls / month (EU servers, Frankfurt)',
         'Up to 2 min recording',
