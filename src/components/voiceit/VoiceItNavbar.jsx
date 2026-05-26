@@ -1,8 +1,8 @@
 'use client';
 import { Download } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import ThemeToggle from '@/components/ThemeToggle';
-import VoiceItTrustBanner from './VoiceItTrustBanner';
 
 const LINKS_DE = [
   { href: '#modi', label: 'Modes' },
@@ -20,13 +20,13 @@ const LINKS_EN = [
 
 export default function VoiceItNavbar({ lang = 'de', downloadUrl = 'https://github.com/newwaysai/voiceit-releases/releases/latest', downloadFilename = 'Voiceit.dmg' }) {
   const links = lang === 'en' ? LINKS_EN : LINKS_DE;
+  const dsgvoAlt = lang === 'en' ? 'GDPR compliant' : '100% DSGVO konform';
+  const dsgvoHref = lang === 'en' ? '/en/trust' : '/trust';
 
   return (
-    <div className="sticky top-0 z-40 w-full">
-    <VoiceItTrustBanner lang={lang} />
     <nav
       aria-label="Voiceit Navigation"
-      className="w-full backdrop-blur-xl"
+      className="sticky top-0 z-40 w-full backdrop-blur-xl"
       style={{
         background: 'var(--fv-nav-bg)',
         borderBottom: '1px solid var(--fv-border)',
@@ -54,6 +54,21 @@ export default function VoiceItNavbar({ lang = 'de', downloadUrl = 'https://gith
               {l.label}
             </a>
           ))}
+          <Link
+            href={dsgvoHref}
+            aria-label={dsgvoAlt}
+            title={dsgvoAlt}
+            className="shrink-0 ml-1 sm:ml-2 inline-flex items-center transition-opacity hover:opacity-100"
+            style={{ opacity: 0.85 }}
+          >
+            <Image
+              src="/badges/dsgvo.png"
+              alt={dsgvoAlt}
+              width={36}
+              height={36}
+              className="h-7 w-7 sm:h-8 sm:w-8 md:h-9 md:w-9 object-contain"
+            />
+          </Link>
         </div>
 
         <div className="ml-auto flex items-center gap-1.5 sm:gap-2 md:gap-3 shrink-0">
@@ -113,6 +128,5 @@ export default function VoiceItNavbar({ lang = 'de', downloadUrl = 'https://gith
         </div>
       </div>
     </nav>
-    </div>
   );
 }
