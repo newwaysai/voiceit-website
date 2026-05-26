@@ -250,7 +250,7 @@ export default function VoiceItModesDemo() {
 
   return (
     <div className="vm-root">
-      <style jsx>{`
+      <style jsx global>{`
         /* App-aligned tokens (mirrors apps/Voiceit/Voiceit App/src/styles/global.css :root) */
         .vm-root {
           --vm-surface: #1E293B;

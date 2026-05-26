@@ -1,6 +1,5 @@
 'use client';
 import { Download } from 'lucide-react';
-import Image from 'next/image';
 import Link from 'next/link';
 import ThemeToggle from '@/components/ThemeToggle';
 
@@ -20,8 +19,6 @@ const LINKS_EN = [
 
 export default function VoiceItNavbar({ lang = 'de', downloadUrl = 'https://github.com/newwaysai/voiceit-releases/releases/latest', downloadFilename = 'Voiceit.dmg' }) {
   const links = lang === 'en' ? LINKS_EN : LINKS_DE;
-  const dsgvoAlt = lang === 'en' ? 'GDPR compliant' : '100% DSGVO konform';
-  const dsgvoHref = lang === 'en' ? '/en/trust' : '/trust';
 
   return (
     <nav
@@ -90,22 +87,6 @@ export default function VoiceItNavbar({ lang = 'de', downloadUrl = 'https://gith
           </div>
 
           <ThemeToggle />
-
-          <Link
-            href={dsgvoHref}
-            aria-label={dsgvoAlt}
-            title={dsgvoAlt}
-            className="shrink-0 inline-flex items-center transition-opacity hover:opacity-100"
-            style={{ opacity: 0.9 }}
-          >
-            <Image
-              src="/badges/dsgvo.png"
-              alt={dsgvoAlt}
-              width={44}
-              height={44}
-              className="h-9 w-9 sm:h-10 sm:w-10 md:h-11 md:w-11 object-contain"
-            />
-          </Link>
 
           <a
             href={downloadUrl}

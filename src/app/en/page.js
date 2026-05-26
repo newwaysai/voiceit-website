@@ -1,4 +1,5 @@
 import Footer from '@/components/Footer';
+import FloatingDSGVOBadge from '@/components/FloatingDSGVOBadge';
 import { getDownloadInfo } from '@/lib/version';
 import VoiceItNavbar from '@/components/voiceit/VoiceItNavbar';
 import VoiceItHero from '@/components/voiceit/VoiceItHero';
@@ -95,6 +96,7 @@ export default async function VoiceItPageEN() {
         <VoiceItFinalCTA lang="en" downloadUrl={downloadUrl} downloadFilename={downloadFilename} />
       </main>
       <Footer lang="en" downloadUrl={downloadUrl} downloadFilename={downloadFilename} />
+      <FloatingDSGVOBadge lang="en" />
     </div>
   );
 }
