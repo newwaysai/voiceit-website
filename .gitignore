@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local build/audit artifacts (not for remote)
+/dist-*/
+/docs/sessions/
+DATENSCHUTZ-AUDIT.md

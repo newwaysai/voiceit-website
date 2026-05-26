@@ -25,8 +25,8 @@ export default function Impressum() {
             <p>
               Marcel Porcher<br />
               Newways<br />
-              Schlesische Str. 14<br />
-              10997 Berlin
+              Rabestraße 6<br />
+              10405 Berlin
             </p>
           </section>
 
@@ -51,8 +51,8 @@ export default function Impressum() {
             <h2 className="text-xl font-bold text-primary mb-4">Verantwortlich i.S.d. § 18 Abs. 2 MStV</h2>
             <p>
               Marcel Porcher<br />
-              Schlesische Str. 14<br />
-              10997 Berlin
+              Rabestraße 6<br />
+              10405 Berlin
             </p>
           </section>
 

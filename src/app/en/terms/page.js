@@ -41,7 +41,7 @@ export default function TermsEN() {
             <p className="mt-3">
               <strong className="text-primary">Operator:</strong><br />
               Marcel Porcher · Newways<br />
-              Schlesische Str. 14 · 10997 Berlin · Germany<br />
+              Rabestraße 6 · 10405 Berlin · Germany<br />
               VAT ID: DE344920245<br />
               Email:{' '}
               <a href="mailto:marcel@newways.ai" className="text-accent underline">marcel@newways.ai</a><br />

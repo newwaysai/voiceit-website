@@ -97,7 +97,7 @@ export default function TrustEN() {
 
             <h3 className="font-bold text-primary mt-6 mb-2">In-app feedback</h3>
             <p>
-              If you choose to send feedback via the in-app form, that text plus your email (if you provide one), device ID, tier, app version, and OS family go to our Supabase project (EU Frankfurt). Nothing else.
+              If you choose to send feedback via the in-app form, that text plus your email (if you provide one), device ID, tier, app version, and OS family go to our Supabase project (EU, Dublin/Ireland). Nothing else.
             </p>
           </section>
 
@@ -117,7 +117,7 @@ export default function TrustEN() {
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Voice-to-text (Parakeet)</td><td className="py-2 pr-3"><strong>On your Mac</strong></td><td className="py-2 pr-3">NVIDIA Parakeet TDT v3 ONNX (bundled)</td><td className="py-2">Audio never leaves the device</td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Text refinement (LLM)</td><td className="py-2 pr-3"><strong>Frankfurt, Germany</strong></td><td className="py-2 pr-3">Google Vertex AI</td><td className="py-2">Gemini 2.5 Flash, no training</td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">LLM fallback region</td><td className="py-2 pr-3">Amsterdam, Netherlands</td><td className="py-2 pr-3">Google Vertex AI</td><td className="py-2">Only used if Frankfurt is unavailable</td></tr>
-                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">Account + license</td><td className="py-2 pr-3"><strong>Frankfurt, Germany</strong></td><td className="py-2 pr-3">Supabase</td><td className="py-2">EU-hosted</td></tr>
+                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">Account + license</td><td className="py-2 pr-3"><strong>Dublin, Ireland</strong></td><td className="py-2 pr-3">Supabase</td><td className="py-2">EU-hosted</td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Payments</td><td className="py-2 pr-3">EU + US</td><td className="py-2 pr-3">Stripe</td><td className="py-2">DPF + SCC for US operations</td></tr>
                   <tr><td className="py-2 pr-3">Updates</td><td className="py-2 pr-3">US</td><td className="py-2 pr-3">GitHub</td><td className="py-2">Static file download only</td></tr>
                 </tbody>
@@ -154,7 +154,7 @@ export default function TrustEN() {
                   </tr>
                 </thead>
                 <tbody className="text-primary/70 align-top">
-                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">Supabase (EU Frankfurt)</td><td className="py-2 pr-3">Germany</td><td className="py-2 pr-3">Account, license, AI proxy</td><td className="py-2">Email, device ID, transcript (only during AI calls, no retention)</td></tr>
+                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">Supabase (EU, Dublin/Irland)</td><td className="py-2 pr-3">Germany</td><td className="py-2 pr-3">Account, license, AI proxy</td><td className="py-2">Email, device ID, transcript (only during AI calls, no retention)</td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Google Cloud EMEA Ltd (Vertex AI)</td><td className="py-2 pr-3">Ireland / Frankfurt</td><td className="py-2 pr-3">LLM provider (Gemini 2.5 Flash)</td><td className="py-2">Transcribed text, ~24h abuse cache, no training</td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Stripe Payments Europe</td><td className="py-2 pr-3">Ireland + US (DPF)</td><td className="py-2 pr-3">Payment processing</td><td className="py-2">Name, billing address, card details (we never see card data)</td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">GitHub Inc. (Microsoft)</td><td className="py-2 pr-3">US (DPF)</td><td className="py-2 pr-3">Static file hosting for updates</td><td className="py-2">IP at download time</td></tr>
@@ -229,7 +229,7 @@ export default function TrustEN() {
           </section>
 
           <p className="text-xs text-primary/40 mt-12 border-t border-primary/10 pt-8">
-            Data Controller: Marcel Porcher · Newways · Schlesische Str. 14 · 10997 Berlin · Germany<br />
+            Data Controller: Marcel Porcher · Newways · Rabestraße 6 · 10405 Berlin · Germany<br />
             VAT ID: DE344920245 · Email: marcel@newways.ai
           </p>
         </div>

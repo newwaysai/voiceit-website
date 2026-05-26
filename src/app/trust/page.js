@@ -97,7 +97,7 @@ export default function TrustDE() {
 
             <h3 className="font-bold text-primary mt-6 mb-2">In-App-Feedback</h3>
             <p>
-              Wenn du Feedback über das In-App-Formular sendest, geht der Text plus deine E-Mail (falls angegeben), Device-ID, Tarif, App-Version und OS-Familie an unser Supabase-Projekt (EU Frankfurt). Sonst nichts.
+              Wenn du Feedback über das In-App-Formular sendest, geht der Text plus deine E-Mail (falls angegeben), Device-ID, Tarif, App-Version und OS-Familie an unser Supabase-Projekt (EU, Dublin/Irland). Sonst nichts.
             </p>
           </section>
 
@@ -117,7 +117,7 @@ export default function TrustDE() {
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Voice-to-Text (Parakeet)</td><td className="py-2 pr-3"><strong>Auf deinem Mac</strong></td><td className="py-2 pr-3">NVIDIA Parakeet TDT v3 ONNX (gebundelt)</td><td className="py-2">Audio verlässt das Gerät nie</td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Text-Verfeinerung (LLM)</td><td className="py-2 pr-3"><strong>Frankfurt</strong></td><td className="py-2 pr-3">Google Vertex AI</td><td className="py-2">Gemini 2.5 Flash, kein Training</td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">LLM-Failover-Region</td><td className="py-2 pr-3">Amsterdam, Niederlande</td><td className="py-2 pr-3">Google Vertex AI</td><td className="py-2">Nur wenn Frankfurt nicht verfügbar</td></tr>
-                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">Konto + Lizenz</td><td className="py-2 pr-3"><strong>Frankfurt</strong></td><td className="py-2 pr-3">Supabase</td><td className="py-2">EU-gehostet</td></tr>
+                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">Konto + Lizenz</td><td className="py-2 pr-3"><strong>Dublin, Irland</strong></td><td className="py-2 pr-3">Supabase</td><td className="py-2">EU-gehostet</td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Zahlungen</td><td className="py-2 pr-3">EU + USA</td><td className="py-2 pr-3">Stripe</td><td className="py-2">DPF + SCC für US-Operationen</td></tr>
                   <tr><td className="py-2 pr-3">Updates</td><td className="py-2 pr-3">USA</td><td className="py-2 pr-3">GitHub</td><td className="py-2">Nur Static-File-Download</td></tr>
                 </tbody>
@@ -154,7 +154,7 @@ export default function TrustDE() {
                   </tr>
                 </thead>
                 <tbody className="text-primary/70 align-top">
-                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">Supabase (EU Frankfurt)</td><td className="py-2 pr-3">Deutschland</td><td className="py-2 pr-3">Konto, Lizenz, KI-Proxy</td><td className="py-2">E-Mail, Device-ID, Transkript (nur während KI-Calls, keine Speicherung)</td></tr>
+                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">Supabase (EU, Dublin/Irland)</td><td className="py-2 pr-3">Deutschland</td><td className="py-2 pr-3">Konto, Lizenz, KI-Proxy</td><td className="py-2">E-Mail, Device-ID, Transkript (nur während KI-Calls, keine Speicherung)</td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Google Cloud EMEA Ltd (Vertex AI)</td><td className="py-2 pr-3">Irland / Frankfurt</td><td className="py-2 pr-3">LLM-Provider (Gemini 2.5 Flash)</td><td className="py-2">Transkribierter Text, ~24h Abuse-Cache, kein Training</td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Stripe Payments Europe</td><td className="py-2 pr-3">Irland + USA (DPF)</td><td className="py-2 pr-3">Zahlungsabwicklung</td><td className="py-2">Name, Rechnungsadresse, Kartendaten (wir sehen keine Kartendaten)</td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">GitHub Inc. (Microsoft)</td><td className="py-2 pr-3">USA (DPF)</td><td className="py-2 pr-3">Static-File-Hosting für Updates</td><td className="py-2">IP zum Download-Zeitpunkt</td></tr>
@@ -229,7 +229,7 @@ export default function TrustDE() {
           </section>
 
           <p className="text-xs text-primary/40 mt-12 border-t border-primary/10 pt-8">
-            Verantwortlicher: Marcel Porcher · Newways · Schlesische Str. 14 · 10997 Berlin · Deutschland<br />
+            Verantwortlicher: Marcel Porcher · Newways · Rabestraße 6 · 10405 Berlin · Deutschland<br />
             USt-IdNr.: DE344920245 · E-Mail: marcel@newways.ai
           </p>
         </div>

@@ -30,8 +30,8 @@ export default function ImprintEN() {
             <p>
               Marcel Porcher<br />
               Newways<br />
-              Schlesische Str. 14<br />
-              10997 Berlin<br />
+              Rabestraße 6<br />
+              10405 Berlin<br />
               Germany
             </p>
           </section>
@@ -57,8 +57,8 @@ export default function ImprintEN() {
             <h2 className="text-xl font-bold text-primary mb-4">Responsible under § 18(2) MStV</h2>
             <p>
               Marcel Porcher<br />
-              Schlesische Str. 14<br />
-              10997 Berlin<br />
+              Rabestraße 6<br />
+              10405 Berlin<br />
               Germany
             </p>
           </section>
