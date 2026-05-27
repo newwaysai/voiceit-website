@@ -6,8 +6,8 @@ export const metadata = {
   title: 'Allgemeine Geschäftsbedingungen',
 };
 
-const LAST_UPDATED = '22. Mai 2026';
-const VERSION = 'v1.4';
+const LAST_UPDATED = '27. Mai 2026';
+const VERSION = 'v1.5';
 
 export default function AGB() {
   return (
@@ -187,7 +187,27 @@ export default function AGB() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-primary mb-4">10. KI-Output-Hinweis</h2>
+            <h2 className="text-xl font-bold text-primary mb-4">10. Datenschutz und Auftragsverarbeitung (B2B)</h2>
+            <p>
+              Die Verarbeitung personenbezogener Daten durch Voiceit ist in der{' '}
+              <a href="/datenschutz" className="text-accent underline">Datenschutzerklärung</a> beschrieben.
+            </p>
+            <p className="mt-3">
+              <strong className="text-primary">Unternehmenskunden (B2B):</strong> Wenn du Voiceit im
+              unternehmerischen Kontext nutzt und dabei personenbezogene Daten von Mitarbeitern oder
+              Dritten verarbeitest, bist du nach Art. 28 DSGVO verpflichtet, einen
+              Auftragsverarbeitungsvertrag (AVV) mit uns abzuschließen. Auf Anfrage stellen wir dir
+              einen AVV zur Verfügung. Kontakt:{' '}
+              <a href="mailto:hello@voiceitai.app" className="text-accent underline">hello@voiceitai.app</a>
+            </p>
+            <p className="mt-3">
+              Die reine Diktierfunktion (lokale Transkription ohne KI-Funktionen) unterliegt keiner
+              Datenübertragung an unsere Server und erfordert keinen AVV.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-primary mb-4">11. KI-Output-Hinweis</h2>
             <p>
               KI-Outputs werden von Machine-Learning-Modellen erzeugt. Sie können fehlerhaft,
               verzerrt oder unangemessen sein. Wir garantieren keine Korrektheit, Eignung für einen
@@ -214,7 +234,7 @@ export default function AGB() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-primary mb-4">12. Updates</h2>
+            <h2 className="text-xl font-bold text-primary mb-4">13. Updates</h2>
             <p>
               Voiceit prüft alle 30 Minuten automatisch auf Updates gegen{' '}
               <code className="bg-primary/10 px-1.5 py-0.5 rounded text-xs">github.com/newwaysai/voiceit-releases</code> und schlägt deren Installation vor. Updates
@@ -245,7 +265,7 @@ export default function AGB() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-primary mb-4">14. Haftung</h2>
+            <h2 className="text-xl font-bold text-primary mb-4">15. Haftung</h2>
             <p>
               Wir haften nach Maßgabe des deutschen Rechts:
             </p>
@@ -272,7 +292,7 @@ export default function AGB() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-primary mb-4">16. Änderungen dieser AGB</h2>
+            <h2 className="text-xl font-bold text-primary mb-4">17. Änderungen dieser AGB</h2>
             <p>
               Wir können diese AGB zukünftig anpassen. Materielle Änderungen kündigen wir mindestens
               30 Tage vor Inkrafttreten in der App oder per E-Mail an. Widersprichst du nicht
@@ -284,7 +304,7 @@ export default function AGB() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-primary mb-4">17. Anwendbares Recht und Gerichtsstand</h2>
+            <h2 className="text-xl font-bold text-primary mb-4">18. Anwendbares Recht und Gerichtsstand</h2>
             <p>
               Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts. Für Verbraucher bleiben
               die zwingenden Verbraucherschutzbestimmungen ihres Wohnsitzstaates anwendbar.
@@ -309,7 +329,7 @@ export default function AGB() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-primary mb-4">19. Salvatorische Klausel</h2>
+            <h2 className="text-xl font-bold text-primary mb-4">20. Salvatorische Klausel</h2>
             <p>
               Sollten einzelne Bestimmungen dieser AGB ganz oder teilweise unwirksam sein oder
               werden, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt. An die Stelle der
@@ -318,7 +338,7 @@ export default function AGB() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-primary mb-4">20. Kontakt</h2>
+            <h2 className="text-xl font-bold text-primary mb-4">21. Kontakt</h2>
             <p>
               Fragen zu diesen AGB:{' '}
               <a href="mailto:marcel@newways.ai" className="text-accent underline">marcel@newways.ai</a>
