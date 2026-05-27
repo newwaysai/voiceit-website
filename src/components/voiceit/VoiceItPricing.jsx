@@ -11,7 +11,7 @@ const COPY = {
     headingA: 'Diktat ist',
     headingB: 'gratis.',
     headingC: 'Agent ist günstiger als Wispr.',
-    sub: 'Keine Demo-Frist. Keine Kreditkarte fürs Laden. Sprich los, entscheide später ob du Agent willst.',
+    sub: 'Keine Demo-Frist. Keine Kreditkarte fürs Laden. Sprich los, entscheide später ob du Agent willst. KI-Calls sind durchgereicht: du zahlst Volumen, nicht Marge.',
     roi: {
       hourLabel: 'Deine Stunde',
       hourValue: '50 €',
@@ -39,7 +39,7 @@ const COPY = {
     headingA: 'Dictation is',
     headingB: 'free.',
     headingC: 'Agent is cheaper than Wispr.',
-    sub: 'No demo limit. No credit card to download. Start speaking, decide later if you want Agent.',
+    sub: 'No demo limit. No credit card to download. Start speaking, decide later if you want Agent. AI calls are pass-through: you pay volume, not markup.',
     roi: {
       hourLabel: 'Your hour',
       hourValue: '€50',

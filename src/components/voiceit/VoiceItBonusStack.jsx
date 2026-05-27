@@ -9,6 +9,9 @@ const COPY = {
     headingA: 'Was du für 15 € pro Monat bekommst —',
     headingB: 'gestapelt.',
     sub: 'Kein Aufpreis. Kein Add-on-Store. Alles im Pro-Plan drin.',
+    totalBannerA: '€33+/Monat Funktionen.',
+    totalBannerB: 'Du zahlst €15.',
+    totalBannerSub: 'Plus Direct Builder Access und EU-Privacy — unbezahlbar.',
     worthLabel: 'Wert',
     footer: 'Alle Funktionen aktiv im Pro-Plan · keine Add-Ons · kein Hidden-Pricing',
     stack: [
@@ -24,6 +27,9 @@ const COPY = {
     headingA: 'What you get for €15 a month —',
     headingB: 'stacked.',
     sub: 'No upsell. No add-on store. All in the Pro plan.',
+    totalBannerA: '€33+/month in features.',
+    totalBannerB: 'You pay €15.',
+    totalBannerSub: 'Plus direct builder access and EU privacy — priceless.',
     worthLabel: 'Worth',
     footer: 'All features active in the Pro plan · no add-ons · no hidden pricing',
     stack: [
@@ -84,6 +90,32 @@ export default function VoiceItBonusStack({ lang = 'de' }) {
           >
             {c.sub}
           </p>
+        </div>
+
+        <div
+          className="bs-elem mx-auto mb-7 md:mb-9 w-fit max-w-full text-center px-6 md:px-8 py-4 md:py-5 rounded-2xl"
+          style={{
+            background: 'linear-gradient(135deg, rgba(204,255,0,0.12) 0%, rgba(37,99,235,0.10) 100%)',
+            border: '1px solid rgba(204,255,0,0.45)',
+            boxShadow: '0 12px 32px rgba(0,0,0,0.06)',
+          }}
+        >
+          <div
+            className="font-heading font-extrabold leading-tight"
+            style={{
+              fontSize: 'clamp(1.4rem, 3.8vw, 2.1rem)',
+              color: 'var(--fv-text)',
+            }}
+          >
+            <span style={{ color: '#7AA000' }}>{c.totalBannerA}</span>{' '}
+            <span style={{ color: 'var(--fv-blue)' }}>{c.totalBannerB}</span>
+          </div>
+          <div
+            className="font-sans text-[13px] md:text-sm mt-2"
+            style={{ color: 'var(--fv-text-muted)' }}
+          >
+            {c.totalBannerSub}
+          </div>
         </div>
 
         <div

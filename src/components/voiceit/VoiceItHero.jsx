@@ -13,17 +13,17 @@ const COPY = {
     headingC: '5× schneller.',
     body: (
       <>
-        Lokales Voice-Modell, optimiert für Apple Silicon. Kein Cloud-Roundtrip.
-        Bis zu <span style={{ color: '#FFFFFF', fontWeight: 600 }}>5× schneller</span> als Cloud-basierte Tools.
-        Diktat lokal. KI-Features in EU (Deutschland). Kein KI-Training mit deinen Daten. 100% Safe.
+        Lokales Voice-Modell: Diktat plus AI Prompt und Agent Mode in einem.
+        Bis zu <span style={{ color: '#FFFFFF', fontWeight: 600 }}>5× schneller</span> als Cloud-Tools.
       </>
     ),
     badge: 'Kostenlos testen · DSGVO',
     cta: 'Download for Mac',
     secondary: 'So funktionierts',
     chip1: '100% lokal',
-    chip2: 'macOS 13+ · Apple Silicon',
-    chip3: 'Diktat lokal, gratis',
+    chip2: 'EU/DE Server',
+    chip3: 'Kein KI-Training',
+    chip4: 'macOS 13+ · Apple Silicon',
     thinkingDictation: 'KI schreibt',
     thinkingAgent: 'Agent denkt',
     markedLabel: 'Markiert',
@@ -76,17 +76,17 @@ const COPY = {
     headingC: '5× faster.',
     body: (
       <>
-        Local voice model, tuned for Apple Silicon. No cloud round-trip.
-        Up to <span style={{ color: '#FFFFFF', fontWeight: 600 }}>5× faster</span> than cloud-based tools.
-        Dictation 100% local. AI features in EU (Germany). No AI training with your data. 100% Safe.
+        Local voice model: dictation plus AI Prompt and Agent Mode in one.
+        Up to <span style={{ color: '#FFFFFF', fontWeight: 600 }}>5× faster</span> than cloud tools.
       </>
     ),
     badge: 'Test for free · GDPR',
     cta: 'Download for Mac',
     secondary: 'How it works',
     chip1: '100% local',
-    chip2: 'macOS 13+ · Apple Silicon',
-    chip3: 'Dictation local, free',
+    chip2: 'EU/DE servers',
+    chip3: 'No AI training',
+    chip4: 'macOS 13+ · Apple Silicon',
     thinkingDictation: 'AI writes',
     thinkingAgent: 'Agent thinks',
     markedLabel: 'Selected',
@@ -298,6 +298,9 @@ export default function VoiceItHero({ lang = 'de', downloadUrl = 'https://github
               </span>
               <span className="font-data text-[11px] uppercase tracking-[0.16em]">
                 {c.chip3}
+              </span>
+              <span className="font-data text-[11px] uppercase tracking-[0.16em]">
+                {c.chip4}
               </span>
               <Image
                 src="/badges/dsgvo.png"

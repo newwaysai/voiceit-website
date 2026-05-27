@@ -69,16 +69,16 @@ export default async function VoiceItPage() {
 
         <VoiceItDownloadStrip
           variant="lime"
-          headline="Diktat gratis. Agent gibts obendrauf."
-          sub="Audio bleibt auf deinem Mac. Wispr-Preis bringt dir den KI-Agent dazu."
+          headline="Free für Diktat. €15 wenn KI ins Spiel kommt."
+          sub="20 KI-Calls gratis zum Testen. Dann €15/4 Wochen = 500 Calls = €0,03 pro Call. Audio bleibt lokal."
           cta="Download for Mac"
           downloadUrl={downloadUrl}
           downloadFilename={downloadFilename}
         />
 
-        <VoiceItVsWispr lang="de" downloadUrl={downloadUrl} downloadFilename={downloadFilename} />
-
         <VoiceItBonusStack lang="de" />
+
+        <VoiceItVsWispr lang="de" downloadUrl={downloadUrl} downloadFilename={downloadFilename} />
 
         <VoiceItPricing lang="de" downloadUrl={downloadUrl} downloadFilename={downloadFilename} />
 

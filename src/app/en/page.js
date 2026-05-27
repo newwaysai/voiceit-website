@@ -70,16 +70,16 @@ export default async function VoiceItPageEN() {
 
         <VoiceItDownloadStrip
           variant="lime"
-          headline="Dictation free. Agent on top."
-          sub="Audio stays on your Mac. Wispr-price gets you the AI agent included."
+          headline="Free for dictation. €15 when AI joins the party."
+          sub="20 AI calls free to try. Then €15/4 weeks = 500 calls = €0.03 per call. Audio stays local."
           cta="Download for Mac"
           downloadUrl={downloadUrl}
           downloadFilename={downloadFilename}
         />
 
-        <VoiceItVsWispr lang="en" downloadUrl={downloadUrl} downloadFilename={downloadFilename} />
-
         <VoiceItBonusStack lang="en" />
+
+        <VoiceItVsWispr lang="en" downloadUrl={downloadUrl} downloadFilename={downloadFilename} />
 
         <VoiceItPricing lang="en" downloadUrl={downloadUrl} downloadFilename={downloadFilename} />
 
