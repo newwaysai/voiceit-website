@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from '@/lib/gsap';
 import { ArrowRight, Download, Lock, Mic, Wand2, Bot } from 'lucide-react';
-import VoiceItModesDemo from './VoiceItModesDemo';
+import VoiceItHeroVideo from './VoiceItHeroVideo';
 
 const COPY = {
   de: {
@@ -313,7 +313,7 @@ export default function VoiceItHero({ lang = 'de', downloadUrl = 'https://github
           </div>
 
           <div className="hero-elem relative max-w-[600px] w-full mx-auto lg:ml-auto">
-            <VoiceItModesDemo />
+            <VoiceItHeroVideo label="Erklärvideo ansehen" />
           </div>
         </div>
       </div>
