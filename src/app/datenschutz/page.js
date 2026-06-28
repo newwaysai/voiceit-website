@@ -6,8 +6,8 @@ export const metadata = {
   title: 'Datenschutzerklärung',
 };
 
-const LAST_UPDATED = '22. Mai 2026';
-const VERSION = 'v1.4';
+const LAST_UPDATED = '28. Juni 2026';
+const VERSION = 'v1.5';
 
 export default function Datenschutz() {
   return (
@@ -388,6 +388,31 @@ export default function Datenschutz() {
             </p>
             <p className="mt-3">
               <strong className="text-primary">Opt-out:</strong> Wenn du die Berechtigung ablehnst, funktioniert die Anmeldung trotzdem — du kopierst den Code einfach manuell wie gehabt.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-primary mb-4">14a. Anonyme Nutzungsstatistik (Wortzahl)</h2>
+            <p>
+              Um das wöchentliche Wort-Kontingent des Free-Tarifs durchzusetzen und zu verstehen, wie Voiceit insgesamt genutzt wird, sendet die App eine kleine Menge anonymer Nutzungsdaten an unser Backend (Supabase, EU).
+            </p>
+            <p className="mt-3">
+              <strong className="text-primary">Was gesendet wird:</strong> eine aggregierte <em>Wortzahl</em> (wie viele Wörter du in der aktuellen Woche diktiert hast) sowie einfache Zähler wie die Anzahl der KI-Aufgaben in diesem Monat und die Kalenderwoche. Das sind reine Zahlen.
+            </p>
+            <p className="mt-3">
+              <strong className="text-primary">Was niemals gesendet wird:</strong> der <em>Inhalt</em> deiner Diktate. Kein transkribierter Text, kein Audio und keine einzelnen Transkripte verlassen über diesen Weg deinen Mac. Die Zahl ist ein Zählwert, nicht die Wörter selbst.
+            </p>
+            <p className="mt-3">
+              <strong className="text-primary">Warum:</strong> Der Free-Tarif enthält ein wöchentliches Wortlimit, das nur durchgesetzt werden kann, wenn die Zahl serverseitig gespeichert wird (sonst würde sie bei jedem App-Neustart zurückgesetzt). Über alle Nutzer aggregiert zeigen diese Zahlen außerdem, ob das Produkt nützlich ist und wo wir es verbessern können.
+            </p>
+            <p className="mt-3">
+              <strong className="text-primary">Rechtsgrundlage:</strong> Art. 6(1)(f) DSGVO (berechtigtes Interesse am Betrieb und an der Verbesserung des Dienstes sowie an der Durchsetzung von Fair-Use-Limits). Interessenabwägung: Die Daten sind ein nicht-identifizierender numerischer Zählwert, der an deine Account-ID gebunden ist; er kann nicht offenbaren, was du diktiert hast; der Eingriff in deine Privatsphäre ist minimal, während das Interesse an einem funktionierenden Limit und an Produkteinblicken real ist.
+            </p>
+            <p className="mt-3">
+              <strong className="text-primary">Aufbewahrung:</strong> Der aktuelle und der vorherige Wochenzähler werden gespeichert, solange dein Account aktiv ist, und bei Account-Löschung entfernt.
+            </p>
+            <p className="mt-3">
+              <strong className="text-primary">Opt-out:</strong> Da dieser Zählwert das Free-Limit durchsetzt, kann er im Free-Tarif nicht deaktiviert werden, ohne das Limit selbst zu entfernen. In einem kostenpflichtigen Tarif gilt das wöchentliche Wortlimit nicht; der Zählwert dient dann nur als Anzeigewert und anonymes Nutzungssignal.
             </p>
           </section>
 
