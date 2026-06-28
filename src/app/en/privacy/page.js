@@ -375,9 +375,9 @@ export default function PrivacyEN() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-primary mb-4">14a. Anonymous usage statistics (word count)</h2>
+            <h2 className="text-xl font-bold text-primary mb-4">14a. Usage statistics (word count)</h2>
             <p>
-              To enforce the Free-tier weekly word allowance and to understand how Voiceit is used overall, the app sends a small amount of anonymous usage data to our backend (Supabase, EU).
+              To enforce the Free-tier weekly word allowance and to understand how Voiceit is used overall, the app sends a small amount of usage data — a numeric word count linked to your account, never any dictation content — to our backend (Supabase, EU).
             </p>
             <p className="mt-3">
               <strong className="text-primary">What is sent:</strong> an aggregate <em>word count</em> (how many words you dictated in the current week), plus basic counters such as the number of AI tasks used this month and the calendar week. These are plain numbers.
@@ -389,13 +389,13 @@ export default function PrivacyEN() {
               <strong className="text-primary">Why:</strong> the Free tier includes a weekly word limit, which can only be enforced if the count is stored server-side (otherwise it would reset every time you restart the app). Aggregated across users, these counts also tell us whether the product is useful and where to improve it.
             </p>
             <p className="mt-3">
-              <strong className="text-primary">Legal basis:</strong> Art. 6(1)(f) GDPR (legitimate interest in operating and improving the service and in enforcing fair-use limits). Balancing test: the data is a non-identifying numeric count tied to your account id; it cannot reveal what you dictated; the impact on your privacy is minimal, while the interest in a working limit and product insight is real.
+              <strong className="text-primary">Legal basis:</strong> Art. 6(1)(f) GDPR (legitimate interest in operating and improving the service and in enforcing fair-use limits). Balancing test: the data is a pseudonymous numeric count tied to your account id and contains no dictation content; it cannot reveal what you dictated; the impact on your privacy is minimal, while the interest in a working limit and product insight is real.
             </p>
             <p className="mt-3">
               <strong className="text-primary">Retention:</strong> the current and previous weekly counters are kept while your account is active and deleted when you delete your account.
             </p>
             <p className="mt-3">
-              <strong className="text-primary">Opt-out:</strong> because this count is what enforces the Free-tier limit, it cannot be disabled while on the Free tier without removing the limit itself. On a paid tier the weekly word limit does not apply; the count is then used only as a display figure and an anonymous usage signal.
+              <strong className="text-primary">Opt-out:</strong> because this count is what enforces the Free-tier limit, it cannot be disabled while on the Free tier without removing the limit itself. On a paid tier the weekly word limit does not apply; the count is then used only as a display figure and an account-linked usage signal.
             </p>
           </section>
 
