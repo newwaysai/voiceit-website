@@ -246,8 +246,6 @@ export default function VoiceItVsWispr({ lang = 'de', downloadUrl = 'https://git
             <a
               href={downloadUrl}
               download={downloadFilename}
-              target="_blank"
-              rel="noopener noreferrer"
               className="flair-btn-primary mt-6"
               style={{ display: 'inline-flex' }}
             >

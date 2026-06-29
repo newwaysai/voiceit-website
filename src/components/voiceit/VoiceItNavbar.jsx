@@ -91,8 +91,6 @@ export default function VoiceItNavbar({ lang = 'de', downloadUrl = 'https://gith
           <a
             href={downloadUrl}
             download={downloadFilename}
-            target="_blank"
-            rel="noopener noreferrer"
             aria-label="Download for Mac"
             className="inline-flex items-center gap-1.5 font-heading font-semibold text-[11px] sm:text-xs md:text-sm px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 rounded-full transition-all whitespace-nowrap"
             style={{

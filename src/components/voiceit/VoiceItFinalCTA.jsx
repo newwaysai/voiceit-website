@@ -102,8 +102,6 @@ export default function VoiceItFinalCTA({ lang = 'de', downloadUrl = 'https://gi
             <a
               href={downloadUrl}
               download={downloadFilename}
-              target="_blank"
-              rel="noopener noreferrer"
               className="flair-btn-primary"
             >
               <Download size={16} />

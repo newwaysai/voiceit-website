@@ -288,8 +288,6 @@ export default function VoiceItPricing({ lang = 'de', downloadUrl = 'https://git
                 <a
                   href={downloadUrl}
                   download={downloadFilename}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className={accent ? 'flair-btn-primary' : 'flair-btn-secondary-light'}
                   style={{ justifyContent: 'center' }}
                 >

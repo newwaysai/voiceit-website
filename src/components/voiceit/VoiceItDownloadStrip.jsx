@@ -58,8 +58,6 @@ export default function VoiceItDownloadStrip({ headline, sub, cta = 'Jetzt laden
         <a
           href={downloadUrl}
           download={downloadFilename}
-          target="_blank"
-          rel="noopener noreferrer"
           className={isLime ? 'flair-btn-primary' : 'flair-btn-primary'}
           style={{ flexShrink: 0, whiteSpace: 'nowrap' }}
         >

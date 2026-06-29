@@ -273,8 +273,6 @@ export default function VoiceItHero({ lang = 'de', downloadUrl = 'https://github
               <a
                 href={downloadUrl}
                 download={downloadFilename}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="flair-btn-primary"
               >
                 <Download size={16} />
