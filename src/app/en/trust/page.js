@@ -74,7 +74,7 @@ export default function TrustEN() {
               <li><strong>Audio is never sent.</strong> Only the transcribed text.</li>
               <li><strong>Routing:</strong> request goes to our Supabase Edge Function (<code className="bg-primary/10 px-1.5 py-0.5 rounded text-xs">voiceit-proxy-vertex</code>), which calls Google Vertex AI in <code className="bg-primary/10 px-1.5 py-0.5 rounded text-xs">europe-west3</code> (Frankfurt). If Frankfurt is unavailable, traffic fails over to <code className="bg-primary/10 px-1.5 py-0.5 rounded text-xs">europe-west4</code> (Amsterdam). Both are EU regions.</li>
               <li><strong>Model:</strong> Google Gemini 2.5 Flash on Vertex AI.</li>
-              <li><strong>Data sent:</strong> the transcript, your selected text (Agent Mode only), the system prompt, your anonymous device ID for rate-limiting, your subscription tier.</li>
+              <li><strong>Data sent:</strong> the transcript, your selected text (Agent Mode only), the system prompt, your pseudonymous device ID for rate-limiting, your subscription tier.</li>
               <li><strong>Data retained:</strong> none on our side. Google retains a short-lived abuse cache (~24 hours) as standard practice for Vertex AI.</li>
               <li><strong>Training:</strong> Vertex AI does <strong>not</strong> train on customer data. This is the default under the Google Cloud Data Processing Addendum.</li>
               <li><strong>Opt-out:</strong> simply don't use Prompt Mode or Agent Mode. Plain Dictation never calls any AI service.</li>
@@ -87,7 +87,7 @@ export default function TrustEN() {
 
             <h3 className="font-bold text-primary mt-6 mb-2">License verification</h3>
             <p>
-              If you have a paid subscription, the app contacts Supabase at startup and every 30 minutes to confirm your subscription is active. Data sent: anonymous device ID.
+              If you have a paid subscription, the app contacts Supabase at startup and every 30 minutes to confirm your subscription is active. Data sent: pseudonymous device ID.
             </p>
 
             <h3 className="font-bold text-primary mt-6 mb-2">Crash and error reports</h3>

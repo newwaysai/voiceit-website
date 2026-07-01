@@ -6,8 +6,8 @@ export const metadata = {
   title: 'Datenschutzerklärung',
 };
 
-const LAST_UPDATED = '28. Juni 2026';
-const VERSION = 'v1.5';
+const LAST_UPDATED = '1. Juli 2026';
+const VERSION = 'v1.6';
 
 export default function Datenschutz() {
   return (
@@ -444,6 +444,13 @@ export default function Datenschutz() {
               aktuellen rechtlichen Anforderungen entspricht. Materielle Änderungen kündigen wir in
               der App oder per E-Mail (für Account-Inhaber) an. Aktueller Stand: {LAST_UPDATED},
               Version {VERSION}.
+            </p>
+            <p className="text-sm text-primary/60 mt-3">
+              <strong>v1.6 (1. Juli 2026):</strong> Redaktionelle Angleichung der englischen
+              Fassung an diese deutsche Version — die Geräte-ID wird durchgängig als
+              „pseudonym" (statt fälschlich „anonym") bezeichnet. Die Datenverarbeitung selbst
+              ändert sich dadurch nicht; es handelt sich um eine Transparenz-Klarstellung
+              (Art. 13 DSGVO).
             </p>
           </section>
 

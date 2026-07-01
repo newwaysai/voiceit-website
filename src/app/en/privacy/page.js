@@ -6,8 +6,8 @@ export const metadata = {
   title: 'Privacy Policy',
 };
 
-const LAST_UPDATED = '28 June 2026';
-const VERSION = 'v1.5';
+const LAST_UPDATED = '1 July 2026';
+const VERSION = 'v1.6';
 
 export default function PrivacyEN() {
   return (
