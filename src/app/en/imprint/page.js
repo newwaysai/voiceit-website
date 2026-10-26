@@ -30,7 +30,7 @@ export default function ImprintEN() {
             <p>
               Marcel Porcher<br />
               Newways<br />
-              Rabestraße 6<br />
+              Raabestraße 6<br />
               10405 Berlin<br />
               Germany
             </p>
@@ -57,7 +57,7 @@ export default function ImprintEN() {
             <h2 className="text-xl font-bold text-primary mb-4">Responsible under § 18(2) MStV</h2>
             <p>
               Marcel Porcher<br />
-              Rabestraße 6<br />
+              Raabestraße 6<br />
               10405 Berlin<br />
               Germany
             </p>

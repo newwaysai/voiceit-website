@@ -36,7 +36,7 @@ export default function AGB() {
             <p className="mt-3">
               <strong className="text-primary">Anbieter:</strong><br />
               Marcel Porcher · Newways<br />
-              Rabestraße 6 · 10405 Berlin<br />
+              Raabestraße 6 · 10405 Berlin<br />
               USt-IdNr: DE344920245<br />
               E-Mail:{' '}
               <a href="mailto:marcel@newways.ai" className="text-accent underline">marcel@newways.ai</a><br />

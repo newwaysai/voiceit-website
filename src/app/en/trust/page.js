@@ -229,7 +229,7 @@ export default function TrustEN() {
           </section>
 
           <p className="text-xs text-primary/40 mt-12 border-t border-primary/10 pt-8">
-            Data Controller: Marcel Porcher · Newways · Rabestraße 6 · 10405 Berlin · Germany<br />
+            Data Controller: Marcel Porcher · Newways · Raabestraße 6 · 10405 Berlin · Germany<br />
             VAT ID: DE344920245 · Email: marcel@newways.ai
           </p>
         </div>

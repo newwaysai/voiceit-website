@@ -6,8 +6,8 @@ export const metadata = {
   title: 'Privacy Policy',
 };
 
-const LAST_UPDATED = '1 July 2026';
-const VERSION = 'v1.6';
+const LAST_UPDATED = '26 October 2026';
+const VERSION = 'v1.7';
 
 export default function PrivacyEN() {
   return (
@@ -51,7 +51,7 @@ export default function PrivacyEN() {
             <p className="mt-3">
               Marcel Porcher<br />
               Newways<br />
-              Rabestraße 6<br />
+              Raabestraße 6<br />
               10405 Berlin, Germany<br />
               VAT ID: DE344920245<br />
               Email:{' '}
@@ -227,7 +227,7 @@ export default function PrivacyEN() {
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Stripe, Inc.</td><td className="py-2 pr-3">USA + EU + UK</td><td className="py-2 pr-3">Subscription payment</td><td className="py-2 pr-3">Name, address, card/bank data, tax info</td><td className="py-2 pr-3">DPF + SCC + UK Adequacy</td><td className="py-2"><a href="https://stripe.com/privacy" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Google Cloud EMEA Ltd</td><td className="py-2 pr-3">Ireland / Frankfurt, DE</td><td className="py-2 pr-3">AI model Gemini via Vertex AI (Prompt/Agent Mode)</td><td className="py-2 pr-3">Transcribed text (opt-in)</td><td className="py-2 pr-3">EU-internal (europe-west3)</td><td className="py-2"><a href="https://cloud.google.com/terms/data-processing-addendum" className="text-accent underline" target="_blank" rel="noopener noreferrer">Cloud DPA</a></td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Brevo (Sendinblue GmbH)</td><td className="py-2 pr-3">Berlin</td><td className="py-2 pr-3">Newsletter, lead-magnet emails</td><td className="py-2 pr-3">Email, name</td><td className="py-2 pr-3">EU-internal</td><td className="py-2"><a href="https://www.brevo.com/legal/privacypolicy/" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
-                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">Newways lead-magnet service (self-hosted)</td><td className="py-2 pr-3">Frankfurt, Germany</td><td className="py-2 pr-3">Instagram comment-to-DM automation</td><td className="py-2 pr-3">IG handle, DM content (lead-magnet links)</td><td className="py-2 pr-3">EU-internal (Hostinger Frankfurt)</td><td className="py-2"><a href="https://www.hostinger.com/legal/data-processing-agreement" className="text-accent underline" target="_blank" rel="noopener noreferrer">Hostinger DPA</a></td></tr>
+                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">Newways lead-magnet service (self-hosted)</td><td className="py-2 pr-3">Germany</td><td className="py-2 pr-3">Instagram comment-to-DM automation</td><td className="py-2 pr-3">IG handle, DM content (lead-magnet links)</td><td className="py-2 pr-3">EU-internal (Hostinger, data center in Germany)</td><td className="py-2"><a href="https://www.hostinger.com/legal/data-processing-agreement" className="text-accent underline" target="_blank" rel="noopener noreferrer">Hostinger DPA</a></td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">WhatsApp Ireland Ltd. (Meta)</td><td className="py-2 pr-3">Ireland / USA</td><td className="py-2 pr-3">Contact link</td><td className="py-2 pr-3">Metadata on click</td><td className="py-2 pr-3">DPF + SCC</td><td className="py-2"><a href="https://www.whatsapp.com/legal/privacy-policy-eea" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Skool Inc.</td><td className="py-2 pr-3">USA</td><td className="py-2 pr-3">Community link</td><td className="py-2 pr-3">Click metadata</td><td className="py-2 pr-3">DPF + SCC</td><td className="py-2"><a href="https://www.skool.com/privacy" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Trustpilot A/S</td><td className="py-2 pr-3">Denmark</td><td className="py-2 pr-3">Reviews widget</td><td className="py-2 pr-3">IP on widget load</td><td className="py-2 pr-3">EU-internal</td><td className="py-2"><a href="https://legal.trustpilot.com/end-user-privacy-terms" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
@@ -302,12 +302,12 @@ export default function PrivacyEN() {
             </p>
             <p className="mt-3">
               <strong className="text-primary">Operator:</strong> Newways (Marcel Porcher),
-              Rabestraße 6, 10405 Berlin, Germany.
+              Raabestraße 6, 10405 Berlin, Germany.
             </p>
             <p className="mt-3">
               <strong className="text-primary">Server location:</strong> self-hosted on a Hostinger
-              VPS in <strong className="text-primary">Frankfurt, Germany</strong> (Hostinger
-              Operations Ltd., data center "fra"). No third-country transfer.
+              VPS in a data center in <strong className="text-primary">Germany</strong> (Hostinger
+              Operations Ltd.). No third-country transfer.
             </p>
             <p className="mt-3">
               <strong className="text-primary">Data processed:</strong> your Instagram handle, the
@@ -426,6 +426,10 @@ export default function PrivacyEN() {
               changes are made. Significant changes (new sub-processors, new categories of data,
               changes affecting your rights) will be announced inside the app and, for account
               holders, by email. Current version: {VERSION}, {LAST_UPDATED}.
+            </p>
+            <p className="text-sm text-primary/60 mt-3">
+              <strong>v1.7 (26 October 2026):</strong> Server location of the lead-magnet service
+              updated (still Germany, same provider); postal address corrected. Editorial change.
             </p>
           </section>
 

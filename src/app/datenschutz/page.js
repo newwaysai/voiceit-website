@@ -6,8 +6,8 @@ export const metadata = {
   title: 'Datenschutzerklärung',
 };
 
-const LAST_UPDATED = '1. Juli 2026';
-const VERSION = 'v1.6';
+const LAST_UPDATED = '26. Oktober 2026';
+const VERSION = 'v1.7';
 
 export default function Datenschutz() {
   return (
@@ -51,7 +51,7 @@ export default function Datenschutz() {
             <p className="mt-3">
               Marcel Porcher<br />
               Newways<br />
-              Rabestraße 6<br />
+              Raabestraße 6<br />
               10405 Berlin<br />
               USt-IdNr: DE344920245<br />
               E-Mail:{' '}
@@ -239,7 +239,7 @@ export default function Datenschutz() {
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Stripe, Inc.</td><td className="py-2 pr-3">USA + EU + UK</td><td className="py-2 pr-3">Pro-Subscription-Zahlung</td><td className="py-2 pr-3">Name, Adresse, Karten-/Bankdaten, Steuerinfo</td><td className="py-2 pr-3">DPF + SCC + UK-Adequacy</td><td className="py-2"><a href="https://stripe.com/privacy" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Google Cloud EMEA Ltd</td><td className="py-2 pr-3">Irland / Frankfurt, DE</td><td className="py-2 pr-3">KI-Modell Gemini via Vertex AI (Prompt/Agent-Mode)</td><td className="py-2 pr-3">transkribierter Text (opt-in)</td><td className="py-2 pr-3">EU-intern (europe-west3)</td><td className="py-2"><a href="https://cloud.google.com/terms/data-processing-addendum" className="text-accent underline" target="_blank" rel="noopener noreferrer">Cloud DPA</a></td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Brevo (Sendinblue GmbH)</td><td className="py-2 pr-3">Berlin</td><td className="py-2 pr-3">Newsletter, Lead-Magnet-E-Mails</td><td className="py-2 pr-3">E-Mail, Name</td><td className="py-2 pr-3">EU-intern</td><td className="py-2"><a href="https://www.brevo.com/de/legal/privacypolicy/" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
-                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">Newways Lead-Magnet-Service (self-hosted)</td><td className="py-2 pr-3">Frankfurt, DE</td><td className="py-2 pr-3">Instagram-Comment-to-DM-Automation (Lead-Magnete)</td><td className="py-2 pr-3">IG-Username, DM-Inhalt (Lead-Magnet-Links)</td><td className="py-2 pr-3">EU-intern (Hostinger Frankfurt)</td><td className="py-2"><a href="https://www.hostinger.com/legal/data-processing-agreement" className="text-accent underline" target="_blank" rel="noopener noreferrer">Hostinger AVV</a></td></tr>
+                  <tr className="border-b border-primary/10"><td className="py-2 pr-3">Newways Lead-Magnet-Service (self-hosted)</td><td className="py-2 pr-3">Deutschland</td><td className="py-2 pr-3">Instagram-Comment-to-DM-Automation (Lead-Magnete)</td><td className="py-2 pr-3">IG-Username, DM-Inhalt (Lead-Magnet-Links)</td><td className="py-2 pr-3">EU-intern (Hostinger, Rechenzentrum in Deutschland)</td><td className="py-2"><a href="https://www.hostinger.com/legal/data-processing-agreement" className="text-accent underline" target="_blank" rel="noopener noreferrer">Hostinger AVV</a></td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">WhatsApp Ireland Ltd. (Meta)</td><td className="py-2 pr-3">Irland / USA</td><td className="py-2 pr-3">Kontakt-Link</td><td className="py-2 pr-3">Metadaten bei Klick</td><td className="py-2 pr-3">DPF + SCC</td><td className="py-2"><a href="https://www.whatsapp.com/legal/privacy-policy-eea" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Skool Inc.</td><td className="py-2 pr-3">USA</td><td className="py-2 pr-3">Community-Verlinkung</td><td className="py-2 pr-3">Klick-Metadaten</td><td className="py-2 pr-3">DPF + SCC</td><td className="py-2"><a href="https://www.skool.com/privacy" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
                   <tr className="border-b border-primary/10"><td className="py-2 pr-3">Trustpilot A/S</td><td className="py-2 pr-3">Dänemark</td><td className="py-2 pr-3">Reviews-Widget</td><td className="py-2 pr-3">IP bei Widget-Ladung</td><td className="py-2 pr-3">EU-intern</td><td className="py-2"><a href="https://legal.trustpilot.com/end-user-privacy-terms" className="text-accent underline" target="_blank" rel="noopener noreferrer">Link</a></td></tr>
@@ -317,12 +317,12 @@ export default function Datenschutz() {
             </p>
             <p className="mt-3">
               <strong className="text-primary">Anbieter:</strong> Newways (Marcel Porcher),
-              Rabestraße 6, 10405 Berlin.
+              Raabestraße 6, 10405 Berlin.
             </p>
             <p className="mt-3">
               <strong className="text-primary">Server-Standort:</strong> Self-hosted auf einem
-              Hostinger-VPS in <strong className="text-primary">Frankfurt, Deutschland</strong>{' '}
-              (Hostinger Operations Ltd., Datacenter „fra"). Keine Drittland-Übermittlung.
+              Hostinger-VPS in einem Rechenzentrum in{' '}
+              <strong className="text-primary">Deutschland</strong> (Hostinger Operations Ltd.). Keine Drittland-Übermittlung.
             </p>
             <p className="mt-3">
               <strong className="text-primary">Verarbeitete Daten:</strong> dein
@@ -451,6 +451,11 @@ export default function Datenschutz() {
               „pseudonym" (statt fälschlich „anonym") bezeichnet. Die Datenverarbeitung selbst
               ändert sich dadurch nicht; es handelt sich um eine Transparenz-Klarstellung
               (Art. 13 DSGVO).
+            </p>
+            <p className="text-sm text-primary/60 mt-3">
+              <strong>v1.7 (26. Oktober 2026):</strong> Serverstandort des Lead-Magnet-Service
+              aktualisiert (weiterhin Deutschland, gleicher Anbieter); Anschrift korrigiert.
+              Redaktionelle Änderung.
             </p>
           </section>
 

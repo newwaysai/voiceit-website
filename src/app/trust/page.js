@@ -229,7 +229,7 @@ export default function TrustDE() {
           </section>
 
           <p className="text-xs text-primary/40 mt-12 border-t border-primary/10 pt-8">
-            Verantwortlicher: Marcel Porcher · Newways · Rabestraße 6 · 10405 Berlin · Deutschland<br />
+            Verantwortlicher: Marcel Porcher · Newways · Raabestraße 6 · 10405 Berlin · Deutschland<br />
             USt-IdNr.: DE344920245 · E-Mail: marcel@newways.ai
           </p>
         </div>
